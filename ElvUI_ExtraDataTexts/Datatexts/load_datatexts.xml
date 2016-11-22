@@ -1,0 +1,13 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">	
+<Script file='RaidGroup.lua'/>
+<Script file='currency.lua'/>
+<Script file='avoidance.lua'/>
+<Script file='mail.lua'/>
+<Script file='ExpRep.lua'/>
+<Script file='rdps.lua'/>
+<Script file='rdtps.lua'/>
+<Script file='rhps.lua'/>
+<Script file='played.lua'/>
+<Script file='NodeCount.lua'/>
+<Script file='CombatIndicator.lua'/>
+</Ui>

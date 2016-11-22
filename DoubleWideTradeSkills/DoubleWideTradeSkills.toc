@@ -1,0 +1,14 @@
+## Interface: 60200
+## Title: DoubleWideTradeSkills
+## Notes: Makes the TradeSkillFrame wider.
+## Author: Slakah, modified by Ghunor
+## Version: 1.1.3
+## X-Category: Tradeskill
+## LoadOnDemand: 1
+## LoadWith: Blizzard_TradeSkillUI
+## X-Curse-Packaged-Version: v1.1.3
+## X-Curse-Project-Name: DoubleWideTradeSkills
+## X-Curse-Project-ID: double-wide-trade-skills
+## X-Curse-Repository-ID: wow/double-wide-trade-skills/mainline
+
+DoubleWideTradeSkills.lua

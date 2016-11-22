@@ -1,0 +1,12 @@
+tag v2.16
+83792e43e74c75644c1220ad73ab4ef89f884675
+iceeagle <ciprianmihai.coman@gmail.com>
+2016-10-26 13:05:36 +0300
+
+release v2.16
+
+
+--------------------
+
+iceeagle:
+	- update for patch 7.1

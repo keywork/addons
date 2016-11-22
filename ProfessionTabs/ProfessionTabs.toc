@@ -1,0 +1,7 @@
+## Author: Beoko
+## Interface: 60200
+## Notes: ProfessionTabs creates tabs of your professions on your trade frame and tradeskill frame
+## Title: ProfessionTabs
+## Version: 1.2
+
+ProfessionTabs.lua

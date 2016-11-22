@@ -1,0 +1,12 @@
+## Interface: 60200
+## Title: AFK Quit
+## Version: 2.5 (r18)
+## Notes: Automatically calls ForecQuit() right before you are AFK-disconnected to quit wow instead of going to the character selection screen
+## Author: Tomas Agartz <afk.quit@wow.tlund.se>
+## DefaultState: Enabled
+## LoadOnDemond: 0
+## X-Curse-Packaged-Version: 2.5
+## X-Curse-Project-Name: AFK Quit
+## X-Curse-Project-ID: afkquit
+## X-Curse-Repository-ID: wow/afkquit/mainline
+afkquit.lua

@@ -1,0 +1,11 @@
+## Interface: 70000
+## Title: |cff1784d1ElvUI|r CoolLine
+## Notes: Editless CoolLine Skin For |cff1784d1ElvUI|r/|cffBD0101DecUI|r
+## Author: Tacsko, updated by Decard
+## Version : 2.1
+## SavedVariables: ElvUICoolLineConfig
+## RequiredDeps: CoolLine, ElvUI
+
+Backend.lua
+Backend_ElvUI.lua
+ElvUI_CoolLine.lua

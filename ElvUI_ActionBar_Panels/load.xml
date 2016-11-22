@@ -1,0 +1,7 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+<Script file='Config\Public.lua'/>
+<Script file='Options.lua'/>
+<Script file='Core.lua'/>
+<Include file="Modules\Backgrounds\load_backgrounds.xml"/>
+<Include file="Modules\Visual Panels\panels.lua"/>
+</Ui>

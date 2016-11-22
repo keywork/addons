@@ -1,0 +1,11 @@
+## Interface: 60200
+
+## Title: Dying (But more fun)
+
+## Author:  Greckn (Arygos)
+
+## Notes:  Plays a sound when you die /death or /imdead to try
+
+dying.xml
+dying.lua
+

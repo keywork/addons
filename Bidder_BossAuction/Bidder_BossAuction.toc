@@ -1,0 +1,24 @@
+## Interface: 70000
+## Title: Bidder_BossAuction
+## Author: Javek - now maintained by Guild Launch
+## X-Credits: Eraslin
+## Version: 6.19
+## Notes: Bidder module for the boss points/item auction dkp system.
+## X-Notes: Updated for WoTLK by Guild Launch
+## X-eMail: support@guildlaunch.com
+## X-Category: Raid
+## X-Website: http://glmods.guildlaunch.com/
+## X-License: GPL v2.0
+## RequiredDeps: Bidder
+## OptionalDeps: PaintChips-2.0,AceDebug-2.0
+## X-Embeds: PaintChips-2.0,AceDebug-2.0
+## DefaultState: Enabled
+## LoadOnDemand: 0
+
+Libs\PaintChips-2.0\PaintChips-2.0.lua
+Libs\AceDebug-2.0\AceDebug-2.0.lua
+
+locale\localization.enUS.lua
+common.lua
+BAopen.lua
+BAsilent.lua

@@ -1,0 +1,16 @@
+## Interface: 70000
+## Title: Bidder_FCZS
+## Author: Eraslin - now maintaind by Guild Launch
+## Version: 6.19
+## Notes: Addon for adding the fixed cost zero-sum DKP system to Bidder
+## X-eMail: support@guildlaunch.com
+## X-Category: Raid
+## X-Website: http://glmods.guildlaunch.com
+## X-License: GPL v2.0
+## RequiredDeps: Bidder
+## OptionalDeps:
+## DefaultState: Enabled
+## LoadOnDemand: 0
+localization.enUS.lua
+localization.deDE.lua
+fczs.lua

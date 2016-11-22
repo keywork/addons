@@ -1,0 +1,13 @@
+## Interface: 60200
+## Title: Enhanced Friends List
+## Author: Azilroka, Kkthnx
+## X-Credits: frankkkkk
+## Version: 3.61
+## OptionalDeps: ElvUI, Enhanced_Config
+## SavedVariables: EnhancedFriendsListOptions
+
+Libs\Load_Libs.xml
+Init.lua
+EFL.lua
+EFLFriendGroups.lua
+Options.lua

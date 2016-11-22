@@ -1,0 +1,11 @@
+## Interface: 70000
+## Title: |cFFFFFFFFChat Textures Pack - ElvUI|r
+## Notes: This pack contains textures in TGA format to customize your windows discussions for ElvUI.
+## Version: 1.6
+## Author: Alex
+## X-Credits: Miscellaneous
+## X-Category: Miscellaneous
+ 
+ 
+## X-Tukui-ProjectID: 92
+## X-Tukui-ProjectFolders: ChatTextures

@@ -1,0 +1,10 @@
+## Interface: 70100
+## Title: QuestGuru Sounds |cffffffff2.4.21|r
+## Version: 2.4.21
+## Notes: Plays sounds for quest progress and completion "/qgs" for help
+## Author: Lazare
+## SavedVariables: QGSVars
+## SavedVariablesPerCharacter: none
+
+QuestGuruSounds.lua
+

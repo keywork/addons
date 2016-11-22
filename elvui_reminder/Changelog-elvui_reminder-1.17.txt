@@ -1,0 +1,8 @@
+2014-11-25  Michael Tindal  <mj.tindal@icloud.com>
+
+[ddda19ac42ee] [1.17]
+* ElvUI_Reminder.toc, filter.lua:
+
+Mages don't have armors anymore.
+
+

@@ -1,0 +1,18 @@
+﻿## Interface: 70000
+## Title: |cff1784d1ElvUI |r|cffFFFFFFPriestAoe|r
+## Notes: Shows optimal target to use various area healing spells
+## RequiredDeps: ElvUI
+## Author: Xellis-Blackhand
+## Version: 1.17
+## X-Curse-Packaged-Version: 1.17
+## X-Curse-Project-Name: ElvUI_PriestAoe
+## X-Curse-Project-ID: elvui_priestaoe
+## X-Curse-Repository-ID: wow/elvui_priestaoe/mainline
+
+core\load_core.xml
+defaults\load_defaults.xml
+config\load_config.xml
+
+
+## X-Tukui-ProjectID: 208
+## X-Tukui-ProjectFolders: ElvUI_PriestAoe

@@ -1,0 +1,15 @@
+## Interface: 70000
+## Title: BoP Craft Confirm
+## Description: Adds a confirmation dialog when crafting Bind-On-Pickup trade skill items
+## Notes: Adds a confirmation dialog when crafting Bind-On-Pickup trade skill items
+## Author: oscarucb
+## Version: 1.2.3
+## SavedVariables: BOPCraftConfirmDB
+## X-Curse-Packaged-Version: 1.2.3
+## X-Curse-Project-Name: BoP Craft Confirm
+## X-Curse-Project-ID: bopcraftconfirm
+## X-Curse-Repository-ID: wow/bopcraftconfirm/mainline
+
+locale.lua
+
+BOPCraftConfirm.lua

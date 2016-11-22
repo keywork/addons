@@ -1,0 +1,25 @@
+﻿## Interface: 70100
+## X-Min-Interface: 50400
+## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0World: Timeless Isle|r
+## Title-esES:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff69ccf0Isla Intemporal|r
+## Author: MysticalOS
+## LoadOnDemand: 1
+## RequiredDeps: DBM-Core
+## SavedVariables: DBMTimelessIsle_AllSavedVars
+## X-DBM-Mod: 1
+## X-DBM-Mod-Type: OTHER
+## X-DBM-Mod-Category: MOP
+## X-DBM-Mod-No-Statistics: 1
+## X-DBM-Mod-Name: World: Timeless Isle
+## X-DBM-Mod-Name-esES: Isla Intemporal
+## X-DBM-Mod-Sort: 251
+## X-DBM-Mod-MapID: 870
+## X-DBM-Mod-MinCoreRevision: 12473
+## X-Curse-Packaged-Version: 1.11
+## X-Curse-Project-Name: DBM: Timeless Isle
+## X-Curse-Project-ID: dbm-timeless-isle
+## X-Curse-Repository-ID: wow/dbm-timeless-isle/mainline
+localization.en.lua
+localization.es.lua
+localization.ru.lua
+IsleTimeless.lua

@@ -1,0 +1,8 @@
+## Interface: 70000
+## Title: ncKillingBlow
+## Author: Nightcracker
+## Maintainer: TMcMahon51
+## Version: 1.4
+## Notes: Alerts you whenever you make a Killing Blow.
+
+ncKillingBlow.lua

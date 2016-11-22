@@ -1,0 +1,8 @@
+## Interface: 60200
+## Title: SilentRespec
+## Author: Animal
+## Version: 1.0.8
+## Notes: Hide the "learned/unlearned" messages when switching dual specs or re-speccing yourself or your hunter pet.
+## SavedVariablesPerCharacter: hidelearndual, hideunlearndual, hidelearnrespec, hideunlearnrespec, hidepetlearn, hidepetunlearn, hidetitles, alreadybeenrun
+SilentRespec.lua
+SilentRespec.xml

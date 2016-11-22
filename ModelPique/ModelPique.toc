@@ -1,0 +1,9 @@
+## Interface: 70100
+## Title : ModelPique
+## Notes: See what a linked mount/companion looks like
+## Author: Pallysrussr
+## Version: 7.1.0.0 Release
+## Dependencies: 
+## SavedVariables:
+
+ModelPique.xml

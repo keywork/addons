@@ -1,0 +1,16 @@
+## Interface: 70000
+## Title: |cff1784d1ElvUI |rExtraDataTexts
+## Author: Caedis
+## URL: http://www.tukui.org/forums/topic.php?id=66
+## Version: 1.9.1
+## RequiredDeps: ElvUI
+## DefaultState: Enabled
+## LoadOnDemand: 0
+
+oUFTags\load_ouftags.xml
+Datatexts\load_datatexts.xml
+Datatexts\stats\load_stats.xml
+ 
+ 
+## X-Tukui-ProjectID: 190
+## X-Tukui-ProjectFolders: ElvUI_ExtraDataTexts

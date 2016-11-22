@@ -1,0 +1,11 @@
+## Interface: 70000
+## Title: Seer Zone Text
+## Author: Overseer
+## Editor: Decard
+## Version 0.2
+## Notes: Changes the style of the world zone change text For |cff1784d1ElvUI|r/|cffBD0101DecUI|r
+
+ZoneText.lua
+ZoneText.xml
+BlzZoneText.lua
+BlzZoneText.xml

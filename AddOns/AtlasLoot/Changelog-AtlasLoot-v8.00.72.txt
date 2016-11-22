@@ -1,0 +1,114 @@
+------------------------------------------------------------------------
+r4400 | proteyer | 2016-01-24 11:01:25 +0000 (Sun, 24 Jan 2016) | 6 lines
+Changed paths:
+   A /tags/v8.00.72 (from /trunk:4399)
+
+Tagging as v8.00.72
+
+- added WoD PvP Season 3 Weapons (Elite is missing)
+- updated Mount-Tab in collection
+- added PvP Season 6 & 7 Class-Sets
+- zhCN/zhTW update
+------------------------------------------------------------------------
+r4399 | proteyer | 2016-01-22 11:58:36 +0000 (Fri, 22 Jan 2016) | 1 line
+Changed paths:
+   M /trunk/AtlasLoot_PvP/data.lua
+
+- added PvP Season 6 & 7 Class-Sets
+------------------------------------------------------------------------
+r4398 | proteyer | 2016-01-21 18:02:19 +0000 (Thu, 21 Jan 2016) | 1 line
+Changed paths:
+   M /trunk/AtlasLoot/Data/Mount.lua
+   M /trunk/AtlasLoot_Collections/data.lua
+
+- updated Mount-Tab in collection
+------------------------------------------------------------------------
+r4397 | proteyer | 2016-01-21 17:50:28 +0000 (Thu, 21 Jan 2016) | 1 line
+Changed paths:
+   M /trunk/AtlasLoot_PvP/data.lua
+
+- added WoD PvP Season 3 Weapons (Elite is missing)
+------------------------------------------------------------------------
+r4396 | ananhaid | 2016-01-16 06:24:07 +0000 (Sat, 16 Jan 2016) | 1 line
+Changed paths:
+   M /trunk/AtlasLoot/Locales/constants.cn.lua
+   M /trunk/AtlasLoot/Locales/constants.tw.lua
+
+- zhCN/zhTW update.
+------------------------------------------------------------------------
+r4394 | proteyer | 2016-01-15 11:47:38 +0000 (Fri, 15 Jan 2016) | 1 line
+Changed paths:
+   M /trunk/AtlasLoot_Collections/data.lua
+
+- added doppable mounts
+------------------------------------------------------------------------
+r4393 | proteyer | 2016-01-15 11:46:38 +0000 (Fri, 15 Jan 2016) | 1 line
+Changed paths:
+   M /trunk/AtlasLoot/Data/Mount.lua
+
+- fixed a bug
+------------------------------------------------------------------------
+r4389 | proteyer | 2016-01-14 11:57:16 +0000 (Thu, 14 Jan 2016) | 1 line
+Changed paths:
+   M /trunk/AtlasLoot/Data/Mount.lua
+   M /trunk/AtlasLoot_Collections/data.lua
+
+- Added Mount Tab (Archievment & Profession)
+------------------------------------------------------------------------
+r4387 | proteyer | 2016-01-12 12:49:11 +0000 (Tue, 12 Jan 2016) | 1 line
+Changed paths:
+   M /trunk/AtlasLoot_Collections/data.lua
+
+- prepared Mount Section in Collections
+------------------------------------------------------------------------
+r4386 | proteyer | 2016-01-12 12:48:20 +0000 (Tue, 12 Jan 2016) | 2 lines
+Changed paths:
+   M /trunk/AtlasLoot/Locales/constants.de.lua
+   M /trunk/AtlasLoot/Locales/constants.lua
+
+- Added "Shop" in constants
+- Translated "Shop" in deDE
+------------------------------------------------------------------------
+r4385 | proteyer | 2016-01-12 11:30:59 +0000 (Tue, 12 Jan 2016) | 2 lines
+Changed paths:
+   M /trunk/AtlasLoot_PvP/data.lua
+
+- Added prices to WoD PvP Season 3 Class-Sets
+- Added WoD PvP Season 3 NonSet Items
+------------------------------------------------------------------------
+r4384 | proteyer | 2016-01-11 13:03:56 +0000 (Mon, 11 Jan 2016) | 1 line
+Changed paths:
+   M /trunk/AtlasLoot/Locales/constants.de.lua
+
+- updated constants.de
+------------------------------------------------------------------------
+r4383 | ananhaid | 2016-01-07 07:07:07 +0000 (Thu, 07 Jan 2016) | 1 line
+Changed paths:
+   M /trunk/AtlasLoot/Locales/constants.cn.lua
+   M /trunk/AtlasLoot/Locales/constants.tw.lua
+
+- zhCN/zhTW update.
+------------------------------------------------------------------------
+r4382 | ananhaid | 2016-01-06 18:35:50 +0000 (Wed, 06 Jan 2016) | 1 line
+Changed paths:
+   M /trunk/AtlasLoot/Locales/constants.cn.lua
+
+- zhCN update.
+------------------------------------------------------------------------
+r4380 | lag123 | 2016-01-06 11:55:23 +0000 (Wed, 06 Jan 2016) | 2 lines
+Changed paths:
+   M /trunk/AtlasLoot/Button/Extra_Price_type.lua
+   M /trunk/AtlasLoot/Data/Mount.lua
+   M /trunk/AtlasLoot/Locales/constants.lua
+   M /trunk/AtlasLoot_Collections/data.lua
+
+- bugfix
+- add basic timewalker items
+------------------------------------------------------------------------
+r4379 | lag123 | 2015-12-21 13:50:06 +0000 (Mon, 21 Dec 2015) | 2 lines
+Changed paths:
+   M /trunk/AtlasLoot/Button/Item_type.lua
+
+- fix itemButtonBorder
+
+------------------------------------------------------------------------

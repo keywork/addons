@@ -1,0 +1,11 @@
+## Interface: 60100
+## Title: StupidBuffs2
+## Notes: Automatically removes holiday style buffs
+## Author: Zyzx (Kilrogg-US)
+## SavedVariablesPerCharacter: SB2_OptionsDB
+## X-Curse-Packaged-Version: v1.22
+## X-Curse-Project-Name: StupidBuffs2
+## X-Curse-Project-ID: stupidbuffs2
+## X-Curse-Repository-ID: wow/stupidbuffs2/mainline
+embeds.xml
+StupidBuffs2.lua

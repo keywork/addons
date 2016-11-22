@@ -1,0 +1,7 @@
+## Interface: 70000
+## Title: Higher HotKey
+## Notes: Raises action button hotkeys so they're rendered above cooldowns and other effects.
+## Version: 1.0.2
+## Author: Gello
+## OptionalDeps: Dominos, Bartender4
+Higher HotKey.lua

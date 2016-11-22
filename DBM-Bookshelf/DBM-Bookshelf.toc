@@ -1,0 +1,16 @@
+## Interface: 60000
+## Title:|cffffe00a<|r|cffff7d0aDBM|r|cffffe00a>|r |cff0055FFCoS Bookshelf|r
+## LoadOnDemand: 1
+## RequiredDeps: DBM-Core
+## X-DBM-Mod: 1
+## X-DBM-Mod-Type: PARTY
+## X-DBM-Mod-Category: WotLK
+## X-DBM-Mod-Sort: 2
+## X-DBM-Mod-Name: CoS Bookshelf
+## X-DBM-Mod-LoadZone: The Culling of Stratholme
+## X-DBM-Mod-MapID: 595
+## X-Curse-Packaged-Version: r5
+## X-Curse-Project-Name: DBM-Bookshelf
+## X-Curse-Project-ID: dbm-bookshelf
+## X-Curse-Repository-ID: wow/dbm-bookshelf/mainline
+Bookshelf.lua

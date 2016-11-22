@@ -1,0 +1,48 @@
+## Interface: 70100
+## Title: QuestGuru |cffffffff2.4.21|r
+## Version: 2.4.21
+## Notes: Quest Log Enhancement
+## Author: Lazare, current author (MrOBrian/Gregity, past authors)
+## SavedVariables: QuestGuruSettings, QuestGuruDB, QGSVars, DA.DebugLog
+
+Libs\LibStub\LibStub.lua								#Active
+Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml		#Active
+Libs\AceAddon-3.0\AceAddon-3.0.xml					#Active
+Libs\AceEvent-3.0\AceEvent-3.0.xml					#Active
+Libs\AceTimer-3.0\AceTimer-3.0.xml
+Libs\AceBucket-3.0\AceBucket-3.0.xml
+Libs\AceHook-3.0\AceHook-3.0.xml
+Libs\AceDB-3.0\AceDB-3.0.xml							#Active
+Libs\AceDBOptions-3.0\AceDBOptions-3.0.xml			#Active
+Libs\AceLocale-3.0\AceLocale-3.0.xml					
+Libs\AceConsole-3.0\AceConsole-3.0.xml				#Active
+Libs\AceGUI-3.0\AceGUI-3.0.xml						#Active
+Libs\AceConfig-3.0\AceConfig-3.0.xml					#Active
+Libs\AceComm-3.0\AceComm-3.0.xml
+Libs\AceTab-3.0\AceTab-3.0.xml
+Libs\AceSerializer-3.0\AceSerializer-3.0.xml
+Libs\LibSharedMedia-3.0\LibSharedMedia-3.0.lua		#Active
+Libs\AceGUI-3.0-SharedMediaWidgets\widget.xml		#Active
+Libs\LibAboutPanel\lib.xml
+Libs\LibQuixote-2.0\lib.xml
+
+#localization.lua
+#localization.DE.lua
+#localization.FR.lua
+#localization.RU.lua
+#localization.TW.lua
+#localization.CN.lua
+#DebugAids.lua
+
+
+QuestGuru.xml
+QuestGuru.lua
+QuestGuruSounds.lua
+
+#config.lua
+#QuestGuruOptionsFrame.lua
+#QuestGuruOptionsFrame.xml
+#Options.lua
+#QGC_Options.lua
+
+# Cheers

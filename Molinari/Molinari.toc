@@ -1,0 +1,18 @@
+## Interface: 70000
+## Author: p3lim
+## Version: 70000.40-Release
+## Title: Molinari
+## Notes: One-click Milling, Prospecting, Disenchanting and Lockpicking!
+## OptionalDeps: LibProcessable, Wasabi
+## SavedVariables: MolinariBlacklistDB
+## X-Curse-Packaged-Version: 70000.40-Release
+## X-Curse-Project-Name: Molinari
+## X-Curse-Project-ID: molinari
+## X-Curse-Repository-ID: wow/molinari/mainline
+
+libs\Wasabi\embed.xml
+libs\LibProcessable\embed.xml
+
+Localization.lua
+Config.lua
+Molinari.lua

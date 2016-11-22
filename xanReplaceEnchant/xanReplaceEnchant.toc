@@ -1,0 +1,8 @@
+## Interface: 60200
+## Title: xanReplaceEnchant
+## Notes: A small addon that auto accepts the replace enchant dialog
+## Author: Xruptor
+## Version: 1.2
+## SavedVariables: XanRE_DB
+
+xanReplaceEnchant.lua

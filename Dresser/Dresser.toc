@@ -1,0 +1,11 @@
+﻿## Interface: 70000
+## Title: Dresser
+## Notes: Adds functionality to the dressing room!
+## Author: Vladinator
+## Version: 7.0.0.160625
+## SavedVariables: DresserDB
+## X-Curse-Packaged-Version: v7.0.0.160628
+## X-Curse-Project-Name: Dresser
+## X-Curse-Project-ID: dresser
+## X-Curse-Repository-ID: wow/dresser/mainline
+core.lua

@@ -1,0 +1,19 @@
+## Interface: 70100
+## Author: Blazeflack
+## Credit: Azilroka, Benik
+## Version: 1.31
+## Title: |cff1784d1ElvUI|r |cff4beb2cCustomTweaks|r
+## Notes: A collection of various tweaks to ElvUI, requested by the users.
+## RequiredDeps: ElvUI
+## DefaultState: enabled
+## X-Curse-Packaged-Version: v1.31
+## X-Curse-Project-Name: ElvUI CustomTweaks
+## X-Curse-Project-ID: elvui-customtweaks
+## X-Curse-Repository-ID: wow/elvui-customtweaks/mainline
+
+locales.lua
+core.lua
+categories\load_categories.xml
+
+## X-Tukui-ProjectID: 254
+## X-Tukui-ProjectFolders: ElvUI_CustomTweaks

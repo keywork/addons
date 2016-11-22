@@ -1,0 +1,12 @@
+tag v0.2.2
+0d2e45f09fc96842992e936eee3ebf72d3a70945
+Ketho <sghs17@outlook.com>
+2016-10-29 15:29:30 +0200
+
+Tagging as v0.2.2
+
+
+--------------------
+
+Ketho:
+	- Bump TOC

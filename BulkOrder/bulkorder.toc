@@ -1,0 +1,9 @@
+## Interface: 60200
+## Title: BulkOrder
+## Author: Malsomnus
+## SavedVariables: g_BulkOrderGlobal
+## SavedVariablesPerCharacter: g_BulkOrder
+## Version: v1.18
+
+options.lua
+bulkorder.lua

@@ -1,0 +1,11 @@
+﻿## Interface: 70000
+## Title: Speedy Load
+## Version: 2.2.2
+## Author: Cybeloras of Aerie Peak
+## Notes: Disables certain events during loading screens to drastically improve loading times.
+## X-Curse-Packaged-Version: 2.2.2
+## X-Curse-Project-Name: Speedy Load
+## X-Curse-Project-ID: speedy-load
+## X-Curse-Repository-ID: wow/speedy-load/mainline
+
+SpeedyLoad.lua

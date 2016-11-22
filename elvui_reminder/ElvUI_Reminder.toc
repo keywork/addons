@@ -1,0 +1,14 @@
+## Interface: 60200
+## Title: |cff1784d1ElvUI |rReminder
+## Author: Sortokk
+## Version: 1.17
+## Notes: Show warning icons on your screen when you are missing buffs or have buffs when you shouldn't.
+## OptionalDeps: ElvUI, Enhanced_Config
+## X-Curse-Packaged-Version: 1.17
+## X-Curse-Project-Name: ElvUI_Reminder
+## X-Curse-Project-ID: elvui_reminder
+## X-Curse-Repository-ID: wow/elvui_reminder/mainline
+
+locales\load_locales.xml
+load_reminder.xml
+

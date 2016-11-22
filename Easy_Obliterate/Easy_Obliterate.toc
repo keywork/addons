@@ -1,0 +1,10 @@
+## Interface: 70100
+## Title: Easy Obliterate
+## Notes: Adds all eligible gear to the obliterate interface.
+## Author: Motig
+## Version: 1.9
+## SavedVariablesPerCharacter: EasyObliterate_IgnoreList
+## SavedVariables: EasyObliterate_Data
+
+Easy_Obliterate.lua
+Bindings.xml

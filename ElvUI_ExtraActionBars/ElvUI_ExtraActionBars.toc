@@ -1,0 +1,17 @@
+## Interface: 70100
+## Author: Blazeflack
+## Version: 2.30
+## Title: |cff1784d1ElvUI|r ExtraActionBars
+## Notes: Adds 4 extra actionbars to ElvUI.
+## RequiredDeps: ElvUI
+## X-Curse-Packaged-Version: v2.30
+## X-Curse-Project-Name: ElvUI ExtraActionBars
+## X-Curse-Project-ID: elvui-oneextraactionbar
+## X-Curse-Repository-ID: wow/elvui-oneextraactionbar/mainline
+
+locales.lua
+config.lua
+core.lua
+
+## X-Tukui-ProjectID: 65
+## X-Tukui-ProjectFolders: ElvUI_ExtraActionBars

@@ -1,0 +1,12 @@
+## Interface: 60100
+## Title: HelmNCloak
+## Notes: Enhances the Equipment Manager to let you control the helm/cloak visibility for each set.
+## Author: kunda
+## Version: 60100-1
+## SavedVariablesPerCharacter: HelmNCloak_Data
+## X-Curse-Packaged-Version: 60100-1
+## X-Curse-Project-Name: HelmNCloak
+## X-Curse-Project-ID: helm-n-cloak
+## X-Curse-Repository-ID: wow/helm-n-cloak/mainline
+
+HelmNCloak.lua

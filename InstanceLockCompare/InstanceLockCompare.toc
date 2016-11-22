@@ -1,0 +1,7 @@
+## Interface: 60200
+## Author: Driizt at Bronzebeard EU
+## Title: Instance Lock Compare
+## Notes: InstanceLock link compare tooltips.
+## Version: 1.0
+
+core.lua

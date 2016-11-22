@@ -1,0 +1,3 @@
+Minor code cleanup, still lots more to do
+
+Added template options for background frames

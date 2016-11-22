@@ -1,0 +1,28 @@
+## Interface: 70000
+## Author: Lockslap
+## Title: |cff1784d1ElvUI|r System Datatext
+## Version: 1.7
+## Notes: An improved system datatext.
+
+## X-Curse-Packaged-Version: 1.7
+## X-Curse-Project-Name: ElvUI System Datatext
+## X-Curse-Project-ID: elvui_systemdt
+## X-Curse-Repository-ID: wow/elvui_systemdt/mainline
+
+Libraries\LibStub\LibStub.lua
+Libraries\CallbackHandler-1.0\CallbackHandler-1.0.xml
+Libraries\AceLocale-3.0\AceLocale-3.0.xml
+
+Locales\enUS.lua
+Locales\deDE.lua
+Locales\esES.lua
+Locales\esMX.lua
+Locales\frFR.lua
+Locales\itIT.lua
+Locales\koKR.lua
+Locales\ptBR.lua
+Locales\ruRU.lua
+Locales\zhCN.lua
+Locales\zhTW.lua
+
+ElvUI_SystemDT.lua

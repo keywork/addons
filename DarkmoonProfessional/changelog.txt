@@ -1,0 +1,13 @@
+v 7.0.3.1 - Updates for Legion. Quests now marked when ready to hand in. Fixed bug where progress of Test Your Strength wouldn't show.
+
+v 6.0.3.2 - Fixed bug where the quest "Rearm, Reuse, Recycle" would not be listed as active. Added Den Mother's Demise (Moonfang's Pelt) quest.
+
+v 6.0.3.1 - Fixed bug where quests were no longer listed as completed. Added Cristoph VonFeasel quest.
+
+v 6.0.2.1 - Version Numbering changed to easier show which game version it is made for. ToC updated for WoD pre-patch.
+
+v 1.1.0 - Added Daily Tamer Quest (Jeremy Feasel) and "Test Your Strength" (Grisly Trophies) Monthly.
+
+v 1.0.1 - Fixed Item ID for the Cooking Quest.
+
+v 1.0.0 - Initial Release

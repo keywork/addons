@@ -1,0 +1,11 @@
+## Interface: 70000
+## Title: |cff1784d1ElvUI|r ActionBar Panels
+## Author: Caedis
+## Editor: Decard
+## Version: 3.0
+
+## DefaultState: Enabled
+## SavedVariablesPerCharacter: DT_db
+## LoadOnDemand: 0
+
+load.xml

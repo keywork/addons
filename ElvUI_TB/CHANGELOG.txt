@@ -1,0 +1,57 @@
+v1.14
+-----
+toc update for patch 7.1
+
+v1.13
+-----
+Added a small delay on applying transparency, so that ElvUI ExtraActionBars can load first.
+
+v1.12
+-----
+toc update for WoD 6.2
+
+v1.11
+-----
+toc update for WoD 6.1
+
+v1.10
+-----
+toc update for WoD
+Simplified the ab transparency for bars 7-10 (ElvUI_ExtraActionBars)
+
+v1.08
+-----
+(NEW) Also makes the unused petbar buttons transparent (user request)
+
+v1.07
+-----
+(NEW) Also makes the unused actionbar buttons transparent
+
+v1.06
+-----
+toc update for patch 5.4
+
+v1.05
+-----
+Followed the changes on bars in ElvUI (6th bar) and ElvUI_ExtraActionBars (7-10bars).
+
+v1.04
+------
+toc update
+Support for ElvUI_ExtraActionBars
+
+v1.03
+------
+Improved support for ElvUI_OneExtraActionBar. More efficient now.
+
+v1.02
+------
+Added support for Blazeflack's ElvUI_OneExtraActionBar. Thanks Blaze for the help :)
+
+v1.01
+-------
+Simplified applying transparency. Should resolve some issues like sizing or dissapearing after a reload.
+
+v1.00
+-------
+Initial release 

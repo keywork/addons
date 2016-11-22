@@ -1,0 +1,7 @@
+<Bindings>
+	<Binding name="Show/Hide QuestGuru" header="QUESTGURU" category="ADDONS">
+		QuestGuru:SetShown(not QuestGuru:IsVisible())
+	</Binding>
+</Bindings>
+
+<!-- QuestGuru:ToggleWindow() -->

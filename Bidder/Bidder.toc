@@ -1,0 +1,49 @@
+## Interface: 70000
+## Title: Bidder
+## Author: Eraslin - now maintained by Guild Launch
+## Version: 6.19
+## Notes: Addon for placing bids with DKPmon
+## Notes-deDE: Addon zum abgeben von Geboten mit DKPmon
+## X-eMail: support@guildlaunch.com
+## X-Category: Raid
+## X-Website: http://glmods.guildlaunch.com
+## X-License: GPL v2.0
+## DefaultState: Enabled
+## OptionalDeps: Ace2, FuBar, DewdropLib, Metrognome, FuBarPlugin-2.0, Skinner, TabletLib
+## X-Embeds: Ace2, FuBar, DewdropLib, Metrognome, FuBarPlugin-2.0, Tablet-2.0
+## LoadOnDemand: 0
+## SavedVariables: BidderDB
+Libs\AceLibrary\AceLibrary.lua
+Libs\AceOO-2.0\AceOO-2.0.lua
+Libs\AceEvent-2.0\AceEvent-2.0.lua
+Libs\AceDB-2.0\AceDB-2.0.lua
+Libs\AceConsole-2.0\AceConsole-2.0.lua
+Libs\AceComm-2.0\AceComm-2.0.lua
+Libs\AceAddon-2.0\AceAddon-2.0.lua
+Libs\AceLocale-2.2\AceLocale-2.2.lua
+Libs\Dewdrop-2.0\Dewdrop-2.0.lua
+Libs\Metrognome-2.0\Metrognome-2.0.lua
+Libs\Tablet-2.0\Tablet-2.0.lua
+Libs\FuBarPlugin-2.0\FuBarPlugin-2.0.lua
+
+Localization\enUS.lua
+Localization\deDE.lua
+
+main.lua
+DKPstub.lua
+utils.lua
+Options\options.lua
+Options\optionfuncs.lua
+Comm\comm.lua
+Dialogs\dialogs.lua
+Skinning\frameskinning.lua
+
+Looting\lootframe.lua
+Looting\lootitem.lua
+
+DKPSystems\baseclass.lua
+DKPSystems\registry.lua
+DKPSystems\fixeddkp.lua
+
+DKPBrowser\browserframe.lua
+DKPBrowser\textline.lua

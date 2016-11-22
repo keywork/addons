@@ -1,0 +1,14 @@
+tag 3.1.1-beta6
+7ee4d2b463d3de2797e3782de30b79b6a969bcac
+Nick (Feraldin) <git@bockmeulen.nl>
+2016-08-06 20:20:55 +0200
+
+3.1.1-beta6
+* Correctly disable nameplate module (caused lua errors for some people)
+
+
+--------------------
+
+Nick (Feraldin):
+	- changelog updated
+	- Correctly disable nameplate module

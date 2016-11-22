@@ -1,0 +1,20 @@
+------------------------------------------------------------------------
+r35 | mysticalos | 2016-10-25 15:55:08 +0000 (Tue, 25 Oct 2016) | 1 line
+Changed paths:
+   A /tags/1.11 (from /trunk:34)
+
+Tagging as 1.11
+------------------------------------------------------------------------
+r34 | mysticalos | 2016-10-25 06:19:26 +0000 (Tue, 25 Oct 2016) | 1 line
+Changed paths:
+   M /trunk/DBM-TimelessIsle.toc
+
+Toc
+------------------------------------------------------------------------
+r33 | mysticalos | 2016-08-23 23:00:23 +0000 (Tue, 23 Aug 2016) | 1 line
+Changed paths:
+   M /trunk/DBM-TimelessIsle.toc
+   A /trunk/localization.es.lua
+
+Spanish update
+------------------------------------------------------------------------

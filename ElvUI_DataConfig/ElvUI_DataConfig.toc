@@ -1,0 +1,12 @@
+## Interface: 70000
+## Author: Darth Predator
+## Version: 1.04
+## Title: |cff1784d1ElvUI|r Improved Datatext Config
+## Notes: Changes datatext options for ElvUI making them a little easier to navigate with more data panels available.
+## RequiredDeps: ElvUI
+
+datatexts.lua
+ 
+ 
+## X-Tukui-ProjectID: 230
+## X-Tukui-ProjectFolders: ElvUI_DataConfig

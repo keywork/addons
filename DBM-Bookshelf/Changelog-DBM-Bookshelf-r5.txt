@@ -1,0 +1,16 @@
+------------------------------------------------------------------------
+r5 | fiercerest | 2014-10-15 23:07:14 +0000 (Wed, 15 Oct 2014) | 1 line
+Changed paths:
+   M /trunk/DBM-Bookshelf.toc
+
+Update TOC for 6.0
+------------------------------------------------------------------------
+r4 | fiercerest | 2014-03-01 04:07:24 +0000 (Sat, 01 Mar 2014) | 1 line
+Changed paths:
+   M /trunk/Bookshelf.lua
+   M /trunk/DBM-Bookshelf.toc
+   A /trunk/sounds/TP_Secret.ogg
+   D /trunk/sounds/TP_Secret.wav
+
+Update for 5.4
+------------------------------------------------------------------------

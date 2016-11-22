@@ -1,0 +1,29 @@
+------------------------------------------------------------------------
+r582 | allara | 2016-10-31 18:29:46 +0000 (Mon, 31 Oct 2016) | 1 line
+Changed paths:
+   A /tags/r581-release (from /trunk:581)
+
+Tagging as r581-release
+------------------------------------------------------------------------
+r581 | allara | 2016-10-30 20:40:33 +0000 (Sun, 30 Oct 2016) | 1 line
+Changed paths:
+   M /trunk/Core.lua
+   M /trunk/Modules/Options/Rarity_Options.toc
+   M /trunk/Rarity.toc
+
+- TOC update for 7.1
+------------------------------------------------------------------------
+r580 | allara | 2016-10-30 20:36:29 +0000 (Sun, 30 Oct 2016) | 2 lines
+Changed paths:
+   M /trunk/Core.lua
+   M /trunk/Options_Defaults.lua
+
+- [#213] Fathom Dweller: Removed (this is not a rare drop)
+- Brinedeep Bottom-Feeder, Sting Ray Pup: Removed (currency is used for too many things, and there is also a reputation requirement)
+------------------------------------------------------------------------
+r579 | allara | 2016-10-30 20:31:02 +0000 (Sun, 30 Oct 2016) | 1 line
+Changed paths:
+   M /trunk/Core.lua
+
+- [#214] Grumpling should only be detected when in Frostfire Ridge
+------------------------------------------------------------------------

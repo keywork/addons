@@ -1,0 +1,266 @@
+2016-11-09  Tercio  <Tercio>
+
+[53619e0e8218] [tip]
+* boot.lua, classes/classe_damage.lua:
+
+- Fixed Friendly Fire tooltip where it was showing one entry for each spell on each target.
+- Fixed an issue with Auras & Void Zone where wasn't possible to report when the aura has zero damage.
+
+
+2016-11-08  Tercio  <Tercio>
+
+[f7f0813a9f1a]
+* .pkgmeta, boot.lua, plugins/Details_RaidInfo-TrialOfValor/Details_RaidInfo-TrialOfValor.lua, plugins/Details_RaidInfo-TrialOfValor/Details_RaidInfo-TrialOfValor.toc, plugins/Details_RaidInfo-TrialOfValor/boss_faces.tga, plugins/Details_RaidInfo-TrialOfValor/icon256x128.tga:
+
+- Trials of Valor update.
+
+
+2016-11-04  Tercio  <Tercio>
+
+[e20673658fa2]
+* Libs/LibItemUpgradeInfo-1.0/Core.lua, Libs/LibItemUpgradeInfo-1.0/LibItemUpgradeInfo-1.0.toc:
+
+- hard added an update for ItemUpgradeInfo library.
+
+
+[b3e22bc9b348]
+* boot.lua:
+
+- ingame changelog update.
+
+
+[8e79d93ddfb8]
+* functions/spells.lua:
+
+- removed consecration from paladin tank spell list.
+
+
+2016-10-27  Tercio  <Tercio>
+
+[aa1906a8b4eb]
+* classes/classe_others.lua:
+
+- fixed Misc data with Ascending sort order.
+
+
+[726784310783]
+* functions/slash.lua:
+
+- fix for the auto hide slash.
+
+
+[629ed67563a8]
+* classes/classe_instancia.lua:
+
+- show when using /de show when auto hide is on.
+
+
+[70d804aefb0a]
+* images/spec_icons_normal.tga, images/spec_icons_normal_alpha.tga:
+
+- combat rogue icons replaced with outlaw icons.
+
+
+2016-10-26  Tercio  <Tercio>
+
+[6e8d1117df4e]
+* Details.toc:
+
+- added back the locales removed on the previous version.
+
+
+[d704ea0c05cf]
+* boot.lua, classes/classe_custom.lua, functions/spells.lua, plugins/Details_RaidCheck/Details_RaidCheck.lua:
+
+- Ballon tutorial for encounter details is now clamped to screen.
+- Raid check plugins shall work on dungeons as well.
+- Potion of the Prolongued Power should be tracker now.
+
+
+2016-10-25  Tercio  <Tercio>
+
+[18c91cdbc1a6]
+* plugins/Details_3DModelsPaths/Details_3DModelsPaths.toc, plugins/Details_DataStorage/Details_DataStorage.toc, plugins/Details_DmgRank/Details_DmgRank.toc, plugins/Details_DpsTuning/Details_DpsTuning.toc, plugins/Details_EncounterDetails/Details_EncounterDetails.lua, plugins/Details_EncounterDetails/Details_EncounterDetails.toc, plugins/Details_RaidCheck/Details_RaidCheck.toc, plugins/Details_RaidInfo-EmeraldNightmare/Details_RaidInfo-EmeraldNightmare.toc, plugins/Details_RaidInfo-Nighthold/Details_RaidInfo-Nighthold.toc, plugins/Details_Streamer/Details_Streamer.lua, plugins/Details_Streamer/Details_Streamer.toc, plugins/Details_TimeAttack/Details_TimeAttack.toc, plugins/Details_TinyThreat/Details_TinyThreat.toc, plugins/Details_Vanguard/Details_Vanguard.toc:
+
+- toc update on all built-in plugins.
+
+
+[b3674cf2ebdb]
+* Details.toc, Libs/DF/fw.lua, Libs/DF/panel.lua, boot.lua, gumps/janela_report.lua:
+
+- 7.1.0 patch update.
+- framework update.
+- renamed 'report history' to 'latest reports'.
+
+
+2016-10-14  Tercio  <Tercio>
+
+[c02ccfc2308b]
+* boot.lua, classes/classe_damage.lua, core/control.lua:
+
+- disabled actor equalization.
+- fixed an issue with debuffs and voidzones display.
+
+
+2016-10-09  Tercio  <Tercio>
+
+[53429bc22b5a]
+* boot.lua, classes/container_combatentes.lua, core/control.lua, core/network.lua, functions/slash.lua:
+
+- debug player table creation.
+- fix akaari's soul.
+
+
+2016-10-04  Tercio  <Tercio>
+
+[fa1be015d48e]
+* classes/container_combatentes.lua, functions/profiles.lua:
+
+- fix for the empty actor name issue.
+- override spellids is now enabled by default.
+
+
+2016-09-29  Tercio  <Tercio>
+
+[2968efe4233e]
+* core/parser.lua, functions/link.lua:
+
+- akaari's soul workaround.
+
+
+2016-09-26  Tercio  <Tercio>
+
+[7cf881bb5482]
+* plugins/Details_EncounterDetails/Details_EncounterDetails.lua, plugins/Details_EncounterDetails/enUS.lua, plugins/Details_EncounterDetails/frames.lua, plugins/Details_EncounterDetails/images/boss_frame_buttons.tga:
+
+- built-in plugins update.
+
+
+2016-09-25  Tercio  <Tercio>
+
+[c547c07cf6b5]
+* Libs/DF/fw.lua, boot.lua, classes/container_historico.lua, core/control.lua, core/gears.lua, core/parser.lua, core/timemachine.lua, functions/spellcache.lua:
+
+- more fixes for dungeon trash being tag as a dungeon boss.
+- more fixes for item level discovery.
+- more spells added to spell customization.
+
+
+2016-09-22  Tercio  <Tercio>
+
+[1db181ae111b]
+* boot.lua, core/gears.lua, functions/slash.lua:
+
+- Fixed the item level calculation when the player is using a main hand and offhand artifact.
+
+
+[a9bff1c58d2b]
+* boot.lua, classes/container_historico.lua, core/control.lua, functions/profiles.lua, gumps/janela_options.lua:
+
+- added auto erase world segments.
+
+
+[825534ef57aa]
+* boot.lua, core/parser.lua, core/plugins_raid.lua, gumps/janela_info.lua:
+
+- Fixed the avoidance tab on the player detail window for Demon Hunters.
+- Added the tag {target} on custom text for the interrupt announcer.
+- Merging Demon Hunter 'Fury of the Illidari' spell when the consolidade option is enabled under Spell Customization.
+
+
+2016-09-17  Tercio  <Tercio>
+
+[2c7a2bc3671a]
+* boot.lua, classes/classe_damage.lua, core/parser.lua, functions/profiles.lua, functions/spellcache.lua, gumps/janela_options.lua:
+
+- removed soul capacitor trinket fix (WoD).
+- removed heart seeker fix for kilrogg encounter (WoD).
+- added an option to consolidade spells with the same name.
+
+
+2016-09-15  Tercio  <Tercio>
+
+[c2c0a1bf3bde]
+* core/control.lua, core/parser.lua:
+
+- trying to fix an issue with pvp arenas.
+
+
+2016-09-14  Tercio  <Tercio>
+
+[c35c1b248a86]
+* boot.lua, classes/classe_custom.lua, functions/spells.lua, plugins/Details_RaidCheck/Details_RaidCheck.lua:
+
+- updated raid check plugin to check for Legion flask.
+
+
+[1bb355164b6d]
+* boot.lua, functions/profiles.lua, gumps/janela_info.lua, gumps/janela_news.lua, startup.lua:
+
+- Removed the config button from the Player Details Window.
+- The alert for this news window won't popup for each characters after the player opened it once for the update.
+- Added tooltip information for the two new arenas added on Legion.
+
+
+2016-09-13  Tercio  <Tercio>
+
+[e2504d087f7b]
+* plugins/Details_RaidInfo-EmeraldNightmare/Details_RaidInfo-EmeraldNightmare.lua, plugins/Details_RaidInfo-EmeraldNightmare/Details_RaidInfo-EmeraldNightmare.toc, plugins/Details_RaidInfo-EmeraldNightmare/boss_faces.tga, plugins/Details_RaidInfo-EmeraldNightmare/icon256x128.tga, plugins/Details_RaidInfo-Nighthold/Details_RaidInfo-Nighthold.lua, plugins/Details_RaidInfo-Nighthold/Details_RaidInfo-Nighthold.toc, plugins/Details_RaidInfo-Nighthold/boss_faces.tga, plugins/Details_RaidInfo-Nighthold/icon256x128.tga:
+
+plugins:
+- removed warlords of draenor dungeon info plugin.
+- removed hellfire citadel raid info plugin.
+- remove calc leech plugin.
+- added emerald nightmare raid info plugin.
+- added the nighthold raid info plugin.
+
+hotfixes:
+- fix for total bar where sometimes it desappears.
+- fix for overall data reseting its elapsed time making dps and hps goes to millions.
+- fix for overall not reseting when entering in a new dungeon.
+- fix for trash cleanup on dungeons.
+- fix for item level detection on dungeons.
+- fix for artifact offhand always being counter as 750 item level.
+- fix for segments menu sometimes not opening at all after a dungeon boss.
+- fix for segments menu not showing the boss icon above the sub panel.
+- fix for the top left corner of the window be ignoring the 'hide icon' setting at a /reload.
+
+
+[9ed75c6cf390]
+* .pkgmeta, Libs/DF/fw.lua, Libs/LibGraph-2.0/LibGraph-2.0.lua, Libs/LibGroupInSpecT-1.1/LibGroupInSpecT-1.1.lua, boot.lua, classes/classe_combate.lua, classes/classe_damage.lua, classes/classe_heal.lua, classes/container_historico.lua, core/control.lua, core/gears.lua, core/parser.lua, functions/slash.lua, gumps/janela_info.lua, gumps/janela_principal.lua, plugins/Details_CalcLeech/Details_CalcLeech.lua, plugins/Details_CalcLeech/Details_CalcLeech.toc, plugins/Details_DungeonInfo-Warlords/Details_DungeonInfo-Warlords.lua, plugins/Details_DungeonInfo-Warlords/Details_DungeonInfo-Warlords.toc, plugins/Details_RaidInfo-HellfireCitadel/Details_RaidInfo-HellfireCitadel.lua, plugins/Details_RaidInfo-HellfireCitadel/Details_RaidInfo-HellfireCitadel.toc, plugins/Details_RaidInfo-HellfireCitadel/boss_faces.tga, plugins/Details_RaidInfo-HellfireCitadel/icon256x128.tga, startup.lua:
+
+plugins:
+- removed warlords of draenor dungeon info plugin.
+- removed hellfire citadel raid info plugin.
+- remove calc leech plugin.
+- added emerald nightmare raid info plugin.
+- added the nighthold raid info plugin.
+
+hotfixes:
+- fix for total bar where sometimes it desappears.
+- fix for overall data reseting its elapsed time making dps and hps goes to millions.
+- fix for overall not reseting when entering in a new dungeon.
+- fix for trash cleanup on dungeons.
+- fix for item level detection on dungeons.
+- fix for artifact offhand always being counter as 750 item level.
+- fix for segments menu sometimes not opening at all after a dungeon boss.
+- fix for segments menu not showing the boss icon above the sub panel.
+- fix for the top left corner of the window be ignoring the 'hide icon' setting at a /reload.
+
+
+2016-09-09  Tercio  <Tercio>
+
+[1360fc3aa15d]
+* classes/container_combatentes.lua:
+
+- attempt to fix bodyguard detection.
+
+
+2016-08-29  Tercio  <Tercio>
+
+[c09648ff0e9a]
+* Libs/DF/cooltip.lua, Libs/DF/fw.lua, Libs/DF/panel.lua, boot.lua, gumps/janela_info.lua:
+
+- framework update to v44.
+
+

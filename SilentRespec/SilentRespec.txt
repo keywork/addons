@@ -1,0 +1,60 @@
+SilentRespec 1.0.8
+by Animal
+----------------------
+SilentRespec is a small and simple addon created to allow hiding the "learned/unlearned" messages when switching dual specs or re-speccing yourself or your hunter pet.
+Although not respec related, SilentRespec also allows you to hide the earned/lost titles messages mainly because of the 'patron/matron' spam in certain areas and with certain trinket effects.
+The functionality of the addon should work for all locales but the options window currently has no translations.
+
+Access the SilentRespec options window through the standard addon section of the World of Warcraft interface options window, or by using the /SilentRespec or /sr chat commands.
+There are only a handful of options for which "learned/unlearned" messages to hide and when to hide them.
+---------------------
+Options include:
+
+Hide Dual Spec "Learned" Messages. - If checked, this option hides all messages from your chat frames about skills or spells "You have learned" when switching your primary and secondary specs.
+
+Hide Dual Spec "Unlearned" Messages. - If checked, this option hides all messages from your chat frames about skills or spells "You have unlearned" when switching your primary and secondary specs.
+
+Hide Re-Spec "Learned" Messages. - If checked, this option hides all messages from your chat frames about skills or spells "You have learned" at any time unless switching your primary and secondary specs.
+
+Hide Re-Spec "Unlearned" Messages. - If checked, this option hides all messages from your chat frames about skills or spells "You have unlearned" at any time unless switching your primary and secondary specs.
+
+Hide Hunter Pet "Learned" Messages. - If checked, this option hides all messages from your chat frames about skills or spells "Your pet has learned" at any time.
+
+Hide Hunter Pet "Unlearned" Messages. - If checked, this option hides all messages from your chat frames about skills or spells "Your pet has unlearned" at any time.
+
+Hide titles earned/lost messages. - If checked, this option hides all messages from your chat frames about earning or losing any "title," such as the Patron and Matron titles.
+
+	
+----Version History----
+Version 1.0.8
+ - Updated TOC for WoW version 5.0
+ - Thanks to clunkleo for adding the new type of learned skill 'passive' to go along with 'spell' and 'ability' before I could get my lazy ass to do it.
+
+Version 1.0.7
+ - Updated TOC for WoW version 4.2
+
+Version 1.0.6
+ - Small bugfix for missing system messages, including conflict with addon TradeSkillMaster. (thanks essmene and kronar)
+ 
+Version 1.0.5
+ - Fixed for WoW version 4.0.1
+
+Version 1.0.4
+ - Added option to hide the earned/lost titles messages such as "Patron" and "Matron."
+
+Version 1.0.3
+ - Updated TOC for WoW version 3.2
+
+Version 1.0.2
+ - Added options to hide "Learned" and "Unlearned" messages for hunter pets.
+ - Added /sr as a shorthand command for /SilentRespec
+ - Changed default settings to have all options checked by default.
+	If you have nothing checked off from a previous version, this new version will set the new defaults (all options checked) the first time it runs.
+ 
+Version 1.0.1
+ - Added /SilentRespec command to access Options window.
+ - Attempting fix for issues with functionality for several locales.
+
+Version 1.0
+ - Initial release.
+ 

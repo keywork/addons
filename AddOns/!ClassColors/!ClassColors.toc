@@ -1,0 +1,27 @@
+﻿## Interface: 60200
+## Version: 6.2.2.0
+## X-Curse-Packaged-Version: 6.2.2.0
+## X-Curse-Project-Name: Class Colors
+## X-Curse-Project-ID: classcolors
+## X-Curse-Repository-ID: wow/classcolors/mainline
+
+## Title: Class Colors
+## Notes: Change class colors without breaking parts of the default UI.
+## Notes-deDE: Ändert die Klassenfarben ohne Interferenzen mit dem Standard-UI.
+## Notes-esES: Cambiar los colores de clases, sin interferir con la interfaz estandár.
+## Notes-esMX: Cambiar los colores de clases, sin interferir con la interfaz estandár.
+## Notes-ptBR: Alterar as cores das classes, sem interferir com a interface padrão.
+## Notes-ruRU: Изменение цветов класса не вмешиваясь в стандартном интерфейсе.
+
+## Author: Phanx
+## X-Email: addons@phanx.net
+## X-Copyright: Copyright (c) 2009-2015 Phanx. All rights reserved.
+## X-CompatibleLocales: enUS, deDE, esES, esMX, frFR, itIT, koKR, ptBR, ruRU, zhCN, zhTW
+## X-Localizations: enUS, deDE, esES, esMX, ptBR, ruRU
+## X-Website: https://github.com/Phanx/ClassColors
+
+## SavedVariables: ClassColorsDB
+
+Localization.lua
+ClassColors.lua
+ClassColorsBlizz.lua

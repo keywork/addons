@@ -1,0 +1,145 @@
+<Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="GuildNews.lua"/>
+
+	<Frame name="GuildNewsTemplate" virtual="true">
+		<Size>
+			<AbsDimension x="230" y="44"/>
+		</Size>
+		<Layers>
+			<Layer level="ARTWORK">
+				<Texture name="$parentIcon" parentKey="icon">
+					<Size x="36" y="36"/>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="8" y="0"/>
+					</Anchors>
+				</Texture>
+				<FontString name="$parentName" inherits="GameFontNormalLarge" justifyH="LEFT" parentKey="name">
+					<Anchors>
+						<Anchor point="BOTTOMLEFT"  relativeTo="$parentIcon" relativePoint="BOTTOMRIGHT" x="10" y="2"/>
+					</Anchors>
+				</FontString>
+				<FontString name="$parentSubText" inherits="GameFontNormal" justifyH="LEFT" parentKey="flavorText">
+					<Anchors>
+						<Anchor point="BOTTOMLEFT" relativeTo="$parentName" relativePoint="TOPLEFT" x="0" y="1"/>
+					</Anchors>
+					<Color r="0.0" g="1.0" b="0.0"/>
+				</FontString>
+			</Layer>
+			<Layer level="OVERLAY">
+				<Texture name="$parentSubIcon" parentKey="subIcon" file="Interface\LevelUp\LevelUpTex">
+					<Size x="22" y="22"/>
+					<Anchors>
+						<Anchor point="CENTER" relativeTo="$parentIcon" relativePoint="BOTTOMLEFT" x="2" y="2"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Animations>
+			<AnimationGroup parentKey="sideAnimIn">
+				<Alpha change="1" duration="0.4" order="2"/>
+				<Scripts>
+					<OnFinished>
+						GuildNews_AnimStep(GuildNews);
+					</OnFinished>
+				</Scripts>
+			</AnimationGroup>
+			<AnimationGroup parentKey="showAnim">
+				<Alpha change="1" duration="0.5" order="1" />
+				<Alpha change="-1" duration="0.5" startDelay="1.8" order="2"/>
+				<Scripts>
+					<OnFinished>
+						GuildNews_AnimStep(GuildNews);
+					</OnFinished>
+				</Scripts>
+			</AnimationGroup>
+		</Animations>
+	</Frame>
+
+	<Button name="GuildNews" enableMouse="true" toplevel="true" parent="UIParent" hidden="true">
+		<Size x="270" y="65"/>
+		<Anchors>
+			<Anchor point="TOPLEFT"  relativeTo="UIParent" relativePoint="TOPLEFT" x="80" y="-200"/>
+		</Anchors>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture file="Interface\LevelUp\LevelUpTex" name="$parentGoldBg" parentKey="goldBG">
+					<Anchors>
+						<Anchor point="TOP" x="0" y="53"/>
+					</Anchors>
+					<Size x="223" y="115"/>
+				</Texture>
+				<Texture file="Interface\LevelUp\LevelUpTex" name="$parentBlackBg">
+					<Anchors>
+						<Anchor point="TOP" relativeTo="$parentGoldBg" relativePoint="BOTTOM"/>
+					</Anchors>
+					<Color r="1.0" g="1.0" b="1.0" a="0.6"/>
+					<Size x="284" y="296"/>
+					<TexCoords left="0.00195313" right="0.55664063" top="0.24218750" bottom="0.82031250"/>
+				</Texture>
+			</Layer>
+			<Layer level="BACKGROUND" textureSubLevel="2">
+				<Texture file="Interface\LevelUp\LevelUpTex" name="$parentDot" parentKey="dot">
+					<Anchors>
+						<Anchor point="CENTER" relativeTo="$parentGoldBg" relativePoint="BOTTOM" x="0" y="0"/>
+					</Anchors>
+					<Size x="21" y="22"/>
+				</Texture>
+			</Layer>
+			<Layer level="ARTWORK">
+				<FontString  name="$parentLevel" inherits="SystemFont_Shadow_Large" justifyH="CENTER" parentKey="motdText">
+					<Size x="300" y="70"/>
+					<Anchors>
+						<Anchor point="BOTTOM" relativeTo="$parentGoldBg" relativePoint="BOTTOM" x="0" y="8"/>
+					</Anchors>
+				</FontString>
+				<FontString inherits="GameFont_Gigantic" justifyH="CENTER" parentKey="guildNameText">
+					<Color r="1" g="1" b="0"/>
+					<Anchors>
+						<Anchor point="BOTTOM" relativeTo="$parentLevel" relativePoint="TOP" x="0" y="5"/>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<Frame name="$parentUnlockFrame1" inherits="GuildNewsTemplate">
+				<Anchors>
+					<Anchor point="TOP"  relativeTo="$parentGoldBg" relativePoint="BOTTOM" x="-20" y="-3"/>
+				</Anchors>
+				<Scripts>
+					<Onload>
+						self:SetAlpha(0);
+					</Onload>
+				</Scripts>
+			</Frame>
+		</Frames>
+		<Animations>
+			<AnimationGroup parentKey="fadeIn">
+				<Alpha change="-1" duration="0.0" order="1" />
+				<Alpha change="1" duration="0.5" order="2" />
+				<Scripts>
+					<OnFinished>
+						GuildNews_AnimStep(GuildNews);
+					</OnFinished>
+				</Scripts>
+			</AnimationGroup>
+			<AnimationGroup parentKey="fadeOut">
+				<Alpha change="-1" duration="1.0" order="1" />
+				<Scripts>
+					<OnFinished>
+						GuildNews:Hide();
+					</OnFinished>
+				</Scripts>
+			</AnimationGroup>
+		</Animations>
+		<Scripts>
+			<OnLoad>
+				self:RegisterForClicks("LeftButtonDown", "LeftButtonUp");
+				GuildNews_Onload(self);
+			</OnLoad>
+			<OnHide function="GuildNews_OnHide"/>
+			<OnShow function="GuildNews_OnShow"/>
+			<OnClick function="GuildNews_Remove"/>
+			<OnEvent function="GuildNews_OnEvent"/>
+		</Scripts>
+	</Button>
+</Ui>

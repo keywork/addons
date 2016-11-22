@@ -1,0 +1,6 @@
+## Interface: 70100
+## Title: WorldFlightMap
+## Notes: Replaces the taxi map with the world map
+## Author: Semlar
+## Version: 7.1.0.1
+WorldFlightMap.lua

@@ -1,0 +1,7 @@
+## Interface: 60200
+## Title: GuildNews
+## Version: 0.9.3
+## Author: Ethnar
+## SavedVariables: GuildNews_SavedVar
+
+GuildNews.xml

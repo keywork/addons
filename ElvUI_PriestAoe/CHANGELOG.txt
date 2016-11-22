@@ -1,0 +1,56 @@
+1.17
+Added intial legion druid and shaman. Added 5 target radiance if talented.
+
+1.16
+Function cleanup. Preparing for writing generalized functions.
+
+1.15
+Legion initial. Only for priests.
+
+1.14
+Remove debug config on release packages
+
+1.13
+Cleanup, prepare for legion
+
+1.12
+Bump TOC to 60200
+
+1.11
+Bump TOC to 60100
+
+1.10
+- Fix issue where icon didn't show when overheal threshold is still set to 100
+
+1.9
+- Fix versatility buff not counting
+- Add resto druid 10% healing passive.
+
+1.8
+- Bug fixes
+
+1.7
+- Add Raid40 back into the mix
+
+1.6 
+- Bug fixes, typos
+
+1.5
+- Chain heal bug
+
+1.4
+- Change how thresholding works. Please read the note
+- Option for textured or colored icons
+- Option to show #targets or % overheal on icon text
+- Refresh Rate is now per character, not profile.
+- Few bug fixes
+
+1.2
+- Fix icons not showing in correct group
+- Better chain heal
+
+1.1
+-- Update for Wod
+- Added Wild Growth
+- Rearranged options table
+- More changes incoming

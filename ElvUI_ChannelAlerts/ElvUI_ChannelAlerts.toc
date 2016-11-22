@@ -1,0 +1,18 @@
+## Interface: 70100
+## Author: Blazeflack
+## Version: 3.11
+## Title: |cff1784d1ElvUI|r ChannelAlerts
+## Notes: Adds options to play a customizable sound when messages are received in guild chat, officer chat or in either of the 10 numbered channels.
+## RequiredDeps: ElvUI
+## X-Curse-Packaged-Version: v3.11
+## X-Curse-Project-Name: ElvUI ChannelAlerts
+## X-Curse-Project-ID: elvui-customchannelalert
+## X-Curse-Repository-ID: wow/elvui-customchannelalert/mainline
+
+locales.lua
+media\sharedmedia.lua
+config.lua
+core.lua
+
+## X-Tukui-ProjectID: 85
+## X-Tukui-ProjectFolders: ElvUI_ChannelAlerts

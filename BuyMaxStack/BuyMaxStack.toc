@@ -1,0 +1,8 @@
+## Interface: 70000
+## Author: Blazeflack
+## Version: 1.07
+## Title: BuyMaxStack
+## Notes: Holding Alt key while buying something from vendor will now buy an entire stack.
+## OptionalDeps: Tukui
+
+BuyMaxStack.lua

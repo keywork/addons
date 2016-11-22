@@ -1,0 +1,10 @@
+## Interface: 60200
+## Title: GuildMemberStatus
+## Notes: Adds a visual status indicator (available, away, busy) to online player names on guild roster.
+## Author: Driizt at Bronzebeard EU
+## Version: 1.34
+
+LibStub\LibStub.lua
+CallbackHandler-1.0\CallbackHandler-1.0.xml
+
+core.lua

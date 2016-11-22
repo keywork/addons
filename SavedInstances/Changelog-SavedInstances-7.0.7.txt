@@ -1,0 +1,110 @@
+------------------------------------------------------------------------
+r539 | oscarucb | 2016-11-16 00:02:26 +0000 (Wed, 16 Nov 2016) | 1 line
+Changed paths:
+   A /tags/7.0.7 (from /trunk:538)
+
+Tagging as 7.0.7
+------------------------------------------------------------------------
+r538 | oscarucb | 2016-11-15 23:38:07 +0000 (Tue, 15 Nov 2016) | 2 lines
+Changed paths:
+   M /trunk/SavedInstances.lua
+
+Add Lingering Soul Fragment
+
+------------------------------------------------------------------------
+r537 | oscarucb | 2016-11-15 23:02:18 +0000 (Tue, 15 Nov 2016) | 2 lines
+Changed paths:
+   M /trunk/SavedInstances.lua
+
+add missing world boss WQ IDs
+
+------------------------------------------------------------------------
+r535 | oscarucb | 2016-10-31 11:48:10 +0000 (Mon, 31 Oct 2016) | 2 lines
+Changed paths:
+   M /trunk/SavedInstances.lua
+
+fix EN LFR for 7.1
+
+------------------------------------------------------------------------
+r533 | oscarucb | 2016-10-30 12:01:37 +0000 (Sun, 30 Oct 2016) | 2 lines
+Changed paths:
+   M /trunk/SavedInstances.lua
+
+Add order hall Seal of Broken Fate
+
+------------------------------------------------------------------------
+r532 | oscarucb | 2016-10-30 11:30:38 +0000 (Sun, 30 Oct 2016) | 2 lines
+Changed paths:
+   M /trunk/SavedInstances.lua
+
+Add special case for Return to Karazhan
+
+------------------------------------------------------------------------
+r531 | oscarucb | 2016-10-29 12:23:19 +0000 (Sat, 29 Oct 2016) | 2 lines
+Changed paths:
+   M /trunk/SavedInstances.lua
+
+fix a display minor glitch in 7.x
+
+------------------------------------------------------------------------
+r529 | oscarucb | 2016-10-26 01:11:45 +0000 (Wed, 26 Oct 2016) | 2 lines
+Changed paths:
+   M /trunk/SavedInstances.toc
+
+toc bump
+
+------------------------------------------------------------------------
+r528 | oscarucb | 2016-10-25 21:33:54 +0000 (Tue, 25 Oct 2016) | 2 lines
+Changed paths:
+   M /trunk/SavedInstances.lua
+
+Probable fix to ticket 235: ElvuI lua error
+
+------------------------------------------------------------------------
+r526 | oscarucb | 2016-10-25 09:04:45 +0000 (Tue, 25 Oct 2016) | 2 lines
+Changed paths:
+   M /trunk/SavedInstances.lua
+
+skinning update
+
+------------------------------------------------------------------------
+r525 | oscarucb | 2016-10-25 08:41:07 +0000 (Tue, 25 Oct 2016) | 2 lines
+Changed paths:
+   M /trunk/SavedInstances.lua
+
+Add Legion seal quests
+
+------------------------------------------------------------------------
+r524 | oscarucb | 2016-10-25 08:33:25 +0000 (Tue, 25 Oct 2016) | 2 lines
+Changed paths:
+   M /trunk/SavedInstances.lua
+
+ticket 223: lua error after character reset
+
+------------------------------------------------------------------------
+r523 | oscarucb | 2016-10-25 08:28:20 +0000 (Tue, 25 Oct 2016) | 2 lines
+Changed paths:
+   M /trunk/SavedInstances.lua
+
+fix Arcway for ptBR
+
+------------------------------------------------------------------------
+r522 | oscarucb | 2016-10-25 08:13:22 +0000 (Tue, 25 Oct 2016) | 2 lines
+Changed paths:
+   M /trunk/SavedInstances.lua
+
+Add Legion world bosses
+
+------------------------------------------------------------------------
+r521 | oscarucb | 2016-10-25 07:54:02 +0000 (Tue, 25 Oct 2016) | 7 lines
+Changed paths:
+   M /trunk/SavedInstances.lua
+
+Misc updates
+
+Add some Legion currencies
+Add Legion transmutes
+Fix EN1/2 LFR
+Add Blingtron 6000
+
+------------------------------------------------------------------------

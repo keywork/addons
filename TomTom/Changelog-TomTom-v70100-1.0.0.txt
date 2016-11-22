@@ -1,0 +1,18 @@
+tag v70100-1.0.0
+5d47c70347675fb00028a7e79dfcf9082a2d6098
+Jim Whitehead <jnwhiteh@gmail.com>
+2016-11-10 20:40:07 +0100
+
+Tagged v70100-1.0.0
+
+
+--------------------
+
+Jim Whitehead:
+	- Update for 70100
+	- Fix issue with non-titled waypoints
+	Thanks to AnrDaemon for the patch, this makes it possible to distinguish
+	between waypoints set by TomTom without a title and those set by another
+	addon.
+	- Enable /wayb to take a name/title as an argument
+	If one is not provided, just use the existing behaviour.

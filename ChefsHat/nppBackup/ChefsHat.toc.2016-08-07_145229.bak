@@ -1,0 +1,7 @@
+## Interface: 70000
+## Title: Chef's Hat
+## Notes: Equips your Chef's Hat before you start cooking.
+## Author: Vladinator
+## Version: 7.0.0.160805
+## SavedVariables: 
+ChefsHat.lua

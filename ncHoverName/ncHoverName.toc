@@ -1,0 +1,8 @@
+## Interface: 70000
+## Title: ncHoverName
+## Author: Nightcracker
+## Editor: Decard
+## Version: 2.0
+## Notes: AddOn that show player/NPC names and whom they're targeting via mouse-over.
+
+ncHoverName.lua

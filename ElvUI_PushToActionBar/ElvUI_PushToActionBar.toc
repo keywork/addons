@@ -1,0 +1,7 @@
+## Interface: 70000
+## Title: |cff1784d1ElvUI|r PushToActionBar
+## Version: 1.3
+## Author: pnutbutter
+## Notes: Re-enables the animation and auto-placing to the ActionBar upon learning a new spell.
+## RequiredDeps: ElvUI
+core.lua

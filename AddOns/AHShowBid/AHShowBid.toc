@@ -1,0 +1,28 @@
+﻿## Interface: 60200
+## Title: AHShowBid
+## Notes: Shows if someone has bid on the auction.
+## Version: 2.13
+## Author: iceeagle
+## DefaultState: enabled
+## X-Curse-Packaged-Version: v2.13
+## X-Curse-Project-Name: AH_ShowBid
+## X-Curse-Project-ID: ah_showbid
+## X-Curse-Repository-ID: wow/ah_showbid/mainline
+
+#@no-lib-strip@
+embeds.xml
+#@end-no-lib-strip@
+
+Locales\enUS.lua
+Locales\deDE.lua
+Locales\esES.lua
+Locales\esMX.lua
+Locales\frFR.lua
+Locales\itIT.lua
+Locales\koKR.lua
+Locales\ptBR.lua
+Locales\ruRU.lua
+Locales\zhCN.lua
+Locales\zhTW.lua
+
+AHShowBid.lua

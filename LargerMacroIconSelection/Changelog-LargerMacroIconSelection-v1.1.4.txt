@@ -1,0 +1,35 @@
+------------------------------------------------------------------------
+r62 | ketho | 2016-10-26 03:13:10 +0000 (Wed, 26 Oct 2016) | 1 line
+Changed paths:
+   A /tags/v1.1.4 (from /trunk:61)
+
+Tagging as v1.1.4
+------------------------------------------------------------------------
+r61 | ketho | 2016-10-26 03:12:07 +0000 (Wed, 26 Oct 2016) | 1 line
+Changed paths:
+   M /trunk/Data/LargerMacroIconSelectionData.toc
+
+Bump FileData TOC
+------------------------------------------------------------------------
+r60 | ketho | 2016-10-26 00:54:24 +0000 (Wed, 26 Oct 2016) | 1 line
+Changed paths:
+   M /trunk/LargerMacroIconSelection.lua
+
+Only hook ChatEdit_InsertLink on demand
+------------------------------------------------------------------------
+r59 | ketho | 2016-10-25 11:57:36 +0000 (Tue, 25 Oct 2016) | 1 line
+Changed paths:
+   M /trunk/LargerMacroIconSelection.lua
+
+Fixed nil value error when shift-clicking items/spells
+------------------------------------------------------------------------
+r58 | ketho | 2016-10-25 11:50:48 +0000 (Tue, 25 Oct 2016) | 2 lines
+Changed paths:
+   M /trunk/Data/FileData.lua
+   M /trunk/Data/LargerMacroIconSelectionData.toc
+   M /trunk/LargerMacroIconSelection.lua
+   M /trunk/LargerMacroIconSelection.toc
+
+Update for 7.1
+Added support for shift-clicking items/spells to the search box
+------------------------------------------------------------------------

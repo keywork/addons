@@ -1,0 +1,17 @@
+## Interface: 70100
+## Author: Blazeflack
+## Version: 1.18
+## Title: |cff1784d1ElvUI|r EverySecondCounts
+## Notes: Allows you to show cooldowns in the MM:SS format.
+## RequiredDeps: ElvUI
+## X-Curse-Packaged-Version: v1.18
+## X-Curse-Project-Name: ElvUI EverySecondCounts
+## X-Curse-Project-ID: elvui-everysecondcounts
+## X-Curse-Repository-ID: wow/elvui-everysecondcounts/mainline
+
+locales.lua
+config.lua
+core.lua
+
+## X-Tukui-ProjectID: 193
+## X-Tukui-ProjectFolders: ElvUI_EverySecondCounts
