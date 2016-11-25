@@ -1,27 +1,25 @@
 local mod	= DBM:NewMod(1830, "DBM-TrialofValor", nil, 861)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 15467 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 15495 $"):sub(12, -3))
 mod:SetCreatureID(114323)
 mod:SetEncounterID(1962)
 mod:SetZone()
 mod:SetUsedIcons(1, 2, 3)
-mod:SetHotfixNoticeRev(15462)
+mod:SetHotfixNoticeRev(15488)
 --mod.respawnTime = 30
 
 mod:RegisterCombat("combat")
 
 mod:RegisterEventsInCombat(
 	"SPELL_CAST_START 227514",
-	"SPELL_CAST_SUCCESS 227883 227816",
-	"SPELL_AURA_APPLIED 228744 228810 228818 232173 228228 228253 228248",
-	"SPELL_AURA_REMOVED 228744 228810 228818",
+	"SPELL_CAST_SUCCESS 227883 227816 228824 228247 228251 228227",
+	"SPELL_AURA_APPLIED 228744 228794 228810 228811 228818 228819 232173 228228 228253 228248",
+	"SPELL_AURA_REMOVED 228744 228794 228810 228811 228818 228819",
 	"UNIT_SPELLCAST_SUCCEEDED boss1"
 )
 
---TODO, licks timers stillnot possible? they were still random/chaotic even in LFR
---TODO, info frame with fancy info like what your current debuff is as well as debuff count totals for entire raid? Maybe some other stuff
---TODO, More Volatile Foam stuff
+--TODO, licks timers stillnot possible? Review them more closely with new debug code.
 local warnOffLeash					= mod:NewSpellAnnounce(228201, 2, 129417)
 local warnFangs						= mod:NewCountAnnounce(227514, 2)
 local warnShadowLick				= mod:NewTargetAnnounce(228253, 2, nil, "Healer")
@@ -34,11 +32,13 @@ local specWarnBerserk				= mod:NewSpecialWarningSpell(227883, nil, nil, nil, 3)
 local specWarnFlameLick				= mod:NewSpecialWarningMoveAway(228228, nil, nil, nil, 1, 2)
 local yellFlameLick					= mod:NewYell(228228)
 local specWarnShadowLick			= mod:NewSpecialWarningYou(228253, false, nil, nil, 1)--Not sure warning player is helpful
+local yellShadowLick				= mod:NewYell(228253, nil, false)
 local specWarnFrostLick				= mod:NewSpecialWarningYou(228248, false, nil, nil, 1)--Warning player they are stunned probably somewhat useful. Still can't do much about it.
+local yellFrostLick					= mod:NewYell(228248, nil, false)
 local specWarnFrostLickDispel		= mod:NewSpecialWarningDispel(228248, "Healer", nil, nil, 1, 2)
 --Mythic
-local specWarnFlamingFoam			= mod:NewSpecialWarningYou(228744, nil, nil, nil, 1)
-local specWarnBrineyFoam			= mod:NewSpecialWarningYou(228810, nil, nil, nil, 1)
+local specWarnFlamingFoam			= mod:NewSpecialWarningYou(228744, nil, nil, nil, 1)--228794 jump id
+local specWarnBrineyFoam			= mod:NewSpecialWarningYou(228810, nil, nil, nil, 1)--228811 jump id
 local specWarnShadowyFoam			= mod:NewSpecialWarningYou(228818, nil, nil, nil, 1)
 
 local timerLeashCD					= mod:NewNextTimer(45, 228201, nil, nil, nil, 6, 129417)
@@ -47,6 +47,7 @@ local timerFangsCD					= mod:NewCDCountTimer(20.5, 227514, nil, "Tank", nil, 5, 
 local timerBreathCD					= mod:NewCDCountTimer(20.5, 228187, nil, nil, nil, 5, nil, DBM_CORE_DEADLY_ICON)
 local timerLeapCD					= mod:NewCDCountTimer(22, 227883, nil, nil, nil, 3)
 local timerChargeCD					= mod:NewCDTimer(10.9, 227816, nil, nil, nil, 3)
+local timerVolatileFoamCD			= mod:NewCDCountTimer(15.4, 228824, nil, nil, nil, 3, nil, DBM_CORE_HEROIC_ICON)
 
 local berserkTimer					= mod:NewBerserkTimer(300)
 
@@ -59,21 +60,24 @@ local voiceFlameLick				= mod:NewVoice(228228)--runout
 local voiceFrostLick				= mod:NewVoice(228248)--helpdispel
 
 mod:AddSetIconOption("SetIconOnFoam", "ej14535", true)
-mod:AddInfoFrameOption("ej14535", true)
-mod:AddRangeFrameOption(5, "ej14463")
+mod:AddInfoFrameOption(228824, true)
+mod:AddRangeFrameOption(5, 228824)
 
 mod.vb.fangCast = 0
 mod.vb.breathCast = 0
 mod.vb.leapCast = 0
+mod.vb.foamCast = 0
 --Ugly way to do it, vs a local table, but this ensures that if icon setter disconnects, it doesn't get messed up
 mod.vb.one = false
 mod.vb.two = false
 mod.vb.three = false
+local debugLicks = {}
+local lastTime = 0
 
 local updateInfoFrame
 do
 	local lines = {}
-	local fireDebuff, frostDebuff, shadowDebuff = GetSpellInfo(228744), GetSpellInfo(228818), GetSpellInfo(228818)
+	local fireDebuff, frostDebuff, shadowDebuff = GetSpellInfo(228744), GetSpellInfo(228810), GetSpellInfo(228818)
 	local UnitDebuff = UnitDebuff
 	updateInfoFrame = function()
 		table.wipe(lines)
@@ -94,15 +98,18 @@ function mod:OnCombatStart(delay)
 	self.vb.fangCast = 0
 	self.vb.breathCast = 0
 	self.vb.leapCast = 0
+	table.wipe(debugLicks)
+	lastTime = GetTime()
 	--All other combat start timers started by Helyatosis
 	if not self:IsLFR() then
 		if self:IsMythic() then
 			self.vb.one = false
 			self.vb.two = false
 			self.vb.three = false
+			self.vb.foamCast = 0
 			berserkTimer:Start(240-delay)
 			if self.Options.InfoFrame then
-				DBM.InfoFrame:SetHeader(EJ_GetSectionInfo(14535))
+				DBM.InfoFrame:SetHeader(GetSpellInfo(228824))
 				DBM.InfoFrame:Show(5, "function", updateInfoFrame, false, true)
 			end
 		else
@@ -120,6 +127,11 @@ function mod:OnCombatEnd()
 	end
 	if self.Options.InfoFrame then
 		DBM.InfoFrame:Hide()
+	end
+	if DBM.Options.DebugMode then
+		for i, v in ipairs(debugLicks) do
+			DBM:AddMsg(v)
+		end
 	end
 end
 
@@ -146,21 +158,29 @@ function mod:SPELL_CAST_SUCCESS(args)
 	elseif spellId == 227816 then
 		specWarnCharge:Show()
 		voiceCharge:Play("chargemove")
+	elseif spellId == 228824 then
+		self.vb.foamCast = self.vb.foamCast + 1
+		if self.vb.foamCast < 3 then
+			timerVolatileFoamCD:Start(nil, self.vb.foamCast+1)
+		end
+	elseif spellId == 228247 or spellId == 228251 or spellId == 228227 then--Licks
+		debugLicks[#debugLicks+1] = GetTime() - lastTime
+		lastTime = GetTime()
 	end
 end
 
 function mod:SPELL_AURA_APPLIED(args)
 	local spellId = args.spellId
-	if spellId == 228744 or spellId == 228810 or spellId == 228818 then
-		if spellId == 228744 then
+	if spellId == 228744 or spellId == 228794 or spellId == 228810 or spellId == 228811 or spellId == 228818 or spellId == 228819 then
+		if spellId == 228744 or spellId == 228794 then
 			if args:IsPlayer() then
 				specWarnFlamingFoam:Show()
 			end
-		elseif spellId == 228810 then
+		elseif spellId == 228810 or spellId == 228811 then
 			if args:IsPlayer() then
 				specWarnBrineyFoam:Show()
 			end
-		elseif spellId == 228818 then
+		elseif spellId == 228818 or spellId == 228819 then
 			if args:IsPlayer() then
 				specWarnShadowyFoam:Show()
 			end
@@ -191,6 +211,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		warnShadowLick:CombinedShow(0.3, args.destName)
 		if args:IsPlayer() then
 			specWarnShadowLick:Show()
+			yellShadowLick:Yell()
 		end
 	elseif spellId == 228248 then
 		if self.Options.specwarn228248dispel then
@@ -203,13 +224,14 @@ function mod:SPELL_AURA_APPLIED(args)
 		end
 		if args:IsPlayer() then
 			specWarnFrostLick:Show()
+			yellFrostLick:Yell()
 		end
 	end
 end
 
 function mod:SPELL_AURA_REMOVED(args)
 	local spellId = args.spellId
-	if spellId == 228744 or spellId == 228810 or spellId == 228818 then
+	if spellId == 228744 or spellId == 228794 or spellId == 228810 or spellId == 228811 or spellId == 228818 or spellId == 228819 then
 		local uId = DBM:GetRaidUnitId(args.destName)
 		local currentIcon = GetRaidTargetIndex(uId)
 		if self.Options.SetIconOnFoam then
@@ -260,5 +282,9 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(uId, _, _, spellGUID)
 		timerLeashCD:Start()--45
 		timerBreathCD:Start(11, 1)--11-14
 		countdownBreath:Start(11)--11-14
+		if self:IsMythic() then
+			self.vb.foamCast = 0
+			timerVolatileFoamCD:Start(10, 1)
+		end
 	end
 end

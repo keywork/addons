@@ -1,9 +1,0 @@
-## Interface: 70000
-## Title: Auto Capitalize Chat
-## Notes: Automatically capitalizes sentences and I's.
-## Author: Guy of Garithos
-## SavedVariablesPerCharacter: AutoCapChatOn
-## Version: 1.0.0
-
-words.lua
-AutoCapitalizeChat.lua

@@ -1,0 +1,10 @@
+------------------------------------------------------------------------
+r583 | Allara | 2016-11-24 13:46:50 -0600 (Thu, 24 Nov 2016) | 1 line
+Changed paths:
+   M /trunk/Core.lua
+   M /trunk/Locales.lua
+   M /trunk/Options_Defaults.lua
+
+- Added support for 7.1's Raiding with Leashes IV (thanks Cakechart for contributing the code, and my apologies for the delay)
+------------------------------------------------------------------------
+

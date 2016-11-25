@@ -9,10 +9,6 @@
 ## X-Category: Library
 ## X-Credits: Rabbit
 ## X-License: CC-BY-NC-SA 3.0
-## X-Curse-Packaged-Version: r118-release
-## X-Curse-Project-Name: LibSink-2.0
-## X-Curse-Project-ID: libsink-2-0
-## X-Curse-Repository-ID: wow/libsink-2-0/mainline
 
 embeds.xml
 LibSink-2.0\lib.xml

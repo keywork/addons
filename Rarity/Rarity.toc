@@ -8,10 +8,6 @@
 ## SavedVariables: RarityDB
 ## X-LoadOn-Always: delayed
 #@no-lib-strip@
-## X-Curse-Packaged-Version: r581-release
-## X-Curse-Project-Name: Rarity
-## X-Curse-Project-ID: rarity
-## X-Curse-Repository-ID: wow/rarity/mainline
 Libs\LibStub\LibStub.lua
 Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
 Libs\LibDataBroker-1.1\LibDataBroker-1.1.lua

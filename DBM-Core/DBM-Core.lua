@@ -41,9 +41,9 @@
 --  Globals/Default Options  --
 -------------------------------
 DBM = {
-	Revision = tonumber(("$Revision: 15486 $"):sub(12, -3)),
-	DisplayVersion = "7.1.3 alpha", -- the string that is shown as version
-	ReleaseRevision = 15454 -- the revision of the latest stable version that is available
+	Revision = tonumber(("$Revision: 15498 $"):sub(12, -3)),
+	DisplayVersion = "7.1.4 alpha", -- the string that is shown as version
+	ReleaseRevision = 15490 -- the revision of the latest stable version that is available
 }
 DBM.HighestRelease = DBM.ReleaseRevision --Updated if newer version is detected, used by update nags to reflect critical fixes user is missing on boss pulls
 
@@ -418,8 +418,9 @@ local targetMonitor = nil
 local statusWhisperDisabled = false
 local wowVersionString, _, _, wowTOC = GetBuildInfo()
 local dbmToc = 0
+local UpdateChestTimer
 
-local fakeBWVersion, fakeBWHash = 24, "dee6293"
+local fakeBWVersion, fakeBWHash = 25, "3df7123"
 local versionQueryString, versionResponseString = "Q^%d^%s", "V^%d^%s"
 
 local enableIcons = true -- set to false when a raid leader or a promoted player has a newer version of DBM
@@ -3569,13 +3570,14 @@ function DBM:SCENARIO_CRITERIA_UPDATE()
 end
 
 do
-	local function UpdateChestTimer(self)
+	function UpdateChestTimer(self)
 		local _, elapsedTime = GetWorldElapsedTime(1)--Should always be 1, with only one world state timer active.
 		local _, _, maxTime = C_ChallengeMode.GetMapInfo(LastInstanceMapID);
+		if not elapsedTime or not maxTime then return end
 		maxTime = maxTime * 0.8--Two chests
 		local remaining = (maxTime or 0) - (elapsedTime or 0)
 		if remaining and remaining > 0 then--Safey check in case it fails
-			self.Bars:CreateBar(remaining, "2 "..CHESTSLOT)
+			self.Bars:CreateBar(remaining, "2 "..DBM_CHEST)
 			self:Schedule(remaining+1, UpdateChestTimer, self)
 		end
 	end
@@ -3586,10 +3588,11 @@ do
 		self:Unschedule(UpdateChestTimer)
 		local _, elapsedTime = GetWorldElapsedTime(1)--Should always be 1, with only one world state timer active.
 		local _, _, maxTime = C_ChallengeMode.GetMapInfo(LastInstanceMapID);
+		if not elapsedTime or not maxTime then return end
 		maxTime = maxTime * 0.6--Three Chests
 		local remaining = (maxTime or 0) - (elapsedTime or 0)
 		if remaining and remaining > 0 then--Safey check in case it fails
-			self.Bars:CreateBar(remaining, "3 "..CHESTSLOT)
+			self.Bars:CreateBar(remaining, "3 "..DBM_CHEST)
 			self:Schedule(remaining+1, UpdateChestTimer, self)
 		end
 	end
@@ -3599,8 +3602,8 @@ do
 		self.Bars:CancelBar(PLAYER_DIFFICULTY6.."+")
 		if not self.Options.MythicPlusChestTimer then return end
 		self:Unschedule(UpdateChestTimer)
-		self.Bars:CancelBar("3 "..CHESTSLOT)
-		self.Bars:CancelBar("2 "..CHESTSLOT)
+		self.Bars:CancelBar("3 "..DBM_CHEST)
+		self.Bars:CancelBar("2 "..DBM_CHEST)
 	end
 
 	function DBM:CHALLENGE_MODE_COMPLETED()
@@ -3608,8 +3611,8 @@ do
 		self.Bars:CancelBar(PLAYER_DIFFICULTY6.."+")
 		if not self.Options.MythicPlusChestTimer then return end
 		self:Unschedule(UpdateChestTimer)
-		self.Bars:CancelBar("3 "..CHESTSLOT)
-		self.Bars:CancelBar("2 "..CHESTSLOT)
+		self.Bars:CancelBar("3 "..DBM_CHEST)
+		self.Bars:CancelBar("2 "..DBM_CHEST)
 	end
 end
 
@@ -6199,6 +6202,27 @@ function DBM:UNIT_DIED(args)
 		self:FlashClientIcon()
 		self:PlaySoundFile("Sound\\Creature\\CThun\\CThunYouWillDIe.ogg")--So fire an alert sound to save yourself from this person's behavior.
 		self:AddMsg(DBM_CORE_AFK_WARNING:format(0))
+	end
+	--UGLY INEFFICIENT PLACE to have this. TODO see if CHALLENGE_MODE event exists for timer changing to do this more properly
+	if difficultyIndex == 8 and self.Options.MythicPlusChestTimer and bband(args.destFlags, COMBATLOG_OBJECT_TYPE_PLAYER) ~= 0 then
+		self:Unschedule(UpdateChestTimer)
+		self.Bars:CancelBar("3 "..DBM_CHEST)
+		self.Bars:CancelBar("2 "..DBM_CHEST)
+		local _, elapsedTime = GetWorldElapsedTime(1)--Should always be 1, with only one world state timer active.
+		local _, _, maxTime = C_ChallengeMode.GetMapInfo(LastInstanceMapID);
+		local threeChest = maxTime * 0.6
+		local twoChest = maxTime * 0.8
+		local remaining = (threeChest or 0) - (elapsedTime or 0)
+		if remaining and remaining > 0 then--Safey check in case it fails
+			self.Bars:CreateBar(remaining, "3 "..DBM_CHEST)
+			self:Schedule(remaining+1, UpdateChestTimer, self)
+		else
+			remaining = (twoChest or 0) - (elapsedTime or 0)
+			if remaining and remaining > 0 then--Safey check in case it fails
+				self.Bars:CreateBar(remaining, "2 "..DBM_CHEST)
+				self:Schedule(remaining+1, UpdateChestTimer, self)
+			end
+		end
 	end
 end
 DBM.UNIT_DESTROYED = DBM.UNIT_DIED

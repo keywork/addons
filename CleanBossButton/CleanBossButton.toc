@@ -1,9 +1,0 @@
-## Interface: 60200
-## Author: Blazeflack
-## Credit: Tukz, roth
-## Version: 1.21
-## Title: CleanBossButton
-## Notes: Strips the texture from the Boss Button which spawns on fights such as Ultraxion, making it look more like clean.
-## OptionalDeps: Tukui
-
-CleanBossButton.lua

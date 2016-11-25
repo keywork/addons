@@ -1,6 +1,0 @@
-<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
-..\FrameXML\UI.xsd">
-	<Script  file="libs\LibInternalCooldowns-1.0\LibStub\LibStub.lua"/>
-	<Include file="libs\LibInternalCooldowns-1.0\CallbackHandler-1.0\CallbackHandler-1.0.xml"/>
-	<Include file="libs\LibInternalCooldowns-1.0\LibInternalCooldowns-1.0\lib.xml"/>
-</Ui>

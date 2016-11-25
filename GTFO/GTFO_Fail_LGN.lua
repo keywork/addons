@@ -992,6 +992,16 @@ GTFO.SpellID["224188"] = {
   minimumStacks = 1;
 };
 
+GTFO.SpellID["221838"] = {
+  --desc = "Disorienting Gas (Kelorn Nightblade)";
+  applicationOnly = true;
+  sound = 3;
+};
+
+GTFO.SpellID["198781"] = {
+  --desc = "Whirling Blade (Kur'talos Ravencrest)";
+  sound = 3;
+};
 
 
 -- *************************

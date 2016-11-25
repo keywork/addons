@@ -1172,3 +1172,6 @@ Change Log:
 * Added Legion spells for Trial of Valor
 * Added Legion spells for Return to Karazhan
 
+4.41.5
+* Added Legion spells for Black Rook Hold
+

@@ -7,9 +7,5 @@
 ## LoadManagers: AddonLoader
 ## X-LoadOn-Slash: /rarity, /rare
 ## X-LoadOn-InterfaceOptions: Rarity
-## X-Curse-Packaged-Version: r581-release
-## X-Curse-Project-Name: Rarity
-## X-Curse-Project-ID: rarity
-## X-Curse-Repository-ID: wow/rarity/mainline
 
 Options.lua

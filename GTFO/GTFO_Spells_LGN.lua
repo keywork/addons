@@ -797,6 +797,11 @@ GTFO.SpellID["221680"] = {
   sound = 1;
 };
 
+GTFO.SpellID["221866"] = {
+  --desc = "Blade Barrage (Kelorn Nightblade)";
+  sound = 1;
+  tankSound = 0;
+};
 
 -- *************************
 -- * The Emerald Nightmare *

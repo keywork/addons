@@ -1,0 +1,38 @@
+tag 5.0.1.15-Release
+81e69e7f3f4f09bab4b5cb9b02cb2bf07cc17380
+tekkub :bear:  <tekkub@gmail.com>
+2012-10-13 17:01:26 -0600
+
+Weekly build
+
+
+--------------------
+
+tekkub :bear: :
+	- Weekly build 5.0.1.15-Release
+	- Update changelog for 5.0.1.15-Release
+	- Weekly build 5.0.1.14-Beta
+	- Update changelog for 5.0.1.14-Beta
+	- Updating TOC to 50001
+	- README update
+	- Fix frame positions for PANDAS!
+	- Update changelog for 4.3.0.13-Beta
+	- Weekly build 4.3.0.13-Beta
+	- Updating TOC to 40300
+	- More betterer tooltip
+	- Move the search box, it overlaps the default UI in some cases
+	- Cleanup the new lib path
+	- Add a tooltip so people know how to use the search
+	- Helps to load that lib
+tekkub :bear: :
+	- Update changelog for 4.2.0.12-Beta
+	- Weekly build 4.2.0.12-Beta
+	- Updating TOC to 40200
+tekkub :bear: :
+	- I love when they change returns like this.  Who uses the hex color without the "|c"?  NOONE THAT'S WHO
+	Fixes #28
+	- Add AddonLoader LoadOn-InterfaceOptions support
+Harm Geerts:
+	- redo it the right way
+	- restore newlines, include libs in repo, use sensible variable names, changes to match code style
+	- integrate LibItemSearch into GnomishVendorShrinker and hide items which do not match the search

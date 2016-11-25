@@ -1,7 +1,0 @@
-<Ui>
-	<!-- Libraries -->
-	<Script file='LibStub\LibStub.lua'/>
-
-	<!-- Project -->
-	<Script file='LibProcessable.lua'/>
-</Ui>
