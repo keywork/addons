@@ -18,6 +18,7 @@ P['actionbar']['bar7'] = {
 	['alpha'] = 1,
 	['inheritGlobalFade'] = false,
 	['showGrid'] = true,
+	["flyoutDirection"] = "AUTOMATIC",
 	['paging'] = {},
 	['visibility'] = '[vehicleui] hide; [overridebar] hide; [petbattle] hide; show',
 }
@@ -37,6 +38,7 @@ P['actionbar']['bar8'] = {
 	['alpha'] = 1,
 	['inheritGlobalFade'] = false,
 	['showGrid'] = true,
+	["flyoutDirection"] = "AUTOMATIC",
 	['paging'] = {},
 	['visibility'] = '[vehicleui] hide; [overridebar] hide; [petbattle] hide; show',
 }
@@ -56,6 +58,7 @@ P['actionbar']['bar9'] = {
 	['alpha'] = 1,
 	['inheritGlobalFade'] = false,
 	['showGrid'] = true,
+	["flyoutDirection"] = "AUTOMATIC",
 	['paging'] = {},
 	['visibility'] = '[vehicleui] hide; [overridebar] hide; [petbattle] hide; show',
 }
@@ -75,6 +78,7 @@ P['actionbar']['bar10'] = {
 	['alpha'] = 1,
 	['inheritGlobalFade'] = false,
 	['showGrid'] = true,
+	["flyoutDirection"] = "AUTOMATIC",
 	['paging'] = {},
 	['visibility'] = '[vehicleui] hide; [overridebar] hide; [petbattle] hide; show',
 }
@@ -133,12 +137,10 @@ function EAB:InsertOptions()
 					desc = L['Restore the actionbars default settings'],
 					func = function() E:CopyTable(E.db.actionbar['bar'..i], P.actionbar['bar'..i]); E:ResetMovers('Bar '..i); AB:PositionAndSizeBar('bar'..i) end,
 				},
-				point = {
+				spacer = {
 					order = 4,
-					type = 'select',
-					name = L['Anchor Point'],
-					desc = L['The first button anchors itself to this point on the bar.'],
-					values = points,
+					type = "description",
+					name = " ",
 				},
 				backdrop = {
 					order = 5,
@@ -164,15 +166,35 @@ function EAB:InsertOptions()
 					name = L["Inherit Global Fade"],
 					desc = L["Inherit the global fade, mousing over, targetting, setting focus, losing health, entering combat will set the remove transparency. Otherwise it will use the transparency level in the general actionbar settings for global fade alpha."],
 				},
-				buttons = {
+				point = {
 					order = 9,
+					type = 'select',
+					name = L['Anchor Point'],
+					desc = L['The first button anchors itself to this point on the bar.'],
+					values = points,
+				},
+				flyoutDirection = {
+					order = 10,
+					type = "select",
+					name = L["Flyout Direction"],
+					set = function(info, value) E.db.actionbar['bar'..i][ info[#info] ] = value; AB:PositionAndSizeBar('bar'..i); AB:UpdateButtonSettingsForBar("bar"..i) end,
+					values = {
+						["UP"] = L["Up"],
+						["DOWN"] = L["Down"],
+						["LEFT"] = L["Left"],
+						["RIGHT"] = L["Right"],
+						["AUTOMATIC"] = L["Automatic"],
+					},
+				},
+				buttons = {
+					order = 11,
 					type = 'range',
 					name = L['Buttons'],
 					desc = L['The amount of buttons to display.'],
 					min = 1, max = NUM_ACTIONBAR_BUTTONS, step = 1,
 				},
 				buttonsPerRow = {
-					order = 10,
+					order = 12,
 					type = 'range',
 					name = L['Buttons Per Row'],
 					desc = L['The amount of buttons to display per row.'],
@@ -183,7 +205,7 @@ function EAB:InsertOptions()
 					name = L['Button Size'],
 					desc = L['The size of the action buttons.'],
 					min = 15, max = 60, step = 1,
-					order = 11,
+					order = 13,
 					disabled = function() return not E.private.actionbar.enable end,
 				},
 				buttonspacing = {
@@ -191,7 +213,7 @@ function EAB:InsertOptions()
 					name = L['Button Spacing'],
 					desc = L['The spacing between buttons.'],
 					min = 1, max = 10, step = 1,
-					order = 12,
+					order = 14,
 					disabled = function() return not E.private.actionbar.enable end,
 				},
 				backdropSpacing = {
@@ -203,21 +225,21 @@ function EAB:InsertOptions()
 					disabled = function() return not E.private.actionbar.enable end,
 				},
 				heightMult = {
-					order = 14,
+					order = 15,
 					type = 'range',
 					name = L['Height Multiplier'],
 					desc = L['Multiply the backdrops height or width by this value. This is usefull if you wish to have more than one bar behind a backdrop.'],
 					min = 1, max = 5, step = 1,
 				},
 				widthMult = {
-					order = 15,
+					order = 16,
 					type = 'range',
 					name = L['Width Multiplier'],
 					desc = L['Multiply the backdrops height or width by this value. This is usefull if you wish to have more than one bar behind a backdrop.'],
 					min = 1, max = 5, step = 1,
 				},
 				alpha = {
-					order = 16,
+					order = 17,
 					type = 'range',
 					name = L['Alpha'],
 					isPercent = true,
@@ -225,7 +247,7 @@ function EAB:InsertOptions()
 				},
 				paging = {
 					type = 'input',
-					order = 17,
+					order = 18,
 					name = L['Action Paging'],
 					desc = L["This works like a macro, you can run different situations to get the actionbar to page differently.\n Example: '[combat] 2;'"],
 					width = 'full',
@@ -242,7 +264,7 @@ function EAB:InsertOptions()
 				},
 				visibility = {
 					type = 'input',
-					order = 18,
+					order = 19,
 					name = L['Visibility State'],
 					desc = L["This works like a macro, you can run different situations to get the actionbar to show/hide differently.\n Example: '[combat] show;hide'"],
 					width = 'full',

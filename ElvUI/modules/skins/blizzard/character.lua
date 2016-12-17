@@ -8,9 +8,11 @@ local unpack, pairs, select = unpack, pairs, select
 --WoW API / Variables
 local CharacterFrameExpandButton = CharacterFrameExpandButton
 local SquareButton_SetIcon = SquareButton_SetIcon
+local DCS = false
 
 local function LoadSkin()
 	if E.private.skins.blizzard.enable ~= true or E.private.skins.blizzard.character ~= true then return end
+	if IsAddOnLoaded("DejaCharacterStats") then DCS = true end
 	S:HandleCloseButton(CharacterFrameCloseButton)
 	S:HandleScrollBar(ReputationListScrollFrameScrollBar)
 	S:HandleScrollBar(TokenFrameContainerScrollBar)
@@ -89,7 +91,7 @@ local function LoadSkin()
 		local statYOffset = 0;
 
 		if ( level >= MIN_PLAYER_LEVEL_FOR_ITEM_LEVEL_DISPLAY ) then
-			PaperDollFrame_SetItemLevel(CharacterStatsPane.ItemLevelFrame, "player");
+			if not DCS then PaperDollFrame_SetItemLevel(CharacterStatsPane.ItemLevelFrame, "player"); end
 			CharacterStatsPane.ItemLevelFrame.Value:SetTextColor(GetItemLevelColor());
 			CharacterStatsPane.ItemLevelCategory:Show();
 			CharacterStatsPane.ItemLevelFrame:Show();
@@ -255,6 +257,9 @@ local function LoadSkin()
 	for _, object in pairs(charframe) do
 		_G[object]:StripTextures()
 	end
+	--Re-add the overlay texture which was removed right above
+	CharacterModelFrameBackgroundOverlay:SetColorTexture(0,0,0)
+
 	local function StatsPane(type)
 		CharacterStatsPane[type]:StripTextures()
 		CharacterStatsPane[type]:CreateBackdrop("Transparent")

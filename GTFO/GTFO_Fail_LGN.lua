@@ -329,6 +329,18 @@ GTFO.SpellID["229588"] = {
   sound = 3;
 };
 
+GTFO.SpellID["231029"] = {
+  --desc = "Freezing Strike (Thoramir)";
+  sound = 3;
+};
+
+GTFO.SpellID["230329"] = {
+  --desc = "Negative Energy";
+  applicationOnly = true;
+  sound = 3;
+};
+
+
 -- **********
 -- * Mardum *
 -- **********

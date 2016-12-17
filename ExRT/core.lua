@@ -1,45 +1,43 @@
---	21:51 21.10.2016
+--	0:28 08.12.2016
 
 --[[
+3830
+* Finally, no more artifact window on load for some users (I hope)
+* Who Pulled: new method for checks (first player who entered combat)
+* Minor fixes
+
+
+3827
+* Fix artifact window on load
+
+3826
+* Major fixes
+
+
+3825
+* Fight log: Bugfixes
+* Raid Check: added mainstat food
+* Minor fixes
+
+
+3820
+* Fight log: Interface improvements
+* Notes: minor interface improvements
+* Notes: added ToV bosses for autoload and icons
+* Minor fixes
+
 3790
 * 7.1 Update
 
-3780
-* New bossmods: Dragons, Il'gynoth, Xavius
-* Fixed bug with inspecting artifact traits for people from other realms
-* Raid Inspect: added ilvl text on items (except artifact weapon)
-* Fixed food checks
-* Another roundup for fixing conflicting with other addons
-* Minor fixes
 
-3765
-* Temp fix errors with artifact scaning
-
-3760
-* Raid cooldowns: updates due to last legendary tuning
-* Raid cooldowns: added new options tab "Visibility"
-* Added version checker
-
-3750
-* Raid Inspect: added tab to view aftifact relics
-* Raid cooldowns: updates due to last class balance changes
-* Raid cooldowns: added legion trinkets
-* Raid cooldowns: added option: show only in combat
-* Minor fixes
-
-3740
-* New module: WeakAuras checks
-http://i.imgur.com/59cZVTY.png
-* Raid cooldowns: updates due to last class balance changes
-* Timers: new option: Disable countdown in chat
-* Minor & major fixes
+TODO:
+WhoPulled print clear
 
 ]]
 local GlobalAddonName, ExRT = ...
 
-ExRT.V = 3790
+ExRT.V = 3830
 ExRT.T = "R"
-ExRT.is7 = false		--> Legion (7.x) Client
 
 ExRT.OnUpdate = {}		--> таймеры, OnUpdate функции
 ExRT.Slash = {}			--> функции вызова из коммандной строки
@@ -80,9 +78,6 @@ do
 	ExRT.SDB.charKey = charName .. "-" .. realmKey
 	ExRT.SDB.charName = charName
 	ExRT.SDB.charLevel = UnitLevel'player'
-	if ExRT.SDB.charLevel > 100 then
-		ExRT.isLegionContent = true
-	end
 end
 -------------> global DB <------------
 ExRT.GDB = {}

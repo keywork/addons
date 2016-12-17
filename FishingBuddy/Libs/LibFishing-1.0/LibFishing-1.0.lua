@@ -7,7 +7,7 @@ Licensed under a Creative Commons "Attribution Non-Commercial Share Alike" Licen
 --]]
 
 local MAJOR_VERSION = "LibFishing-1.0"
-local MINOR_VERSION = 90978
+local MINOR_VERSION = 90979
 
 if not LibStub then error(MAJOR_VERSION .. " requires LibStub") end
 
@@ -561,14 +561,14 @@ end
 
 -- return a printable representation of a value
 function FishLib:printable(val)
-	if ( val == nil ) then
-		return "nil";
-	elseif (type(val) == "boolean") then
+	if (type(val) == "boolean") then
 		return val and "true" or "false";
 	elseif (type(val) == "table") then
 		return "table";
+	elseif (val ~= nil) then
+		return tostring(val);
 	else
-		return ""..val;
+		return "nil";
 	end
 end
 

@@ -63,8 +63,9 @@ L["yells"] = true;
 
 --DataBars
 L["Current Level:"] = true;
-L["Honor XP:"] = true;
 L["Honor Remaining:"] = true;
+L["Honor XP:"] = true;
+L["In Bags:"] = true;
 
 --DataTexts
 L["(Hold Shift) Memory Usage"] = true;
@@ -256,6 +257,7 @@ L["FocusTarget Frame"] = true; --Also used in UnitFrames
 L["GM Ticket Frame"] = true;
 L["Honor Bar"] = true;
 L["Left Chat"] = true;
+L["Level Up Display / Boss Banner"] = true;
 L["Loot / Alert Frames"] = true;
 L["Loot Frame"] = true;
 L["Loss Control Icon"] = true;

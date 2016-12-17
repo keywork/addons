@@ -1,11 +1,29 @@
 local E, L, V, P, G, _ = unpack(ElvUI); --Import: Engine, Locales, PrivateDB, ProfileDB, GlobalDB, Localize Underscore
 local VAT = E:GetModule('VisualAuraTimers')
 local A = E:GetModule('Auras');
+local ElvUF = ElvUF
 local EP = LibStub("LibElvUIPlugin-1.0")
 local LSM = LibStub("LibSharedMedia-3.0")
 local addon, ns = ...
 
+--Cache global variables
+--Lua functions
+local unpack, select = unpack, select
 local format, strmatch = string.format, string.match
+--WoW API / Variables
+local CreateFrame = CreateFrame
+local GetInventoryItemQuality = GetInventoryItemQuality
+local GetItemQualityColor = GetItemQualityColor
+local GetTime = GetTime
+local GetWeaponEnchantInfo = GetWeaponEnchantInfo
+local hooksecurefunc = hooksecurefunc
+local UnitAura = UnitAura
+local UnitBuff = UnitBuff
+local UnitDebuff = UnitDebuff
+local CUSTOM_CLASS_COLORS = CUSTOM_CLASS_COLORS
+local DebuffTypeColor = DebuffTypeColor
+local RAID_CLASS_COLORS = RAID_CLASS_COLORS
+
 
 local inversePoints = {
 	TOP = 'BOTTOM',
@@ -21,7 +39,6 @@ VAT.TimeFormats = {
 	[2] = { '%d', 'm' }, -- minutes
 	[3] = { '%d', 's' }, -- seconds
 	[4] = { '%.1f', 's' },  -- seconds below decimal threshold
-	[5] = { '%d', ' %02d', 'h', 'm' }, -- ExactAuras support
 }
 
 -- Text color for value text: days, hours, minutes, seconds, seconds below decimal threshold
@@ -31,7 +48,6 @@ VAT.TimeColors = {
 	[2] = '|cffeeeeee',
 	[3] = '|cffeeeeee',
 	[4] = '|cfffe0000',
-	[5] = '|cffeeeeee', --ExactAuras support
 }
 
 -- Text color for indicators: d (days), h (hours), m (minutes), s (seconds), s (seconds, below decimal threshold)
@@ -41,7 +57,6 @@ VAT.IndicatorColors = {
 	[2] = '|cff00b3ff',
 	[3] = '|cff00b3ff',
 	[4] = '|cff00b3ff',
-	[5] = '|cff00b3ff', --ExactAuras support
 }
 
 function VAT:CreateBar(button)
@@ -136,7 +151,8 @@ function VAT:UpdateAura(button, index)
 			button.Bar:SetValue(max)
 			if E.db.VAT.enableStaticColor then
 				local color = E.db.VAT.staticColor
-				button.Bar:SetStatusBarColor(color.r, color.g, color.b)
+				local r, g, b = VAT:GetStaticColor(color.r, color.g, color.b) --Checks for class color match
+				button.Bar:SetStatusBarColor(r, g, b)
 			else
 				button.Bar:SetStatusBarColor(0, 0.8, 0)
 			end
@@ -146,9 +162,8 @@ function VAT:UpdateAura(button, index)
 	end
 
 	-- Toggle Visual Timer and Text Timer
-	-- For auras with no duration
 	local timeLeft = button.timeLeft_
-	if not timeLeft then
+	if not timeLeft then -- For auras with no duration
 		if enable then -- Toggle visual timer
 			-- If 'No Duration' is disabled then hide statusbar on auras with no duration
 			if not noduration then
@@ -192,7 +207,7 @@ function VAT:UpdateAura(button, index)
 		button.Bar:SetValue(timeLeft)
 		if E.db.VAT.enableStaticColor then
 			local color = E.db.VAT.staticColor
-			r, g, b = color.r, color.g, color.b
+			r, g, b = VAT:GetStaticColor(color.r, color.g, color.b) --Checks for class color match
 		else
 			r, g, b = ElvUF.ColorGradient(timeLeft, duration or 0, 0.8,0,0,0.8,0.8,0,0,0.8,0)
 		end
@@ -227,8 +242,8 @@ function VAT:UpdateTempEnchant(button, index)
 	end
 
 	local timeLeft = button.timeLeft
+	local duration
 	if timeLeft then
-		local duration
 		-- Here we try to figure out the maximum duration of the weapon enchant
 		-- If less than 1 hour and higher than 30 minutes set max duration to 1 hour
 		if timeLeft <= 3600.5 and timeLeft > 1800.5 then
@@ -251,7 +266,8 @@ function VAT:UpdateTempEnchant(button, index)
 		button.Bar:SetValue(max)
 		if E.db.VAT.enableStaticColor then
 			local color = E.db.VAT.staticColor
-			button.Bar:SetStatusBarColor(color.r, color.g, color.b)
+			local r, g, b = VAT:GetStaticColor(color.r, color.g, color.b) --Checks for class color match
+			button.Bar:SetStatusBarColor(r, g, b)
 		else
 			button.Bar:SetStatusBarColor(0, 0.8, 0)
 		end
@@ -305,7 +321,7 @@ function VAT:UpdateTempEnchant(button, index)
 			button.Bar:SetValue(timeLeft)
 			if E.db.VAT.enableStaticColor then
 				local color = E.db.VAT.staticColor
-				r, g, b = color.r, color.g, color.b
+				r, g, b = VAT:GetStaticColor(color.r, color.g, color.b) --Checks for class color match
 			else
 				r, g, b = ElvUF.ColorGradient(timeLeft, duration or 0, 0.8,0,0,0.8,0.8,0,0,0.8,0)
 			end
@@ -378,11 +394,7 @@ function VAT:UpdateTime(elapsed)
 
 	local timerValue, formatID
 	timerValue, formatID, self.nextUpdate = E:GetTimeInfo(self.timeLeft, E.db.VAT.decimalThreshold)
-	if type(timerValue) == 'string' then --ExactAuras support
-		self.time:SetFormattedText(VAT:FormatString(timerValue, formatID))
-	else
-		self.time:SetFormattedText(("%s%s|r%s%s|r"):format(VAT.TimeColors[formatID], VAT.TimeFormats[formatID][1], VAT.IndicatorColors[formatID], VAT.TimeFormats[formatID][2]), timerValue)
-	end
+	self.time:SetFormattedText(("%s%s|r%s%s|r"):format(VAT.TimeColors[formatID], VAT.TimeFormats[formatID][1], VAT.IndicatorColors[formatID], VAT.TimeFormats[formatID][2]), timerValue)
 
 	if self.timeLeft > E.db.auras.fadeThreshold then
 		E:StopFlash(self)
@@ -391,22 +403,22 @@ function VAT:UpdateTime(elapsed)
 	end
 end
 
-function VAT:FormatString(str, formatID)
-	local a,b,c,d = strmatch(str, "(%d+)(%a)%s(%d+)(%a)") --Credit Cutepally
-	if a and b == 'h' and c and d == 'm' then
-		local formatString = format("%s%s|r%s%s|r%s%s|r%s%s|r", VAT.TimeColors[formatID], VAT.TimeFormats[formatID][1], VAT.IndicatorColors[formatID], VAT.TimeFormats[formatID][3], VAT.TimeColors[formatID], VAT.TimeFormats[formatID][2], VAT.IndicatorColors[formatID], VAT.TimeFormats[formatID][4])
-		return formatString, tonumber(a), tonumber(c)
+--Check if a class color is being used and then return the color matching the current class
+function VAT:GetStaticColor(r, g, b)
+	if E:CheckClassColor(r, g, b) then
+		local classColor = E.myclass == 'PRIEST' and E.PriestColors or (CUSTOM_CLASS_COLORS and CUSTOM_CLASS_COLORS[E.myclass] or RAID_CLASS_COLORS[E.myclass])
+		E.db.VAT.staticColor.r = classColor.r
+		E.db.VAT.staticColor.g = classColor.g
+		E.db.VAT.staticColor.b = classColor.b
+		return classColor.r, classColor.g, classColor.b
 	end
+
+	return r, g, b
 end
 
 function VAT:UpdateTimerColors()
 	local c, c2
 
-	--color for timers shown in the HH:MM format (ExactAuras support)
-	c, c2 = E.db.VAT.colors.hourminutes, E.db.VAT.colors.hourminutesIndicator
-	VAT.TimeColors[5] = E:RGBToHex(c.r, c.g, c.b)
-	VAT.IndicatorColors[5] = E:RGBToHex(c2.r, c2.g, c2.b)
-	
 	-- colors for timers that are soon to expire
 	c, c2 = E.db.VAT.colors.expire, E.db.VAT.colors.expireIndicator
 	VAT.TimeColors[4] = E:RGBToHex(c.r, c.g, c.b)

@@ -63,8 +63,9 @@ L["yells"] = "grita"
 
 --DataBars
 L["Current Level:"] = true;
-L["Honor XP:"] = true;
 L["Honor Remaining:"] = true;
+L["Honor XP:"] = true;
+L["In Bags:"] = true;
 
 --DataTexts
 L["(Hold Shift) Memory Usage"] = "(Segurar Shift) Memória em Uso"
@@ -255,6 +256,7 @@ L["FocusTarget Frame"] = "Quadro do Alvo do Foco"
 L["GM Ticket Frame"] = "Quadro de Consulta com GM"
 L["Honor Bar"] = true;
 L["Left Chat"] = "Bate-papo esquerdo"
+L["Level Up Display / Boss Banner"] = true;
 L["Loot / Alert Frames"] = "Quadro de Saque / Alerta"
 L["Loot Frame"] = true;
 L["Loss Control Icon"] = "Ícone de Perda de Controle"

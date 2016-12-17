@@ -536,7 +536,7 @@ function module.main:ADDON_LOADED()
 	end
 	
 	if VExRT.Arrow.Fix then
-		frame:SetMovable(false)
+		--frame:SetMovable(false)
 	end
 	
 	if VExRT.Arrow.Alpha then frame:SetAlpha(VExRT.Arrow.Alpha/100) end

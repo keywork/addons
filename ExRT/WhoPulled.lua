@@ -3,6 +3,8 @@ local GlobalAddonName, ExRT = ...
 local module = ExRT.mod:New("WhoPulled",ExRT.L.WhoPulled,nil,true)
 local ELib,L = ExRT.lib,ExRT.L
 
+local bit_band, UnitAffectingCombat, IsEncounterInProgress = bit.band, UnitAffectingCombat, IsEncounterInProgress
+
 module.db.lastPull = nil
 module.db.lastBossName = nil
 module.db.whoPulled = nil
@@ -36,6 +38,8 @@ end
 
 function module.main:ADDON_LOADED()
 	module:RegisterEvents('ENCOUNTER_START')
+	module:RegisterEvents('ZONE_CHANGED_NEW_AREA')
+	module.main:ZONE_CHANGED_NEW_AREA()
 end
 
 local bossUnits = {["boss1"]=true,["boss2"]=true,["boss3"]=true,["boss4"]=true,["boss5"]=true,}
@@ -44,11 +48,25 @@ local function Unregister()
 	module:UnregisterEvents('UNIT_TARGET')
 end
 
+local affectedCombat = nil
+
 function module.main:ENCOUNTER_START(encounterID, encounterName, difficultyID, groupSize)
 	module.db.whoPulled = nil
 	module.db.isPet = nil
 	module.db.lastPull = time()
 	module.db.lastBossName = encounterName
+	if affectedCombat then
+		module.db.whoPulled = affectedCombat
+	else
+		C_Timer.After(1,function()
+			if affectedCombat then
+				module.db.whoPulled = affectedCombat
+			end
+		end)
+	end
+	if true then
+		return
+	end
 	for boss,_ in pairs(bossUnits) do
 		local tGUID = UnitGUID(boss.."target")
 		if tGUID and ExRT.F.Pets:getOwnerNameByGUID(tGUID) then
@@ -81,4 +99,37 @@ function module.main:UNIT_TARGET(unit)
 			module:UnregisterEvents('UNIT_TARGET')
 		end
 	end
+end
+
+local function ZoneNewFunction()
+	local _, zoneType, difficulty, _, _, _, _, mapID = GetInstanceInfo()
+	if zoneType == "raid" or zoneType == "party" then
+		module:RegisterEvents('UNIT_FLAGS','PLAYER_REGEN_DISABLED','PLAYER_REGEN_ENABLED')
+	else
+		module:UnregisterEvents('UNIT_FLAGS','PLAYER_REGEN_DISABLED','PLAYER_REGEN_ENABLED')
+	end
+end
+
+function module.main:ZONE_CHANGED_NEW_AREA()
+	ExRT.F.ScheduleTimer(ZoneNewFunction, 2)
+end
+
+local function ClearAffectedCombat()
+	affectedCombat = nil
+end
+
+function module.main:UNIT_FLAGS(unit)
+	if not affectedCombat and UnitAffectingCombat(unit) and (unit:find("^raid") or unit:find("^party")) then
+		affectedCombat = UnitName(unit)
+		--print('Combat',affectedCombat)
+		C_Timer.After(2,ClearAffectedCombat)
+	end
+end
+
+function module.main:PLAYER_REGEN_DISABLED(unit)
+	module:UnregisterEvents('UNIT_FLAGS')
+end
+
+function module.main:PLAYER_REGEN_ENABLED(unit)
+	ZoneNewFunction()
 end

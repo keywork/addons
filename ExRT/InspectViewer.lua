@@ -22,17 +22,12 @@ module.db.artifactDB = parentModule.db.artifactDB
 module.db.statsList = {'intellect','agility','strength','spirit','haste','mastery','crit','spellpower','multistrike','versatility','armor','leech','avoidance','speed'}
 module.db.statsListName = {L.InspectViewerInt,L.InspectViewerAgi,L.InspectViewerStr,L.InspectViewerSpirit,L.InspectViewerHaste,L.InspectViewerMastery,L.InspectViewerCrit,L.InspectViewerSpd, L.InspectViewerMS, L.InspectViewerVer, L.InspectViewerBonusArmor, L.InspectViewerLeech, L.InspectViewerAvoidance, L.InspectViewerSpeed}
 
-module.db.baseStats = ExRT.isLegionContent and {	--By class IDs
+module.db.baseStats = {	--By class IDs
 	strength =  {	10232,	10232,	6231,	8481,	5929,	10232,	4042,	4550,	3875,	4402,	4042,	8481,	},
 	agility =   {	6252,	3200,	9030,	9030,	7504,	7532,	9030,	6252,	6927,	9030,	9030,	9030,	},
 	intellect = {	5000,	7328,	6006,	5000,	7328,	4002,	7328,	7328,	7328,	7328,	7328,	5000,	},
 	spirit =    {	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	0,	},
 		--	WARRIOR,PALADIN,HUNTER,	ROGUE,	PRIEST,	DK,	SHAMAN,	MAGE,	WARLOCK,MONK,	DRUID,	DH,
-} or { --By class IDs
-	agility = {889,455,1284,1284,1067,1071,1284,889,985,1284,1284,0},
-	strength = {1455,1455,886,1206,843,1455,626,647,551,626,626,0},
-	spirit = {679,782,711,533,782,640,782,1155,1155,782,782,0},
-	intellect = {711,1042,854,711,1042,569,1042,1042,1042,1042,1042,0},
 }
 module.db.raceList = {'Human','Dwarf','Night Elf','Orc','Tauren','Undead','Gnome','Troll','Blood Elf','Draenei','Goblin','Worgen','Pandaren'}
 module.db.raceStatsDiffs = {
@@ -42,8 +37,6 @@ module.db.raceStatsDiffs = {
 	spirit =    {	0,	-1,	0,	2,	2,	5,	0,	1,	-2,	2,	-2,	-1,	2,	},
 		--	Human,	Dwarf,	NElf,	Orc,	Tauren,	Undead,	Gnome,	Troll,	BElf,	Draenei,Goblin,	Worgen,	Pandaren
 }
-
-module.db.statsMultiplayBySpec = {}
 
 module.db.armorType = ExRT.GDB.ClassArmorType
 module.db.roleBySpec = ExRT.GDB.ClassSpecializationRole
@@ -71,7 +64,7 @@ module.db.socketsBonusIDs = {
 	[1808]=true,
 }
 
-module.db.topEnchGems = ExRT.isLegionContent and {
+module.db.topEnchGems = {
 	[5427]="Ring:Crit:200",
 	[5428]="Ring:Haste:200",
 	[5429]="Ring:Mastery:200",
@@ -105,60 +98,6 @@ module.db.topEnchGems = ExRT.isLegionContent and {
 	[130246]="Gem:Str:200",
 	[130247]="Gem:Agi:200",
 	[130248]="Gem:Int:200",
-} or {
-	[5306]="Ring:Vers",
-	[5324]="Ring:Crit",
-	[5325]="Ring:Haste",
-	[5326]="Ring:Mastery",
-	[5327]="Ring:MS",
-	[5328]="Ring:Vers",
-	
-	[5310]="Cloak:Crit",
-	[5311]="Cloak:Haste",
-	[5312]="Cloak:Mastery",
-	[5313]="Cloak:MS",
-	[5314]="Cloak:Vers",
-	
-	[5317]="Neck:Crit",
-	[5318]="Neck:Haste",
-	[5319]="Neck:Mastery",
-	[5320]="Neck:MS",
-	[5321]="Neck:Vers",
-
-	[5330]="Weapon:Crit",
-	[5334]="Weapon:MS",
-	[5335]="Weapon:Spirit",
-	[5336]="Weapon:Armor",
-	[5337]="Weapon:Haste",
-	[5384]="Weapon:Mastery",
-	[5383]="Gun:Mastery",
-	[5276]="Gun:Crit",
-	[5275]="Gun:MS",
-	[3366]="Weapon:DK",
-	[3367]="Weapon:DK",
-	[3368]="Weapon:DK",
-	[3370]="Weapon:DK",
-
-	--[5346]="Gem:Crit",
-	--[5347]="Gem:Haste",
-	--[5348]="Gem:Mastery",
-	--[5349]="Gem:MS",
-	--[5350]="Gem:Vers",
-	--[5351]="Gem:Stamina",
-	
-	[5413]="Gem:Crit",
-	[5414]="Gem:Haste",
-	[5415]="Gem:Mastery",
-	[5416]="Gem:MS",
-	[5417]="Gem:Vers",
-	[5418]="Gem:Stamina",
-	
-	[127760]="Gem:Crit",
-	[127761]="Gem:Haste",
-	[127762]="Gem:Mastery",
-	[127763]="Gem:MS",
-	[127764]="Gem:Vers",
-	[127765]="Gem:Stamina",
 }
 
 module.db.achievementsList = {
@@ -342,24 +281,24 @@ function module.options:Load()
 		module.options.showPage()
 	end
 	
-	self.chkItems = ELib:Radio(self,L.InspectViewerItems,true):Point(10,-28):OnClick(reloadChks)
+	self.chkItems = ELib:Radio(self,L.InspectViewerItems,true):Point(10,-28):AddButton():OnClick(reloadChks)
 	self.chkItems.id = 1
 	
-	self.chkTalents = ELib:Radio(self,L.InspectViewerTalents):Point(135,-28):OnClick(reloadChks)
+	self.chkTalents = ELib:Radio(self,L.InspectViewerTalents):Point(135,-28):AddButton():OnClick(reloadChks)
 	self.chkTalents.id = 2
 
-	self.chkInfo = ELib:Radio(self,L.InspectViewerInfo):Point(260,-28):OnClick(reloadChks)
+	self.chkInfo = ELib:Radio(self,L.InspectViewerInfo):Point(260,-28):AddButton():OnClick(reloadChks)
 	self.chkInfo.id = 3
 
-	self.chkAchivs = ELib:Radio(self,ACHIEVEMENTS):Point(385,-28):OnClick(reloadChks)
+	self.chkAchivs = ELib:Radio(self,ACHIEVEMENTS):Point(385,-28):AddButton():OnClick(reloadChks)
 	self.chkAchivs.id = 4
 	
-	self.chkArtifact = ELib:Radio(self,ARTIFACT_POWER):Point(385,-28+25):OnClick(reloadChks)
+	self.chkArtifact = ELib:Radio(self,ARTIFACT_POWER):Point(385,-28+25):AddButton():OnClick(reloadChks)
 	self.chkArtifact.id = 5
 	
 	do
 		local text = RELIC_TOOLTIP_TYPE:gsub(" %(.+$","")
-		self.chkRelics = ELib:Radio(self,text):Point(260,-28+25):OnClick(reloadChks)
+		self.chkRelics = ELib:Radio(self,text):Point(260,-28+25):AddButton():OnClick(reloadChks)
 		self.chkRelics.id = 6
 	end
 	
@@ -376,8 +315,8 @@ function module.options:Load()
 	module.db.colorizeLowIlvl685 = VExRT.InspectViewer.ColorizeLowIlvl685
 	module.db.colorizeNoValorUpgrade = VExRT.InspectViewer.ColorizeNoValorUpgrade
 	
-	local colorizeLowIlvl630 = ExRT.isLegionContent and 840 or 630
-	local colorizeLowIlvl685 = ExRT.isLegionContent and 865 or 685
+	local colorizeLowIlvl630 = 860
+	local colorizeLowIlvl685 = 880
 	
 	self.chkItemsTrackDropDown = ELib:DropDown(self,300,7):Point(50,0):Size(50)
 	self.chkItemsTrackDropDown:Hide()
@@ -749,11 +688,11 @@ function module.options:Load()
 									end
 									line.items[j].text:SetText("|c"..(itemColor or "ffffffff")..(itemLevel or ""))
 									
-									if (enchantID == 0 and (slotID == 2 or slotID == 15 or slotID == 11 or slotID == 12 or (not ExRT.isLegionContent and (slotID == 16 or (module.db.specHasOffhand[spec or 0] and slotID == 17)))) and module.db.colorizeNoEnch) or
+									if (enchantID == 0 and (slotID == 2 or slotID == 15 or slotID == 11 or slotID == 12) and module.db.colorizeNoEnch) or
 										(items_ilvl[slotID] and items_ilvl[slotID] > 0 and items_ilvl[slotID] < colorizeLowIlvl630 and module.db.colorizeLowIlvl) or
 										(module.db.colorizeNoGems and ExRT.F.IsBonusOnItem(item,module.db.socketsBonusIDs) and IsItemHasNotGem(item)) or 
 										(module.db.colorizeNoGems and (slotID == 16 or slotID == 17) and itemQuality == 6 and IsArtifactItemHasNot3rdGem(item)) or 
-										(module.db.colorizeNoTopEnchGems and not IsTopEnchAndGems(item) and not ((slotID == 16 or slotID == 17) and itemQuality == 6) and not (slotID == 3)) or
+										(module.db.colorizeNoTopEnchGems and not IsTopEnchAndGems(item) and (slotID == 2 or slotID == 15 or slotID == 11 or slotID == 12)) or
 										(module.db.colorizeNoValorUpgrade and not IsValorUpgraded(item)) or
 										(items_ilvl[slotID] and items_ilvl[slotID] > 0 and items_ilvl[slotID] < colorizeLowIlvl685 and module.db.colorizeLowIlvl685)
 										then
@@ -1045,6 +984,16 @@ function module.options:Load()
 					line.spec.texture:SetTexture("Interface\\Icons\\INV_MISC_QUESTIONMARK")
 					line.spec.id = nil
 					line.ilvl:SetText("")
+					
+					line.relic1:SetText("")
+					line.relic2:SetText("")
+					line.relic3:SetText("")
+					
+					line.updateAP:Hide()
+					
+					line.refreshArtifact:Hide()
+					
+					line.apinfo:SetText("")
 					
 					line.back:SetGradientAlpha("HORIZONTAL", 0, 0, 0, 0.5, 0, 0, 0, 0)
 				end
@@ -1852,10 +1801,7 @@ function module.options:Load()
 	
 		PerksTab.Model:SetModelDrawLayer(data.aTop and "BORDER" or "ARTWORK")
 		PerksTab.AltModel:SetModelDrawLayer(data.aTop and "ARTWORK" or "BORDER")
-	
-		PerksTab.Model:SetSuppressGlobalAnimationTrack(data.gAnim)
-		PerksTab.AltModel:SetSuppressGlobalAnimationTrack(data.gAnim)
-		
+
 		if data.aID and data.aUiCam then
 			PerksTab.AltModel.uiCameraID = data.aUiCam
 			PerksTab.AltModel.desaturation = data.mDes

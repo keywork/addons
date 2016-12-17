@@ -442,9 +442,14 @@ local function RaftBergCheck(info, buff, need, itemid)
 	if (GSB(info.option.setting) and need) then
 		return false;
 	end
-	local _, _, _, _, _, _, et, _, _, _, _ = UnitBuff("player", buff);
-	et = (et or 0) - GetTime();
-	if (need or et <= RAFT_RESET_TIME) then
+
+	if (info.time) then
+		local _, _, _, _, _, _, et, _, _, _, _ = UnitBuff("player", buff);
+		et = (et or 0) - GetTime();
+		need = (et <= info.time);
+	end
+
+	if (need) then
 		if (info.toy) then
 			_, itemid = C_ToyBox.GetToyInfo(itemid)
 		end
@@ -488,6 +493,20 @@ local function IsQuestFishing(item)
 			return true;
 		end
 	end
+end
+
+local function CanUseFishingItem(setting, items)
+	if (GSB(setting)) then
+		local foundone = false;
+		for id,info in pairs(items) do
+			foundone = true;
+			if (FL:HasBuff(info.buff)) then
+				return false;
+			end
+		end
+		return foundone;
+	end
+	return false;
 end
 
 local FishingItems = {};
@@ -551,6 +570,12 @@ FishingItems[116755] = {
 	spell = 171740,
 	usable = IsQuestFishing,
 };
+-- Special bobbers
+local Bobbers = {}
+local function CanUseSpecialBobber()
+	return CanUseFishingItem("SpecialBobbers", Bobbers) and not FL:HasBuff(FishingItems[136377].buff);
+end
+
 FishingItems[136377] = {
 	["enUS"] = "Oversized Bobber",
 	setting = "UseOversizedBobber",
@@ -558,21 +583,87 @@ FishingItems[136377] = {
 	visible = function(option)
 			return true;
 		end,
+	usable = CanUseSpecialBobber,
 	["default"] = true,
+};
+
+local function PickRandomBait(info, buff, doit, itemid)
+	local baits = {};
+	for id,info in pairs(Bobbers) do
+		if (PlayerHasToy(id)) then
+			local start, duration, enable = GetItemCooldown(id);
+			local et = (start + duration) - GetTime();
+			if (et <= 0) then
+				_, id = C_ToyBox.GetToyInfo(id);
+				tinsert(baits, id);
+			end
+		end
+	end
+	if (#baits > 0) then
+		return true, baits[math.random(1, #baits)], nil;
+	else
+		return false, nil, nil;
+	end
+end
+
+Bobbers[142531] = {
+	["enUS"] = "Duck Bobber",
+	setting = "SpecialBobbers",
+	spell = 231341,
+	toy = 1,
+	usable = CanUseSpecialBobber,
+	check = PickRandomBait,
+	ignore = true,
+};
+Bobbers[142532] = {
+	["enUS"] = "Murloc Bobber",
+	setting = "SpecialBobbers",
+	spell = 231349,
+	toy = 1,
+	usable = CanUseSpecialBobber,
+	check = PickRandomBait,
+	ignore = true,
+};
+Bobbers[143662] = {
+	["enUS"] = "Wooden Pepe Bobber",
+	setting = "SpecialBobbers",
+	spell = 232613,
+	toy = 1,
+	usable = CanUseSpecialBobber,
+	check = PickRandomBait,
+	ignore = true,
+};
+Bobbers[142530] = {
+	["enUS"] = "Tugboat Bobber",
+	setting = "SpecialBobbers",
+	spell = 231338,
+	toy = 1,
+	usable = CanUseSpecialBobber,
+	check = PickRandomBait,
+	ignore = true,
+};
+Bobbers[142529] = {
+	["enUS"] = "Toy Cat Head Bobber",
+	setting = "SpecialBobbers",
+	spell = 231319,
+	usable = CanUseSpecialBobber,
+	check = PickRandomBait,
+	ignore = true,
+};
+Bobbers[142528] = {
+	["enUS"] = "Can of Worms Bobber",
+	setting = "SpecialBobbers",
+	spell = 231291,
+	toy = 1,
+	usable = CanUseSpecialBobber,
+	check = PickRandomBait,
+	ignore = true,
 };
 
 -- Dalaran coin lures
 local CoinLures = {};
 local function CanUseCoinLure()
-	if (GSB("DalaranLures")) then
-		for id,info in pairs(CoinLures) do
-			if (FL:HasBuff(GetSpellInfo(info.spell))) then
-				return false;
-			end
-		end
-		return true;
-	end
-	return false;
+	return CanUseFishingItem("DalaranLures", CoinLures);
 end
 
 CoinLures[138956] = {
@@ -631,12 +722,6 @@ CoinLures[138958] = {
 	usable = CanUseCoinLure,
 	ignore = true,
 };
-
-local function SetupCoinLures()
-	for id,info in pairs(CoinLures) do
-		FishingItems[id] = info;
-	end
-end
 
 local seascorpion = {
 	["Shadowmoon Valley (Draenor)"] = {
@@ -726,8 +811,13 @@ local function CheckSpecialBait(info, buff, need)
 	if (SpecialBait[continent]) then
 		if ( GSB("DraenorBaitMaintainOnly") and LastSpecialBait ) then
 			return true, LastSpecialBait;
-		elseif (not FL:HasBuff(GetSpellInfo(info.spell))) then
-			return true, info.id;
+		else
+			if (not info.buff) then
+				info.buff = GetSpellInfo(info.spell);
+			end
+			if (not FL:HasBuff(info.buff)) then
+				return true, info.id;
+			end
 		end
 	end
 end
@@ -885,6 +975,7 @@ local RaftOptions = {
 	spell = 124036,
 	toy = 1,
 	always = 1, -- this is now a toy!
+	time = RAFT_RESET_TIME,
 	setting = "UseAnglersRaft",
 	usable = RaftBergUsable,
 	check = RaftBergCheck,
@@ -902,6 +993,7 @@ local BergOptions = {
 	["tooltip"] = FBConstants.CONFIG_BOBBINGBERG_INFO,
 	itemid = 107950;
 	spell = 152421,
+	time = RAFT_RESET_TIME,
 	setting = "UseBobbingBerg",
 	usable = RaftBergUsable,
 	check = RaftBergCheck,
@@ -1044,6 +1136,18 @@ local function UpdateItemOptions()
 	FishingBuddy.FluffOptions = FluffOptions;
 end
 
+local function SetupSpecialItem(info)
+	info.buff = GetSpellInfo(info.spell);
+	return info;
+end
+
+local function SetupSpecialItems(items)
+	for id,info in pairs(items) do
+		info = SetupSpecialItem(info);
+		items[id] = info;
+	end
+end
+
 FluffEvents["VARIABLES_LOADED"] = function(started)
 	local pet = FishingBuddy.GetSetting(PETSETTING);
 
@@ -1075,7 +1179,10 @@ FluffEvents["VARIABLES_LOADED"] = function(started)
 	FishingPetsMenuHolder:SetPoint("TOP", FishingPetFrameButton, "BOTTOM", 0, 8);
 	FishingPetsMenuHolder:Hide();
 
-	SetupCoinLures();
+	SetupSpecialItems(CoinLures);
+	SetupSpecialItems(Bobbers);
+	-- Setup Oversized Bobber buff
+	SetupSpecialItem(FishingItems[136377]);
 
 	-- we have to wait until the toys are actually available
 	local toydelayframe = CreateFrame("Frame");

@@ -63,8 +63,9 @@ L["yells"] = "schreien"
 
 --DataBars
 L["Current Level:"] = "Derzeitiges Level:"
-L["Honor XP:"] = "Ehre XP:"
 L["Honor Remaining:"] = "Ehre verbleibend:"
+L["Honor XP:"] = "Ehre XP:"
+L["In Bags:"] = "In Tasche:"
 
 --DataTexts
 L["(Hold Shift) Memory Usage"] = "(Shift gedrückt) Speichernutzung"
@@ -255,6 +256,7 @@ L["FocusTarget Frame"] = "Fokus-Ziel Fenster" --Also used in UnitFrames
 L["GM Ticket Frame"] = "GM-Ticket-Fenster"
 L["Honor Bar"] = "Ehreleiste"
 L["Left Chat"] = "Linker Chat"
+L["Level Up Display / Boss Banner"] = "Level Up Anzeige / Boss Banner"
 L["Loot / Alert Frames"] = "Beute-/Alarmfenster"
 L["Loot Frame"] = "Beute-Fenster"
 L["Loss Control Icon"] = "Kontrollverlustsymbol"

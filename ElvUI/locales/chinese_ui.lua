@@ -63,8 +63,9 @@ L["yells"] = "大喊"
 
 --DataBars
 L["Current Level:"] = "当前等级:"
-L["Honor XP:"] = "荣誉值:"
 L["Honor Remaining:"] = "荣誉值剩余:"
+L["Honor XP:"] = "荣誉值:"
+L["In Bags:"] = true;
 
 --DataTexts
 L["(Hold Shift) Memory Usage"] = "(按住Shift) 内存占用"
@@ -255,6 +256,7 @@ L["FocusTarget Frame"] = "专注目标的目标框架"
 L["GM Ticket Frame"] = "GM 对话框"
 L["Honor Bar"] = "荣誉条"
 L["Left Chat"] = "左侧对话框"
+L["Level Up Display / Boss Banner"] = true;
 L["Loot / Alert Frames"] = "拾取 / 提醒框"
 L["Loot Frame"] = "拾取框架"
 L["Loss Control Icon"] = "失去控制图标"

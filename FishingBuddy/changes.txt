@@ -1,4 +1,17 @@
-﻿Version 1.7.11
+﻿Version 1.7.12b
+- Fix a data corruption bug
+- Don't overwrite special bobbers
+- Oversize bobber wins if they're in your inventory
+
+Version 1.7.12a
+-  Default drowned mana quests to false
+
+Version 1.7.12
+- Add support for new fishing bobbers
+- Temporarily remove macro support while it gets rewritten
+- Update support libraries
+
+Version 1.7.11
 - Update TOC
 
 Version 1.7.10

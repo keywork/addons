@@ -900,6 +900,9 @@ function WeakAuras.ConstructOptions(prototype, data, startorder, subPrefix, subS
           options[name] = nil;
           order = order - 1;
         end
+        if (arg.control) then
+          options[name].control = arg.control;
+        end
         order = order + 1;
         if(arg.type == "unit" and not (arg.required and triggertype == "untrigger")) then
           options["use_specific_"..name] = {
@@ -2306,7 +2309,8 @@ function WeakAuras.AddOption(id, data)
             name = L["Message Type"],
             order = 2,
             values = send_chat_message_types,
-            disabled = function() return not data.actions.start.do_message end
+            disabled = function() return not data.actions.start.do_message end,
+            control = "WeakAurasSortedDropdown"
           },
           start_message_space = {
             type = "execute",
@@ -2366,7 +2370,8 @@ function WeakAuras.AddOption(id, data)
             name = L["Sound"],
             order = 8,
             values = sound_types,
-            disabled = function() return not data.actions.start.do_sound end
+            disabled = function() return not data.actions.start.do_sound end,
+            control = "WeakAurasSortedDropdown"
           },
           start_sound_channel = {
             type = "select",
@@ -2486,7 +2491,8 @@ function WeakAuras.AddOption(id, data)
             name = L["Message Type"],
             order = 22,
             values = send_chat_message_types,
-            disabled = function() return not data.actions.finish.do_message end
+            disabled = function() return not data.actions.finish.do_message end,
+            control = "WeakAurasSortedDropdown"
           },
           finish_message_space = {
             type = "execute",
@@ -2546,7 +2552,8 @@ function WeakAuras.AddOption(id, data)
             name = L["Sound"],
             order = 28,
             values = sound_types,
-            disabled = function() return not data.actions.finish.do_sound end
+            disabled = function() return not data.actions.finish.do_sound end,
+            control = "WeakAurasSortedDropdown"
           },
           finish_sound_channel = {
             type = "select",
@@ -5263,6 +5270,7 @@ function WeakAuras.ReloadTriggerOptions(data)
           return status_types;
         end
       end,
+      control = "WeakAurasSortedDropdown",
       hidden = function() return not (trigger.type == "event" or trigger.type == "status"); end
     },
     subeventPrefix = {
@@ -6892,17 +6900,14 @@ function WeakAuras.CreateFrame()
   local iconPick = AceGUI:Create("InlineGroup");
   iconPick.frame:SetParent(frame);
   iconPick.frame:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", -17, 30); -- 12
-  iconPick.frame:SetPoint("TOPLEFT", frame, "TOPLEFT", 17, -10);
+  iconPick.frame:SetPoint("TOPLEFT", frame, "TOPLEFT", 17, -50);
   iconPick.frame:Hide();
   iconPick:SetLayout("flow");
   frame.iconPick = iconPick;
 
-  local iconPickScroll = AceGUI:Create("InlineGroup");
-  iconPickScroll:SetWidth(540);
+  local iconPickScroll = AceGUI:Create("ScrollFrame");
   iconPickScroll:SetLayout("flow");
-  iconPickScroll.frame:SetParent(iconPick.frame);
-  iconPickScroll.frame:SetPoint("BOTTOMLEFT", iconPick.frame, "BOTTOMLEFT", 10, 22); -- 30
-  iconPickScroll.frame:SetPoint("TOPRIGHT", iconPick.frame, "TOPRIGHT", -10, -70);
+  iconPick:AddChild(iconPickScroll);
 
   local function iconPickFill(subname, doSort)
     iconPickScroll:ReleaseChildren();
@@ -6933,14 +6938,14 @@ function WeakAuras.CreateFrame()
 
               usedIcons[icon] = true;
               num = num + 1;
-              if(num >= 60) then
+              if(num >= 500) then
                 break;
               end
             end
           end
         end
 
-        if(num >= 60) then
+        if(num >= 500) then
           break;
         end
       end
@@ -6953,7 +6958,7 @@ function WeakAuras.CreateFrame()
   iconPickInput:SetScript("OnEscapePressed", function(...) iconPickInput:SetText(""); iconPickFill(iconPickInput:GetText(), true); end);
   iconPickInput:SetWidth(170);
   iconPickInput:SetHeight(15);
-  iconPickInput:SetPoint("TOPRIGHT", iconPick.frame, "TOPRIGHT", -12, -65);
+  iconPickInput:SetPoint("BOTTOMRIGHT", iconPick.frame, "TOPRIGHT", -12, -5);
   WeakAuras.iconPickInput = iconPickInput;
 
   local iconPickInputLabel = iconPickInput:CreateFontString(nil, "OVERLAY", "GameFontNormal");
@@ -6964,7 +6969,7 @@ function WeakAuras.CreateFrame()
   local iconPickIcon = AceGUI:Create("WeakAurasIconButton");
   iconPickIcon.frame:Disable();
   iconPickIcon.frame:SetParent(iconPick.frame);
-  iconPickIcon.frame:SetPoint("TOPLEFT", iconPick.frame, "TOPLEFT", 15, -30);
+  iconPickIcon.frame:SetPoint("BOTTOMLEFT", iconPick.frame, "TOPLEFT", 15, -15);
 
   local iconPickIconLabel = iconPickInput:CreateFontString(nil, "OVERLAY", "GameFontNormalHuge");
   iconPickIconLabel:SetNonSpaceWrap("true");
@@ -7050,6 +7055,7 @@ function WeakAuras.CreateFrame()
   iconPickCancel:SetHeight(20);
   iconPickCancel:SetWidth(100);
   iconPickCancel:SetText(L["Cancel"]);
+  iconPickCancel:SetFrameLevel(100);
 
   local iconPickClose = CreateFrame("Button", nil, iconPick.frame, "UIPanelButtonTemplate");
   iconPickClose:SetScript("OnClick", iconPick.Close);
@@ -7057,6 +7063,7 @@ function WeakAuras.CreateFrame()
   iconPickClose:SetHeight(20);
   iconPickClose:SetWidth(100);
   iconPickClose:SetText(L["Okay"]);
+  iconPickClose:SetFrameLevel(100);
 
   iconPickScroll.frame:SetPoint("BOTTOM", iconPickClose, "TOP", 0, 10);
 
@@ -7500,6 +7507,7 @@ function WeakAuras.CreateFrame()
   importexportClose:SetHeight(20);
   importexportClose:SetWidth(100);
   importexportClose:SetText(L["Done"])
+  importexportClose:SetFrameLevel(100);
 
   function importexport.Open(self, mode, id)
     if(frame.window == "texture") then
@@ -7637,6 +7645,7 @@ function WeakAuras.CreateFrame()
   texteditorCancel:SetHeight(20);
   texteditorCancel:SetWidth(100);
   texteditorCancel:SetText(L["Cancel"]);
+  texteditorCancel:SetFrameLevel(100);
 
   local texteditorClose = CreateFrame("Button", nil, texteditor.frame, "UIPanelButtonTemplate");
   texteditorClose:SetScript("OnClick", function() texteditor:Close() end);
@@ -7644,6 +7653,7 @@ function WeakAuras.CreateFrame()
   texteditorClose:SetHeight(20);
   texteditorClose:SetWidth(100);
   texteditorClose:SetText(L["Done"]);
+  texteditorClose:SetFrameLevel(100);
 
   local texteditorError = texteditor.frame:CreateFontString(nil, "OVERLAY");
   texteditorError:SetFont("Fonts\\FRIZQT__.TTF", 10)
@@ -7885,6 +7895,7 @@ function WeakAuras.CreateFrame()
   codereviewCancel:SetHeight(20);
   codereviewCancel:SetWidth(100);
   codereviewCancel:SetText(L["Okay"]);
+  codereviewCancel:SetFrameLevel(100);
 
   function codereview.Open(self, data)
     if frame.window == "codereview" then

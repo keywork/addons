@@ -280,6 +280,13 @@ if arg2=="UNIT_DIED" and legionbosskilled==nil then
   if legionhraspisokon[5]==1 and legionhraachdone1 and UnitGUID("boss1") then
   local id=raGetUnitID(arg7)
   if id==98293 then
+	if (ratimerResetCount==nil) then
+		ratimerResetCount=GetTime()
+	end
+	if GetTime()-ratimerResetCount>3 then
+		ratimerResetCount=GetTime()
+		legionhracounter1=0
+	end
 	legionhracounter1=legionhracounter1+1
   end
   if legionhracounter1>10 then
@@ -321,7 +328,7 @@ end
 
 
 -- овердамаг, проверяю что убили моба
-if arg2=="SPELL_DAMAGE" and arg10==195033 and arg14>=0 then
+if arg2=="SPELL_DAMAGE" and (arg10==195033 or arg10==195036) and arg14>=0 then
   if legionhraspisokon[9]==1 and legionhraachdone1 and UnitGUID("boss1") then
   local id=raGetUnitID(arg7)
   if id==98246 then

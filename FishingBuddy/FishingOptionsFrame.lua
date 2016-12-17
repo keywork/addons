@@ -297,6 +297,39 @@ local function Slider_Create(info)
 end
 FishingBuddy.Slider_Create = Slider_Create;
 
+local function EditBox_OnShow(self)
+	local text = FishingBuddy.GetSetting(self.info.setting);
+	if (text) then
+		self:SetText(text);
+	end
+end
+
+local function EditBox_OnValueChanged(self)
+	local text = self:GetText();
+	FishingBuddy.SetSetting(self.info.setting, text);
+	if (self.info.action) then
+		self.info.action(self);
+	end
+end
+
+local function EditBox_Create(info)
+	local t = _G[info.name];
+	if (not t) then
+		t = CreateFrame("EditBox", info.name, nil);
+		t:SetMultiLine(false)
+		t:SetMaxLetters(info.max or 50)
+		t:SetAutoFocus(false)
+		t:SetFontObject(ChatFontNormal)
+		t:EnableMouse(true)
+		t.info = info;
+		t:SetHeight(info.height or 17);
+		t:SetWidth(info.width or 130);
+	end
+	t:SetScript("OnShow", EditBox_OnShow);
+	t:SetScript("OnValueChanged", EditBox_OnValueChanged);
+end
+FishingBuddy.EditBox_Create = EditBox_Create;
+
 local overlaybuttons = {};
 local optionbuttons = {};
 local optionmap = {};
@@ -847,7 +880,6 @@ local function UpdateTabs()
 end
 
 local INV_MISC_QUESTIONMARK = "Interface\\Icons\\INV_Misc_QuestionMark";
-local GENERAL_ICON = "Interface\\Icons\\INV_Misc_QuestionMark";
 local function ProcessOptions(name, icon, options, setter, getter, last)
 	local index = #tabbuttons + 1;
 	local handler = {};

@@ -109,7 +109,7 @@ local QuestOptions = {
 		["text"] = FBConstants.CONFIG_DROWNEDMANA_ONOFF,
 		["tooltip"] = FBConstants.CONFIG_DROWNEDMANA_INFO,
 		["v"] = 1,
-		["default"] = true,
+		["default"] = false,
 		["parents"] = { ["HandleQuests"] = "d", },
 	},
 }

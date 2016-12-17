@@ -8,6 +8,17 @@ local VExRT = nil
 local strsplit = strsplit
 
 module.db.spellsCoins = {
+	[232424] = L.bossName[1849], --7.0 Raid Nighthold - Bonus Roll Loot - Boss 01
+	[232426] = L.bossName[1865], --7.0 Raid Nighthold - Bonus Roll Loot - Boss 02
+	[232427] = L.bossName[1867], --7.0 Raid Nighthold - Bonus Roll Loot - Boss 03
+	[232428] = L.bossName[1871], --7.0 Raid Nighthold - Bonus Roll Loot - Boss 04
+	[232429] = L.bossName[1862], --7.0 Raid Nighthold - Bonus Roll Loot - Boss 05
+	[232430] = L.bossName[1886], --7.0 Raid Nighthold - Bonus Roll Loot - Boss 06
+	[232431] = L.bossName[1842], --7.0 Raid Nighthold - Bonus Roll Loot - Boss 07
+	[232432] = L.bossName[1863], --7.0 Raid Nighthold - Bonus Roll Loot - Boss 08
+	[232433] = L.bossName[1872], --7.0 Raid Nighthold - Bonus Roll Loot - Boss 09
+	[232434] = L.bossName[1866], --7.0 Raid Nighthold - Bonus Roll Loot - Boss 10
+
 	[221037] = L.bossName[1853], --7.0 Raid Nightmare Bonus Roll Loot - Boss 01
 	[221039] = L.bossName[1873], --7.0 Raid Nightmare Bonus Roll Loot - Boss 02
 	[221040] = L.bossName[1876], --7.0 Raid Nightmare Bonus Roll Loot - Boss 03

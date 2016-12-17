@@ -14,14 +14,12 @@ L['Changes the statusbar to use a static color instead of going from green to re
 L['Choose where you want the statusbar to be positioned. If you position it on the left or right side of the icon I advice you to increase Horizontal Spacing for Buffs and Debuffs. Changing this requires you to reload UI.'] = true;
 L['Choose which color you want the statusbar backdrops to use. Tip: use light colors for dark statusbar colors and vice versa.'] = true;
 L['Choose which color you want your statusbars to use.'] = true;
-L['Color when the text is in the HH:MM format (provided by the ExactAuras addon).'] = true;
 L["Debuffs Threshold"] = true;
 L["Debuffs"] = true;
 L["Decimal Threshold"] = true;
 L['Enable Static Color'] = true;
 L['General Options'] = true;
 L["Height of the statusbar frame (default: 5). Changing this requires you to reload UI."] = true;
-L['Hour/Minutes'] = true;
 L["If enabled, the timers on your buffs will switch to text when duration goes below set threshold."] = true;
 L["If enabled, the timers on your debuffs will switch to text when duration goes below set threshold."] = true;
 L["If enabled, the timers on your temporary enchant(s) will switch to text when duration goes below set threshold."] = true;

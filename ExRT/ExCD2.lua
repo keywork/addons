@@ -707,7 +707,7 @@ module.db.spell_charge_fix = {		--Спелы с зарядами
 module.db.spell_durationByTalent_fix = {	--Изменение длительности талантом\глифом   вид: [спелл] = {spellid глифа\таланта, изменение времени (-10;10;*0.5;*1.5)}
 	[52174] = {202163,3},
 	[167105] = {202612,16},
-	[31842] = {53376,"*1.5"},
+	[31842] = {53376,"*1.25"},
 	[781] = {109215,8},
 	[186257] = {199921,3},
 	[190925] = {109215,8},
@@ -2725,8 +2725,7 @@ do
 	local reviewID = 0
 	
 	function SortAllData()
-		local SortByAvailability = VExRT.ExCD2.SortByAvailability
-		if SortByAvailability then
+		if VExRT.ExCD2.SortByAvailability then
 			local currTime = GetTime()
 			local SortByAvailabilityActiveToTop = VExRT.ExCD2.SortByAvailabilityActiveToTop
 		  	for i=1,#_C do
@@ -2768,12 +2767,10 @@ do
 		  	else
 		  		sort(_C,sort_br)
 		  	end
+		elseif not VExRT.ExCD2.ReverseSorting then
+		  	sort(_C,sort_a)
 		else
-		  	if not VExRT.ExCD2.ReverseSorting then
-		  		sort(_C,sort_a)
-		  	else
-		  		sort(_C,sort_ar)
-		  	end
+		  	sort(_C,sort_ar)
 		end
 	end
 	
@@ -3646,6 +3643,12 @@ do
 	local function DispellSchedule(data)
 		if not module.db.spell_dispellsFix[ data.fullName ] then
 			data.cd = 0
+			local bar = data.bar
+			if bar and bar.data == data then
+				data.bar:UpdateStatus()
+			end
+			UpdateAllData()
+			SortAllData()
 		end
 		module.db.spell_dispellsFix[ data.fullName ] = nil
 	end
@@ -9328,123 +9331,6 @@ function moduleInspect.main:PLAYER_EQUIPMENT_CHANGED(arg)
 	Inspect_Artifact_PLAYER_EQUIPMENT_CHANGED(arg)
 end
 
--------------------------------------------
--------------                --------------
-------------- Legendary ring --------------
--------------                --------------
--------------------------------------------
-
-if not ExRT.isLegionContent then
-
-local module_legendary = ExRT.mod:New("LegendaryRing",ExRT.L.LegendaryRing,nil,true)
-
-local module_legendary_ring = nil
-
-function module_legendary.options:Load()
-	self:CreateTilte()
-
-	self.enableChk = ELib:Check(self,L.LegendaryRingEnable,VExRT.LegendaryRing.enabled):Point(5,-30):OnClick(function(self) 
-		if self:GetChecked() then
-			VExRT.LegendaryRing.enabled = true
-			module_legendary:RegisterEvents("COMBAT_LOG_EVENT_UNFILTERED")
-			module_legendary:RegisterAddonMessage()
-		else
-			VExRT.LegendaryRing.enabled = nil
-			module_legendary:UnregisterEvents("COMBAT_LOG_EVENT_UNFILTERED")
-			module_legendary:UnregisterAddonMessage()
-		end
-	end)
-	
-	self.typeChk = ELib:Check(self,L.LegendaryRingType,VExRT.LegendaryRing.ShowType):Point(5,-55):OnClick(function(self) 
-		if self:GetChecked() then
-			VExRT.LegendaryRing.ShowType = true
-		else
-			VExRT.LegendaryRing.ShowType = nil
-		end
-	end)
-	
-	self.raidWarningChk = ELib:Check(self,RAID_WARNING,VExRT.LegendaryRing.raidWarning):Point(5,-80):OnClick(function(self) 
-		if self:GetChecked() then
-			VExRT.LegendaryRing.raidWarning = true
-		else
-			VExRT.LegendaryRing.raidWarning = nil
-		end
-	end)	
-	
-
-end
-
-function module_legendary.main:ADDON_LOADED()
-	if not VExRT then
-		return
-	end
-	VExRT.LegendaryRing = VExRT.LegendaryRing or {}
-	
-	if VExRT.LegendaryRing.enabled then
-		module_legendary:RegisterAddonMessage()
-		module_legendary:RegisterEvents("COMBAT_LOG_EVENT_UNFILTERED")
-	end
-end
-
-do
-	local isSendByMe = true
-	local function SendToChat(name,ringtype)
-		if isSendByMe then
-			local chat_type,chat_tar = ExRT.F.chatType()
-			ringtype = VExRT.LegendaryRing.ShowType and ringtype
-			if chat_type == "RAID" and VExRT.LegendaryRing.raidWarning then
-				chat_type = "raid_warning"
-			elseif chat_type == "WHISPER" then
-				return
-			end
-			SendChatMessage(format("%s: %s",L.LegendaryRingFrodo,name)..(ringtype and " ["..ringtype.."]" or ""),chat_type,nil,chat_tar)
-		end
-	end
-	function module_legendary.Ring(name,ringtype)
-		if not VExRT.LegendaryRing or not VExRT.LegendaryRing.enabled then
-			return
-		end
-		isSendByMe = true
-		ExRT.F.ScheduleTimer(ExRT.F.SendExMsg, 0.15, "legendary","RING")
-		local dealy = ExRT.F.IsPlayerRLorOfficer(ExRT.SDB.charName) == 2 and 0.01 or 1.3
-		ExRT.F.ScheduleTimer(SendToChat, dealy, name, ringtype)
-	end
-	
-	function module_legendary:addonMessage(sender, prefix, sub_type)
-		if prefix == "legendary" then
-			if sender then
-				if ExRT.F.IsPlayerRLorOfficer(ExRT.SDB.charName) == 2 then
-					return
-				end
-				if sender < ExRT.SDB.charName or ExRT.F.IsPlayerRLorOfficer(sender) == 2 then
-					if sub_type == "RING" then
-						isSendByMe = nil
-					end
-				end
-			end
-		end
-	end
-end
-module_legendary_ring = module_legendary.Ring
-
-module_legendary.db.types = {
-	[187614] = DAMAGER,
-	[187615] = DAMAGER,
-	[187611] = DAMAGER,
-	[187613] = TANK,
-	[187612] = HEALER,
-} 
-function module_legendary.main:COMBAT_LOG_EVENT_UNFILTERED(_,_,event,_,sourceGUID,sourceName,_,_,_,_,_,_,spellID)
-	if event == "SPELL_CAST_SUCCESS" and (spellID == 187614 or spellID == 187615 or spellID == 187611 or spellID == 187613 or spellID == 187612) then
-		if not sourceName or not UnitName(sourceName) then
-			return
-		end
-		module_legendary_ring(sourceName,module_legendary.db.types[spellID])
-	end
-end
-
-end
-
 
 -------------------------------------------
 -------------                --------------
@@ -9526,6 +9412,7 @@ local function UpdateArtifactData()
 	if not C_ArtifactUI.GetEquippedArtifactInfo() then
 		return
 	end
+	UIParent:UnregisterEvent("ARTIFACT_UPDATE")
 	local isArtifactFrameShown = ArtifactFrame and ArtifactFrame:IsShown()
 	if not isArtifactFrameShown then
 		SocketInventoryItem(16)
@@ -9534,6 +9421,7 @@ local function UpdateArtifactData()
 	if not isArtifactFrameShown then
 		C_ArtifactUI.Clear()
 	end
+	UIParent:RegisterEvent("ARTIFACT_UPDATE")
 end
 
 do
@@ -9542,6 +9430,7 @@ do
 	C_ArtifactUI.GetTotalPurchasedRanks = function(...)
 		local arg1,arg2,arg3 = def(...)
 		if not arg1 then
+			C_ArtifactUI.Clear()
 			return 0
 		end
 		return arg1,arg2,arg3
@@ -9550,20 +9439,18 @@ end
 
 local artifactUIfixTimer
 local function artifactUI_CheckMajorFrames(self)
-	if (not WorldMapFrame or not WorldMapFrame:IsVisible()) and (not PlayerTalentFrame or not PlayerTalentFrame:IsVisible()) and (not OrderHallMissionFrame or not OrderHallMissionFrame:IsVisible()) then
+	if (not WorldMapFrame or not WorldMapFrame:IsVisible()) and (not PlayerTalentFrame or not PlayerTalentFrame:IsVisible()) and (not OrderHallMissionFrame or not OrderHallMissionFrame:IsVisible()) and (not MailFrame or not MailFrame:IsVisible()) then
 		if artifactUIfixTimer then
 			artifactUIfixTimer:Cancel()
 		end
 		if self then
 			self:Cancel()
 		end
-		
-		UIParent:UnregisterEvent("ARTIFACT_UPDATE")
-		C_Timer.After(.1,function()
-			UIParent:RegisterEvent("ARTIFACT_UPDATE")
-		end)
-		
+
+		ExRT.F.dprint('Check aftifact traits')
+			
 		UpdateArtifactData()
+		
 		return true
 	end
 end
@@ -9573,6 +9460,7 @@ artifactUIfix:RegisterEvent('LOADING_SCREEN_DISABLED')
 artifactUIfix:SetScript("OnEvent",function(self)
 	C_Timer.NewTimer(9,function()
 		artifactUIfixTimer = C_Timer.NewTicker(1,artifactUI_CheckMajorFrames)
+		artifactUIfixTimer.firstLoad = true
 		moduleInspect:RegisterEvents('ARTIFACT_XP_UPDATE')
 	end)
 	self:UnregisterAllEvents()
@@ -9624,11 +9512,18 @@ function moduleInspect.main:ENCOUNTER_START()
 	end)
 end
 
-function moduleInspect.main:ARTIFACT_XP_UPDATE()	
-	artifactUIfixTimer = nil
+local function Artifact_ScanTimer()
+	if artifactUIfixTimer then
+		artifactUIfixTimer:Cancel()
+	end
+	artifactUIfixTimer = nil	
 	if not artifactUI_CheckMajorFrames() then
 		artifactUIfixTimer = C_Timer.NewTicker(1,artifactUI_CheckMajorFrames)
 	end
+end
+
+function moduleInspect.main:ARTIFACT_XP_UPDATE()
+	Artifact_ScanTimer()
 end
 
 local function Inspect_ParseArtifactString(db,string)
@@ -9692,12 +9587,6 @@ function Inspect_Artifact_ADDON_LOADED()
 		Inspect_ParseArtifactString(db, data[1])
 		UpdateArtifactToTalentsData(player)
 	end
-	--LoadAddOn("Blizzard_ArtifactUI")
-	
-	--Rewrite default function, cuz GetTotalPurchasedRanks return nil after log on char
-	--function ArtifactUI_CanViewArtifact()
-	--	return C_ArtifactUI.IsAtForge() or (C_ArtifactUI.GetTotalPurchasedRanks() or 0) > 0 or C_ArtifactUI.GetNumObtainedArtifacts() > 1;
-	--end
 end
 
 local UpdateArtifactInfoTimer
@@ -9705,12 +9594,15 @@ function Inspect_Artifact_PLAYER_EQUIPMENT_CHANGED(slot)
 	if not (slot == 16 or slot == 17) then
 		return
 	end
+	if not moduleInspect.main:IsEventRegistered("ARTIFACT_XP_UPDATE") then	--OnLoad fix
+		return
+	end
 	if UpdateArtifactInfoTimer then
 		UpdateArtifactInfoTimer:Cancel()
 	end
 	UpdateArtifactInfoTimer = C_Timer.NewTimer(2,function()
 		UpdateArtifactInfoTimer = nil
-		UpdateArtifactData()
+		Artifact_ScanTimer()
 	end)
 end
 
@@ -9808,3 +9700,5 @@ function moduleInspect:addonMessage(sender, prefix, prefix2, ...)
 		end
 	end
 end
+
+

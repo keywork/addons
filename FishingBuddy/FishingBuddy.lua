@@ -89,26 +89,26 @@ local GeneralOptions = {
 		["v"] = 1,
 		["default"] = false,
 		["parents"] = { ["EnhanceFishingSounds"] = "d" }, },
-	["CreateMacro"] = {
-		["text"] = FBConstants.CONFIG_CREATEMACRO_ONOFF,
-		["tooltip"] = FBConstants.CONFIG_CREATEMACRO_INFO,
-		["v"] = 1,
-		["global"] = 1,
-		["default"] = false, },
-	["PreventRecast"] = {
-		["text"] = FBConstants.CONFIG_PREVENTRECAST_ONOFF,
-		["tooltip"] = FBConstants.CONFIG_PREVENTRECAST_INFO,
-		["v"] = 1,
-		["global"] = 1,
-		["default"] = false,
-		["parents"] = { ["CreateMacro"] = "d" }, },
-	["ToonMacro"] = {
-		["text"] = FBConstants.CONFIG_TOONMACRO_ONOFF,
-		["tooltip"] = FBConstants.CONFIG_TOONMACRO_INFO,
-		["v"] = 1,
-		["global"] = 1,
-		["default"] = false,
-		["parents"] = { ["CreateMacro"] = "d" }, },
+--	["CreateMacro"] = {
+--		["text"] = FBConstants.CONFIG_CREATEMACRO_ONOFF,
+--		["tooltip"] = FBConstants.CONFIG_CREATEMACRO_INFO,
+--		["v"] = 1,
+--		["global"] = 1,
+--		["default"] = false, },
+--	["PreventRecast"] = {
+--		["text"] = FBConstants.CONFIG_PREVENTRECAST_ONOFF,
+--		["tooltip"] = FBConstants.CONFIG_PREVENTRECAST_INFO,
+--		["v"] = 1,
+--		["global"] = 1,
+--		["default"] = false,
+--		["parents"] = { ["CreateMacro"] = "d" }, },
+--	["ToonMacro"] = {
+--		["text"] = FBConstants.CONFIG_TOONMACRO_ONOFF,
+--		["tooltip"] = FBConstants.CONFIG_TOONMACRO_INFO,
+--		["v"] = 1,
+--		["global"] = 1,
+--		["default"] = false,
+--		["parents"] = { ["CreateMacro"] = "d" }, },
 };
 
 -- x87bliss has implemented IsFishWardenEnabled as a public function, so
@@ -282,6 +282,12 @@ local CastingOptions = {
 	["DalaranLures"] = {
 		["text"] = FBConstants.CONFIG_DALARANLURES_ONOFF,
 		["tooltip"] = FBConstants.CONFIG_DALARANLURES_INFO,
+		["v"] = 1,
+		["parents"] = { ["EasyLures"] = "d", },
+		["default"] = true },
+	["SpecialBobbers"] = {
+		["text"] = FBConstants.CONFIG_SPECIALBOBBERS_ONOFF,
+		["tooltip"] = FBConstants.CONFIG_SPECIALBOBBERS_INFO,
 		["v"] = 1,
 		["parents"] = { ["EasyLures"] = "d", },
 		["default"] = true },
@@ -1103,10 +1109,18 @@ local function HideAwayAll(self, button, down)
 	FishingBuddy_PostCastUpdateFrame:Show();
 end
 
+local function HaveThing(itemid, info)
+	if (info.toy) then
+		return PlayerHasToy(itemid)
+	else
+		return GetItemCount(itemid) > 0;
+	end
+end
+
 local function GetFishingItem(itemtable)
 	local GSB = FishingBuddy.GetSettingBool;
 	for itemid, info in pairs(itemtable) do
-		if ( info.always or (GetItemCount(itemid) > 0 and (not info.setting or GSB(info.setting))) ) then
+		if ( info.always or (HaveThing(itemid, info) and (not info.setting or GSB(info.setting))) ) then
 			if (not info[CurLoc]) then
 				info[CurLoc] = GetItemInfo(itemid);
 			end
@@ -1116,6 +1130,8 @@ local function GetFishingItem(itemtable)
 				local it = nil;
 				if ( info.check ) then
 					doit, itemid, it = info.check(info, buff, doit, itemid);
+				elseif (info.toy) then
+					_, itemid = C_ToyBox.GetToyInfo(itemid);
 				end
 				if ( doit ) then
 					return doit, itemid, info[CurLoc], it or info.type;
@@ -1704,7 +1720,7 @@ FishingBuddy.Commands[FBConstants.FISHINGMODE].func =
 		end
 		
 		if (FishingBuddy.GetSettingBool("CreateMacro")) then
-			CreateFishingMacro();
+			-- CreateFishingMacro();
 		end
 		
 		return true;
@@ -1714,7 +1730,7 @@ local function OptionsUpdate(changed, closing)
 	FL:WatchBobber(FishingBuddy.GetSettingBool("WatchBobber"));
 	FL:SetSAMouseEvent(FishingBuddy.GetSetting("MouseEvent"));
 	
-	if (closing) then
+	if (false) then
 		if (FishingBuddy.GetSettingBool("CreateMacro")) then
 			CreateFishingMacro();
 		else
@@ -2017,9 +2033,9 @@ FishingBuddy.OnEvent = function(self, event, ...)
 		FishingBuddy.OptionsUpdate();
 		
 		-- make sure we have the Macro globals
-		if (not IsAddOnLoaded("Blizzard_MacroUI")) then
-			LoadAddOn("Blizzard_MacroUI");
-		end
+		-- if (not IsAddOnLoaded("Blizzard_MacroUI")) then
+		--	LoadAddOn("Blizzard_MacroUI");
+		-- end
 
 		self:UnregisterEvent("VARIABLES_LOADED");
 		-- tell all the listeners about this one
@@ -2047,7 +2063,7 @@ FishingBuddy.OnEvent = function(self, event, ...)
 	elseif ( event == "PLAYER_ALIVE" ) then
 		FishingMode();
 		if (FishingBuddy.GetSettingBool("CreateMacro")) then
-			CreateFishingMacro();
+			-- CreateFishingMacro();
 		end
 		self:UnregisterEvent("PLAYER_ALIVE");
 	elseif ( event == "PLAYER_LEAVING_WORLD") then

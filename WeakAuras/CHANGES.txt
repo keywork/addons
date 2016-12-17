@@ -1,0 +1,12 @@
+tag 5f792559f05e180093549a886e599f158a7e1dad 2.2.2.4
+Author:	Benjamin Staneck <staneck@gmail.com>
+Date:	Mon Dec 12 23:08:03 2016 +0100
+
+commit 097f9e99bd8428dc32076b90add68d834eff3477
+Author: Benjamin Staneck <staneck@gmail.com>
+Date:   Mon Dec 12 23:07:04 2016 +0100
+
+    Revert "Use SetClipsChildren for Texture and Icon Frame"
+    
+    This reverts commit 4f8aac7277b4175cb2a14e5e854ba11a5bd5f84e.
+

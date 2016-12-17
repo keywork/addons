@@ -1,0 +1,607 @@
+changeset:   579:f93775052e0c
+tag:         tip
+user:        Tercio
+date:        Thu Dec 15 13:51:06 2016 -0200
+summary:     - disabled the link with BigWigs to avoid the 'RegisterMessage' error on every login.
+
+
+changeset:   578:f1969f8c8f6d
+user:        Tercio
+date:        Fri Dec 09 15:28:39 2016 -0200
+summary:     - when a window is locked, resize grips shouldn't be enabled messing with bar mouse over.
+
+
+changeset:   577:1941266a4bf1
+user:        Tercio
+date:        Mon Nov 28 16:28:05 2016 -0200
+summary:     - Added Unstable Affliction to common spells with the same name.
+
+
+changeset:   576:53619e0e8218
+user:        Tercio
+date:        Wed Nov 09 14:31:00 2016 -0200
+summary:     - Fixed Friendly Fire tooltip where it was showing one entry for each spell on each target.
+
+
+changeset:   575:f7f0813a9f1a
+user:        Tercio
+date:        Tue Nov 08 15:22:43 2016 -0200
+summary:     - Trials of Valor update.
+
+
+changeset:   574:e20673658fa2
+user:        Tercio
+date:        Fri Nov 04 11:34:32 2016 -0200
+summary:     - hard added an update for ItemUpgradeInfo library.
+
+
+changeset:   573:b3e22bc9b348
+user:        Tercio
+date:        Fri Nov 04 11:20:20 2016 -0200
+summary:     - ingame changelog update.
+
+
+changeset:   572:8e79d93ddfb8
+user:        Tercio
+date:        Fri Nov 04 00:05:05 2016 -0200
+summary:     - removed consecration from paladin tank spell list.
+
+
+changeset:   571:aa1906a8b4eb
+user:        Tercio
+date:        Thu Oct 27 16:47:01 2016 -0200
+summary:     - fixed Misc data with Ascending sort order.
+
+
+changeset:   570:726784310783
+user:        Tercio
+date:        Thu Oct 27 16:09:23 2016 -0200
+summary:     - fix for the auto hide slash.
+
+
+changeset:   569:629ed67563a8
+user:        Tercio
+date:        Thu Oct 27 15:52:27 2016 -0200
+summary:     - show when using /de show when auto hide is on.
+
+
+changeset:   568:70d804aefb0a
+user:        Tercio
+date:        Thu Oct 27 13:47:13 2016 -0200
+summary:     - combat rogue icons replaced with outlaw icons.
+
+
+changeset:   567:6e8d1117df4e
+user:        Tercio
+date:        Wed Oct 26 18:35:13 2016 -0200
+summary:     - added back the locales removed on the previous version.
+
+
+changeset:   566:d704ea0c05cf
+user:        Tercio
+date:        Wed Oct 26 17:42:33 2016 -0200
+summary:     - Ballon tutorial for encounter details is now clamped to screen.
+
+
+changeset:   565:18c91cdbc1a6
+user:        Tercio
+date:        Tue Oct 25 19:33:32 2016 -0200
+summary:     - toc update on all built-in plugins.
+
+
+changeset:   564:b3674cf2ebdb
+user:        Tercio
+date:        Tue Oct 25 15:39:44 2016 -0200
+summary:     - 7.1.0 patch update.
+
+
+changeset:   563:c02ccfc2308b
+user:        Tercio
+date:        Fri Oct 14 13:05:24 2016 -0300
+summary:     - disabled actor equalization.
+
+
+changeset:   562:53429bc22b5a
+user:        Tercio
+date:        Sun Oct 09 20:57:11 2016 -0300
+summary:     - debug player table creation.
+
+
+changeset:   561:fa1be015d48e
+user:        Tercio
+date:        Tue Oct 04 13:59:31 2016 -0300
+summary:     - fix for the empty actor name issue.
+
+
+changeset:   560:2968efe4233e
+user:        Tercio
+date:        Thu Sep 29 17:23:57 2016 -0300
+summary:     - akaari's soul workaround.
+
+
+changeset:   559:7cf881bb5482
+user:        Tercio
+date:        Mon Sep 26 00:06:03 2016 -0300
+summary:     - built-in plugins update.
+
+
+changeset:   558:c547c07cf6b5
+user:        Tercio
+date:        Sun Sep 25 18:18:07 2016 -0300
+summary:     - more fixes for dungeon trash being tag as a dungeon boss.
+
+
+changeset:   557:1db181ae111b
+user:        Tercio
+date:        Thu Sep 22 16:17:00 2016 -0300
+summary:     - Fixed the item level calculation when the player is using a main hand and offhand artifact.
+
+
+changeset:   556:a9bff1c58d2b
+user:        Tercio
+date:        Thu Sep 22 15:22:13 2016 -0300
+summary:     - added auto erase world segments.
+
+
+changeset:   555:825534ef57aa
+user:        Tercio
+date:        Thu Sep 22 14:08:17 2016 -0300
+summary:     - Fixed the avoidance tab on the player detail window for Demon Hunters.
+
+
+changeset:   554:2c7a2bc3671a
+user:        Tercio
+date:        Sat Sep 17 21:43:00 2016 -0300
+summary:     - removed soul capacitor trinket fix (WoD).
+
+
+changeset:   553:c2c0a1bf3bde
+user:        Tercio
+date:        Thu Sep 15 12:46:11 2016 -0300
+summary:     - trying to fix an issue with pvp arenas.
+
+
+changeset:   552:c35c1b248a86
+user:        Tercio
+date:        Wed Sep 14 19:30:56 2016 -0300
+summary:     - updated raid check plugin to check for Legion flask.
+
+
+changeset:   551:1bb355164b6d
+user:        Tercio
+date:        Wed Sep 14 15:20:25 2016 -0300
+summary:     - Removed the config button from the Player Details Window.
+
+
+changeset:   550:e2504d087f7b
+user:        Tercio
+date:        Tue Sep 13 14:13:47 2016 -0300
+summary:     plugins:
+
+
+changeset:   549:9ed75c6cf390
+user:        Tercio
+date:        Tue Sep 13 14:12:47 2016 -0300
+summary:     plugins:
+
+
+changeset:   548:1360fc3aa15d
+user:        Tercio
+date:        Fri Sep 09 14:22:52 2016 -0300
+summary:     - attempt to fix bodyguard detection.
+
+
+changeset:   547:c09648ff0e9a
+user:        Tercio
+date:        Mon Aug 29 17:03:44 2016 -0300
+summary:     - framework update to v44.
+
+
+changeset:   546:8b7281f57699
+user:        Tercio
+date:        Sat Aug 27 00:27:18 2016 -0300
+summary:     *weakup packpager
+
+
+changeset:   545:a88a77d94afc
+user:        Tercio
+date:        Sat Aug 27 00:15:39 2016 -0300
+summary:     - new API: Details:GetPlayerIcon (playername[, segmentobject]) - return the player class or spec icon.
+
+
+changeset:   544:53fc16824eb9
+user:        Tercio
+date:        Sun Aug 21 22:28:19 2016 -0300
+summary:     - fixed percent issues on player detail window.
+
+
+changeset:   543:1466aff66d6b
+user:        Tercio
+date:        Sat Aug 20 23:00:17 2016 -0300
+summary:     - Fixing Slash and GBoM on dungeon encounters.
+
+
+changeset:   542:248556e14041
+user:        Tercio
+date:        Fri Aug 19 20:15:29 2016 -0300
+summary:     - Fixing Slash and GBoM on dungeon encounters.
+
+
+changeset:   541:e525cce84fe3
+user:        Tercio
+date:        Fri Aug 19 20:10:28 2016 -0300
+summary:     - Fixing Slash and GBoM on dungeon encounters.
+
+
+changeset:   540:eac04a6fca0f
+user:        Tercio
+date:        Sun Aug 14 15:50:15 2016 -0300
+summary:     - Fix for Monk's Soothing Mist on Streamer Plugin.
+
+
+changeset:   539:e6656844f137
+user:        Tercio
+date:        Sat Aug 13 00:34:55 2016 -0300
+summary:     - Warlock's Grimoire of Synergy buff uptime fix.
+
+
+changeset:   538:d0cf8ed6de41
+user:        Tercio
+date:        Thu Aug 11 14:06:41 2016 -0300
+summary:     - fix for Details! Streamer plugin.
+
+
+changeset:   537:9587de18011f
+user:        Tercio
+date:        Thu Aug 11 00:13:27 2016 -0300
+summary:     - new API: Details:GetEncounterInfoFromEncounterName (ID, encountername), returns encounter info.
+
+
+changeset:   536:458a7948d634
+user:        Tercio
+date:        Mon Aug 08 20:13:27 2016 -0300
+summary:     - priest spec detection.
+
+
+changeset:   535:78a961b185e3
+user:        Tercio
+date:        Sun Aug 07 17:09:51 2016 -0300
+summary:     - realm sync shutdown, TimeAttack plugin won't be able to get other players DPS results, but nobody was using it anyway.
+
+
+changeset:   534:2f438e929cb7
+user:        Tercio
+date:        Fri Aug 05 11:50:26 2016 -0300
+summary:     - possible file crashing the client, need more tests.
+
+
+changeset:   533:387b0b62bd3e
+user:        Tercio
+date:        Fri Aug 05 00:04:34 2016 -0300
+summary:     - Check if the caster is in the raid before trying to get its GUID.
+
+
+changeset:   532:2ac475418581
+user:        Tercio
+date:        Wed Aug 03 16:16:03 2016 -0300
+summary:     - more image conversion, icons now back to 512x512 atlas.
+
+
+changeset:   531:a848676abe26
+user:        Tercio
+date:        Tue Aug 02 13:47:14 2016 -0300
+summary:     - added outline options for left text.
+
+
+changeset:   530:43e65e90073a
+user:        Tercio
+date:        Sat Jul 30 19:36:26 2016 -0300
+summary:     - fix some images with black background.
+
+
+changeset:   529:c639decbc67e
+user:        Tercio
+date:        Fri Jul 29 18:57:41 2016 -0300
+summary:     - Fixed some issues with spec detection and LibGroupInSpecT-1.1 has need enabled back again.
+
+
+changeset:   528:d3d82024f943
+user:        Tercio
+date:        Tue Jul 26 19:27:36 2016 -0300
+summary:     - merging more updates from the beta version.
+
+
+changeset:   527:b2a98d7b0c78
+user:        Tercio
+date:        Fri Jul 22 19:20:10 2016 -0300
+summary:     - missing options background file.
+
+
+changeset:   526:e1af3fbdb3e8
+user:        Tercio
+date:        Fri Jul 22 13:53:26 2016 -0300
+summary:     - Trying a workaround for the wow client's texture cache bug which causes FPS drops.
+
+
+changeset:   525:8bbc9f45cfcc
+user:        Tercio
+date:        Thu Jul 21 13:26:07 2016 -0300
+summary:     - Fixed warlock's Soul Effigy.
+
+
+changeset:   524:1414ab85d06a
+user:        Tercio
+date:        Wed Jul 20 13:03:54 2016 -0300
+summary:     - Fixed an issue with Calc Leech plugin.
+
+
+changeset:   523:5deef00dbfec
+user:        Tercio
+date:        Tue Jul 19 16:23:14 2016 -0300
+summary:     - framework update.
+
+
+changeset:   522:6160f2beb623
+user:        Tercio
+date:        Tue Jul 19 12:09:43 2016 -0300
+summary:     - Release for 7.0.3 patch.
+
+
+changeset:   521:2a10f69e8227
+user:        Tercio
+date:        Tue Jul 12 16:47:14 2016 -0300
+summary:     - small framework fix.
+
+
+changeset:   520:6c3c4a702b27
+user:        Tercio
+date:        Mon Jul 04 21:31:20 2016 -0300
+summary:     - weakup packpager.
+
+
+changeset:   519:eb520e091b23
+user:        Tercio
+date:        Mon Jul 04 21:21:24 2016 -0300
+summary:     - we are no beta anymore.
+
+
+changeset:   518:8964f5beb436
+user:        Tercio
+date:        Tue Jun 14 18:32:36 2016 -0300
+summary:     -wakeup packpager.
+
+
+changeset:   517:a9ca76b37b86
+user:        Tercio
+date:        Tue Jun 14 18:00:08 2016 -0300
+summary:     - fixed an issue where sometimes the aura panel gives an error at opening it.
+
+
+changeset:   516:445896cabf0f
+user:        Tercio
+date:        Fri May 27 13:53:06 2016 -0300
+summary:     - Fixed a problem with the Calc Leech plugin.
+
+
+changeset:   515:fe438eca071e
+user:        Tercio
+date:        Mon May 09 15:30:39 2016 -0300
+summary:     - Tagging to update localizations.
+
+
+changeset:   514:2511c04664e5
+user:        Tercio
+date:        Mon May 09 15:25:32 2016 -0300
+summary:     - Tagging to update localizations.
+
+
+changeset:   513:2eafa7a81534
+user:        Tercio
+date:        Sun Apr 24 13:37:14 2016 -0300
+summary:     - userversion fix.
+
+
+changeset:   512:7787c51aacfe
+user:        Tercio
+date:        Sun Apr 17 14:28:39 2016 -0300
+summary:     - small update.
+
+
+changeset:   511:6661e94ae1d7
+user:        Tercio
+date:        Fri Apr 08 13:03:24 2016 -0300
+summary:     - Ticket 76: fixed an issue with buffs already present on the actor at the beginning of the combat wasn't being counted.
+
+
+changeset:   510:9e09a588796a
+user:        Tercio
+date:        Mon Apr 04 15:17:08 2016 -0300
+summary:     - delete window warning for how to fully delete a window.
+
+
+changeset:   509:612267dd9f5f
+user:        Tercio
+date:        Wed Mar 30 18:04:21 2016 -0300
+summary:     - added LibGroupInSpecT-1.1 to the project.
+
+
+changeset:   508:1d54ed07922a
+user:        Tercio
+date:        Mon Mar 28 19:28:22 2016 -0300
+summary:     - fix for the leech plugin.
+
+
+changeset:   507:c5acc70807c1
+user:        Tercio
+date:        Mon Mar 28 13:20:55 2016 -0300
+summary:     - Added Leech Trinket plugin. It creates a custom display called CalcLeech.
+
+
+changeset:   506:281f0950d586
+user:        Tercio
+date:        Mon Mar 14 11:55:11 2016 -0300
+summary:     - Fixed a rare issue with raid target counters where sometimes got invalid at the logon.
+
+
+changeset:   505:ee57b24b6d60
+user:        Tercio
+date:        Mon Mar 14 11:13:57 2016 -0300
+summary:     - Fixed a rare issue with raid target counters where sometimes got invalid at the logon.
+
+
+changeset:   504:e3c92ae1438c
+user:        Tercioo
+date:        Fri Mar 04 10:57:57 2016 -0300
+summary:     - added Dos/Hps display at the Streamer plugin.
+
+
+changeset:   503:a250f07c1a2b
+user:        Tercioo
+date:        Wed Mar 02 10:18:42 2016 -0300
+summary:     - Details! Streamer (plugin): fixed an issue where sometimes the option panel won't open.
+
+
+changeset:   502:72b04e570c28
+user:        Tercioo
+date:        Mon Feb 29 15:50:27 2016 -0300
+summary:     - stop the block spam on the chat.
+
+
+changeset:   501:719b2f11c04d
+user:        Tercioo
+date:        Sun Feb 28 19:53:31 2016 -0300
+summary:     - Added block amount on the Avoidance tab at the Player Detail Window.
+
+
+changeset:   500:07cbd449b368
+user:        Tercioo
+date:        Sun Feb 28 11:51:31 2016 -0300
+summary:     - Streamer (plugin) now saves the window size inside the profile, this should fix some problems.
+
+
+changeset:   499:6226e3b1ba25
+user:        Tercioo
+date:        Sun Feb 28 09:23:41 2016 -0300
+summary:     - fixed the issue with the damage taken by spell.
+
+
+changeset:   498:7d5eaeba4eda
+user:        Tercioo
+date:        Thu Feb 25 16:00:36 2016 -0300
+summary:     - Added profile option for Details!: Streamer plugin (reopen your game after update the addon).
+
+
+changeset:   497:e6811971bb1c
+user:        Tercioo
+date:        Wed Feb 24 10:28:07 2016 -0300
+summary:     - Auto Switch now checks if there is more than two windows using the same plugin and warn the user about the issue.
+
+
+changeset:   496:33ac170ecc9c
+user:        Tercioo
+date:        Fri Feb 19 12:26:38 2016 -0200
+summary:     - added a plugin for Streamers and Youtubers.
+
+
+changeset:   495:5c9ce357ec68
+user:        Tercioo
+date:        Thu Feb 18 11:21:57 2016 -0200
+summary:     - warning about out-of-date addons.
+
+
+changeset:   494:909060bc5641
+user:        Tercioo
+date:        Thu Feb 11 13:57:00 2016 -0200
+summary:     - Major fixes on the Weakaura creator tool.
+
+
+changeset:   493:e6816d8fa448
+user:        Tercioo
+date:        Wed Feb 10 11:35:01 2016 -0200
+summary:     - fixed the panel for the RaidCheck plugin.
+
+
+changeset:   492:df58db8969a4
+user:        Tercioo
+date:        Wed Feb 10 11:22:29 2016 -0200
+summary:     - fixed the panel for the RaidCheck plugin.
+
+
+changeset:   491:c039ab34b38a
+user:        Tercioo
+date:        Mon Feb 08 15:02:06 2016 -0200
+summary:     - global profiles got a revamp, now you can select which profile is used on all characters.
+
+
+changeset:   490:a5024836e114
+user:        Tercioo
+date:        Sat Feb 06 20:04:31 2016 -0200
+summary:     - fixed report to whiper target when the target is from another realm.
+
+
+changeset:   489:572468202a55
+user:        Tercioo
+date:        Wed Feb 03 10:55:44 2016 -0200
+summary:     - burning rush fix.
+
+
+changeset:   488:62d3739b648c
+user:        Tercioo
+date:        Mon Feb 01 13:21:06 2016 -0200
+summary:     - Fixed an issue with the window size when hiding borders.
+
+
+changeset:   487:a017b2fac811
+user:        Tercioo
+date:        Mon Feb 01 12:36:25 2016 -0200
+summary:     - Fixed an issue with the window size when hiding borders.
+
+
+changeset:   486:741a2b484b90
+user:        Tercioo
+date:        Mon Jan 25 12:48:03 2016 -0200
+summary:     - Fixed the click to switch segment through segment button: left click changes up, right click changes down, middle mouse switch back to current segment.
+
+
+changeset:   485:89aa481f9c34
+user:        Tercioo
+date:        Sat Jan 23 13:43:26 2016 -0200
+summary:     - force refresh after identify a player spec.
+
+
+changeset:   484:4c3bf1650b70
+user:        Tercioo
+date:        Fri Jan 22 10:21:12 2016 -0200
+summary:     - added a scale parameter for encounter details plugin.
+
+
+changeset:   483:455c28b7ca02
+user:        Tercioo
+date:        Thu Jan 21 09:48:27 2016 -0200
+summary:     - Fixed a gap when setting the bars to 'bottom to top' grow direction.
+
+
+changeset:   482:1fdd7ea6dc3d
+user:        Tercioo
+date:        Wed Jan 20 12:33:28 2016 -0200
+summary:     - added support to plugins on the bookmark panel.
+
+
+changeset:   481:805504ad6c5b
+user:        Tercioo
+date:        Mon Jan 18 12:30:09 2016 -0200
+summary:     - new custom displays for raid markers.
+
+
+changeset:   480:efba18ec1710
+user:        Tercioo
+date:        Mon Jan 18 12:28:47 2016 -0200
+summary:     - new custom displays for raid markers.
+
+
+changeset:   479:a9cb0348dbcf
+user:        Tercioo
+date:        Thu Jan 14 16:43:33 2016 -0200
+summary:     - Fixed the size of the right margin on tooltips.
+
+

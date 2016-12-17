@@ -1,10 +1,8 @@
 ------------------------------------------------------------------------
-r583 | Allara | 2016-11-24 13:46:50 -0600 (Thu, 24 Nov 2016) | 1 line
+r585 | Allara | 2016-12-02 00:02:47 -0600 (Fri, 02 Dec 2016) | 1 line
 Changed paths:
    M /trunk/Core.lua
-   M /trunk/Locales.lua
-   M /trunk/Options_Defaults.lua
 
-- Added support for 7.1's Raiding with Leashes IV (thanks Cakechart for contributing the code, and my apologies for the delay)
+- Trying another alpha to see if Curse fixed their packager yet
 ------------------------------------------------------------------------
 

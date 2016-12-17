@@ -63,8 +63,9 @@ L["yells"] = "кричит"
 
 --DataBars
 L["Current Level:"] = "Текущий уровень:"
-L["Honor XP:"] = "Честь: "
 L["Honor Remaining:"] = "Осталось Чести"
+L["Honor XP:"] = "Честь: "
+L["In Bags:"] = "В сумках:"
 
 --DataTexts
 L["(Hold Shift) Memory Usage"] = "(Зажать Shift) Использование памяти"
@@ -255,6 +256,7 @@ L["FocusTarget Frame"] = "Цель фокуса" --Also used in UnitFrames
 L["GM Ticket Frame"] = "Запрос ГМу"
 L["Honor Bar"] = "Полоса Чести"
 L["Left Chat"] = "Левый чат"
+L["Level Up Display / Boss Banner"] = "Уровень / Баннер босса"
 L["Loot / Alert Frames"] = "Розыгрыш/оповещения"
 L["Loot Frame"] = "Окно добычи"
 L["Loss Control Icon"] = "Иконка потери контроля"

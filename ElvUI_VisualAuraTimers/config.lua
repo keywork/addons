@@ -39,10 +39,6 @@ P['VAT'] = {
 		['hoursIndicator'] = { r = 0, g = 179/255, b = 1 },
 		['days'] = { r = 0.93, g = 0.93, b = 0.93 },
 		['daysIndicator'] = { r = 0, g = 179/255, b = 1 },
-		
-		--ExactAuras support
-		['hourminutes'] = { r = 0.93, g = 0.93, b = 0.93 },
-		['hourminutesIndicator'] = { r = 0, g = 179/255, b = 1 },
 	},
 }
 
@@ -210,12 +206,12 @@ function VAT:InsertOptions()
 								hasAlpha = false,
 								disabled = function() return (not E.db.VAT.enableStaticColor or not E.db.VAT.enable) end,
 								get = function(info)
-									local t = E.db.VAT[ info[#info] ]
+									local t = E.db.VAT.staticColor
 									return t.r, t.g, t.b, t.a
 								end,
 								set = function(info, r, g, b)
-									E.db.VAT[ info[#info] ] = {}
-									local t = E.db.VAT[ info[#info] ]
+									E.db.VAT.staticColor = {}
+									local t = E.db.VAT.staticColor
 									t.r, t.g, t.b = r, g, b
 								end,
 							},
@@ -361,7 +357,6 @@ function VAT:InsertOptions()
 											E.db.VAT.colors.minutes = P['VAT']['colors'].minutes;
 											E.db.VAT.colors.hours = P['VAT']['colors'].hours;
 											E.db.VAT.colors.days = P['VAT']['colors'].days;
-											E.db.VAT.colors.hourminutes = P['VAT']['colors'].hourminutes;
 											VAT:UpdateTimerColors()
 										end,
 									},
@@ -450,22 +445,6 @@ function VAT:InsertOptions()
 											VAT:UpdateTimerColors()
 										end,				
 									},
-									hourminutes = {
-										type = 'color',
-										order = 8,
-										name = L['Hour/Minutes'],
-										desc = L['Color when the text is in the HH:MM format (provided by the ExactAuras addon).'],
-										get = function(info)
-											local t = E.db.VAT.colors[ info[#info] ]
-											return t.r, t.g, t.b, t.a
-										end,
-										set = function(info, r, g, b)
-											E.db.VAT.colors[ info[#info] ] = {}
-											local t = E.db.VAT.colors[ info[#info] ]
-											t.r, t.g, t.b = r, g, b
-											VAT:UpdateTimerColors()
-										end,				
-									},
 								},
 							},
 							dateIndicator = {
@@ -484,7 +463,6 @@ function VAT:InsertOptions()
 											E.db.VAT.colors.minutesIndicator = P['VAT']['colors'].minutesIndicator;
 											E.db.VAT.colors.hoursIndicator = P['VAT']['colors'].hoursIndicator;
 											E.db.VAT.colors.daysIndicator = P['VAT']['colors'].daysIndicator;
-											E.db.VAT.colors.hourminutesIndicator = P['VAT']['colors'].hourminutesIndicator;
 											VAT:UpdateTimerColors()
 										end,
 									},
@@ -562,22 +540,6 @@ function VAT:InsertOptions()
 										order = 7,
 										name = L['Days'],
 										desc = L['Color when the text is in the days format.'],
-										get = function(info)
-											local t = E.db.VAT.colors[ info[#info] ]
-											return t.r, t.g, t.b, t.a
-										end,
-										set = function(info, r, g, b)
-											E.db.VAT.colors[ info[#info] ] = {}
-											local t = E.db.VAT.colors[ info[#info] ]
-											t.r, t.g, t.b = r, g, b
-											VAT:UpdateTimerColors()
-										end,				
-									},
-									hourminutesIndicator = {
-										type = 'color',
-										order = 8,
-										name = L['Hour/Minutes'],
-										desc = L['Color when the text is in the HH:MM format (provided by the ExactAuras addon).'],
 										get = function(info)
 											local t = E.db.VAT.colors[ info[#info] ]
 											return t.r, t.g, t.b, t.a

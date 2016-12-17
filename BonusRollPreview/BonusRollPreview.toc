@@ -1,12 +1,8 @@
 ## Interface: 70100
 ## Author: p3lim
-## Version: 70100.35-Release
+## Version: 70100.36-Release
 ## Title: Bonus Roll Preview
 ## Notes: Easily see what the bonus loot roll can yield
-## X-Curse-Packaged-Version: 70100.35-Release
-## X-Curse-Project-Name: BonusRollPreview
-## X-Curse-Project-ID: bonusrollpreview
-## X-Curse-Repository-ID: wow/bonusrollpreview/mainline
 
 encounters\Pandaria.lua
 encounters\Draenor.lua

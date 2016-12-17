@@ -1,6 +1,6 @@
 ﻿--[[
 Name: LibTourist-3.0
-Revision: $Rev: 188 $
+Revision: $Rev: 189 $
 Author(s): Odica (maintainer), originally created by ckknight and Arrowmaster
 Documentation: http://www.wowace.com/addons/libtourist-3-0/
 SVN: svn://svn.wowace.com/wow/libtourist-3-0/mainline/trunk
@@ -9,7 +9,7 @@ License: MIT
 ]]
 
 local MAJOR_VERSION = "LibTourist-3.0"
-local MINOR_VERSION = 90000 + tonumber(("$Revision: 188 $"):match("(%d+)"))
+local MINOR_VERSION = 90000 + tonumber(("$Revision: 189 $"):match("(%d+)"))
 
 if not LibStub then error(MAJOR_VERSION .. " requires LibStub") end
 
@@ -159,9 +159,12 @@ function UpdateCachedLegionZoneLevels()
 	local legionZoneLevel = Tourist:GetLegionZoneLevel()
 	for k in Tourist:IterateBrokenIsles() do
 		if types[k] ~= "Instance" and types[k] ~= "Battleground" and types[k] ~= "Arena" and types[k] ~= "Complex" and types[k] ~= "City" and types[k] ~= "Continent" then
-			lows[k] = legionZoneLevel
-			highs[k] = legionZoneLevel
-			trace("Level for "..tostring(k).." is "..tostring(legionZoneLevel))
+			-- Exception for Suramar (which is fixed at lvl 110)
+			if k ~= BZ["Suramar"] then
+				lows[k] = legionZoneLevel
+				highs[k] = legionZoneLevel
+				trace("Level for "..tostring(k).." is "..tostring(legionZoneLevel))
+			end
 		end
 	end
 end

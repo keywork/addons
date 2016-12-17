@@ -1961,9 +1961,9 @@ L["Tin Vein"] = "Filón de estaño"
 L["Tiny Crimson Whelpling"] = "Vástago carmesí diminuto"
 L["Tiny Emerald Whelpling"] = "Vástago esmeralda diminuto"
 L["Titanium Vein"] = "Filón de titanio"
-L[=[To create a new item, enter a unique name for the item, and click Okay. The name will be used if the server does not return the item link or if the item is invalid.
+L[ [=[To create a new item, enter a unique name for the item, and click Okay. The name will be used if the server does not return the item link or if the item is invalid.
 
-You can't change this name after you create the item, so choose it well.]=] = [=[Para crear un nuevo objeto, introduzca un nombre único para el objeto y haga clic en Aceptar. El nombre se utilizará si el servidor no responde que el enlace del objeto o el objeto no son válidos.
+You can't change this name after you create the item, so choose it well.]=] ] = [=[Para crear un nuevo objeto, introduzca un nombre único para el objeto y haga clic en Aceptar. El nombre se utilizará si el servidor no responde que el enlace del objeto o el objeto no son válidos.
 
 No se puede cambiar este nombre después de crear el objeto, así que elige bien.]=]
 L["Toggles"] = "Alterna"
@@ -2071,11 +2071,11 @@ L["A comma-separated list of NPC IDs who drop this item. Use WowHead or a simila
 L["A comma-separated list of quest IDs. When these quest IDs are completed, the item is considered defeated."] = "Une liste d'identifiants de quêtes séparés par des virgules. Lorsque ces quêtes seront terminées, l'objet sera considéré comme Vaincu."
 L["A comma-separated list of Statistic IDs that track the number of kills toward obtaining this item."] = "Une liste d'identifiants de statistiques séparés par des virgules qui suit le nombre de mises à mort pour obtenir cet objet."
 L["A comma-separated list of Statistic IDs that track the number of kills toward obtaining this item. These statistics will be added together. Use WowHead or a similar service to locate statistic IDs."] = "Une liste d'identifiants de statistiques séparés par des virgules qui suit le nombre de mises à mort pour obtenir cet objet. Ces statistiques seront combinées. Utilisez WowHead ou un service similaire pour obtenir les identifiants de statistiques."
-L[=[A comma-separated list of the zones or sub-zones this item can be found in. For zones, you can enter either the Map ID (i.e. 811 is Vale of Eternal Blossoms), or the full name of the zone. For sub-zones, you must enter the full name of the sub-zone.
+L[ [=[A comma-separated list of the zones or sub-zones this item can be found in. For zones, you can enter either the Map ID (i.e. 811 is Vale of Eternal Blossoms), or the full name of the zone. For sub-zones, you must enter the full name of the sub-zone.
 
 Enter zone names with proper spelling, capitalization, and punctuation. They can be entered either in US English or your client's local language. Use WowHead or a similar service to make sure you're entering the zone names perfectly.
 
-PLEASE NOTE: Zone translations may not be correct. For zones, it is highly recommended that you use the Map ID instead of the name. For sub-zones, you must enter the name. If sub-zone detection isn't working for you, please visit the LibBabble-SubZone-3.0 library page on wowace.com and update the translations for your language.]=] = [=[Une liste de zones ou de sous-zones séparées par des virgules dans lesquelles cet objet peut être trouvé. Pour les zones, vous pouvez saisir soit l'identifiant de la carte (ex: 811 pour le Val de l’Éternel printemps), soit le nom complet de la zone. Pour les sous-zones, vous devez entrer le nom complet de la sous-zone.
+PLEASE NOTE: Zone translations may not be correct. For zones, it is highly recommended that you use the Map ID instead of the name. For sub-zones, you must enter the name. If sub-zone detection isn't working for you, please visit the LibBabble-SubZone-3.0 library page on wowace.com and update the translations for your language.]=] ] = [=[Une liste de zones ou de sous-zones séparées par des virgules dans lesquelles cet objet peut être trouvé. Pour les zones, vous pouvez saisir soit l'identifiant de la carte (ex: 811 pour le Val de l’Éternel printemps), soit le nom complet de la zone. Pour les sous-zones, vous devez entrer le nom complet de la sous-zone.
 
 Entrez les noms de zones avec l'orthographe correct, la capitalisation et la ponctuation. Ils peuvent être entrés en Anglais US ou dans la langue de votre client. Utilisez WowHead ou un service similaire pour être certain que vous entrez le nom des zones parfaitement.
 
@@ -2179,9 +2179,9 @@ L["Chance"] = true
 L["Chance so far"] = "Chance à ce jour"
 L["Chaos Pup"] = "Louveteau du chaos"
 L["Check this for every Custom item you wish to export. Then click on the Import/Export tab and click the Export button. This checkbox will be disabled until enough information has been filled in below to make it a detectable item."] = "Cochez ceci pour chaque objet personnalisé que vous souhaitez exporter. Puis cliquez sur l'onglet Import/Export et sur le bouton Export. Ce case à cocher sera désactiver jusqu'à ce qu'assez d'informations aient été remplies ci-dessous pour en faire un objet détectable."
-L[=[Check this to automatically refresh your search every 5 seconds while this window is visible. Auto refresh only works if you've typed something in the search box, and if you haven't selected something in the list below.
+L[ [=[Check this to automatically refresh your search every 5 seconds while this window is visible. Auto refresh only works if you've typed something in the search box, and if you haven't selected something in the list below.
 
-This checkbox is provided by Rarity. You can hide the checkbox in Rarity options.]=] = "Cochez ceci pour actualiser automatiquement votre recherche toutes les 5 secondes tant que cette fenêtre est ouverte. L'actualisation automatique ne fonctionne que si vous avez tapé quelque chose dans la case de recherche, et si vous n'avez rien sélectionné dans la liste ci-dessous."
+This checkbox is provided by Rarity. You can hide the checkbox in Rarity options.]=] ] = "Cochez ceci pour actualiser automatiquement votre recherche toutes les 5 secondes tant que cette fenêtre est ouverte. L'actualisation automatique ne fonctionne que si vous avez tapé quelque chose dans la case de recherche, et si vous n'avez rien sélectionné dans la liste ci-dessous."
 L["Choose which classes this item should be disabled for. Checking a class below hides the item from the Rarity tooltip and prevents it from being tracked. You can still toggle Track This, but the item will not track for any classes specified here."] = "Choisissez pour quelle(s) classe(s) cet objet doit être désactivé. Cocher une classe ci-dessous cachera l'objet de l'infobulle de Rarity et empêchera le suivi. Vous pouvez toujours activer Suivre ceci, mais cet objet ne sera pas suivi pour les classes sélectionnées ici."
 L["Christoph VonFeasel"] = true
 L["Chuck's Bucket"] = "Seau de Chuck"
@@ -2207,9 +2207,9 @@ L["Content Category"] = "Catégorie de contenu"
 L["Controls on which side the secondary tooltip appears when you hover over an item in the main tooltip. If the main tooltip is on the right side of your screen, change this to Left. Otherwise, choose Right. You can also hide the status tooltip completely."] = "Définit de quel coté l'infobulle secondaire apparaît lorsque vous survolez un objet dans l'infobulle principale. Si l'infobulle principale est du coté droit de l'écran, placez ceci sur Gauche. Autrement, choisissez Droite. Vous pouvez aussi cacher l'infobulle secondaire complètement."
 L["Controls what type of text is shown in Rarity's LDB feed. Minimal shows just the number of attempts. Normal adds the likelihood percent, and verbose adds the item link."] = "Définit quel type de texte est utilisé dans le flux LDB de Rarity. Minimal n'indique que le nombre d'essais. Normal ajoute la probabilité en pourcentage, et verbose ajoute le lien de l'objet."
 L["Copper Vein"] = "Filon de cuivre"
-L[=[Copy the generated Rarity Item Pack string below using Ctrl-C. You can then paste it elsewhere using Ctrl-V.
+L[ [=[Copy the generated Rarity Item Pack string below using Ctrl-C. You can then paste it elsewhere using Ctrl-V.
 
-Feel free to comment on the Curse web site to share your Item Pack. Allara will promote the best ones to the main add-on page.]=] = [=[Copiez le lien du pack d'objets Rarity généré ci-dessous en utilisant Ctrl+C. Vous pouvez ensuite le coller ailleurs en utilisant Ctrl+V.
+Feel free to comment on the Curse web site to share your Item Pack. Allara will promote the best ones to the main add-on page.]=] ] = [=[Copiez le lien du pack d'objets Rarity généré ci-dessous en utilisant Ctrl+C. Vous pouvez ensuite le coller ailleurs en utilisant Ctrl+V.
 
 N'hésitez pas à commenter sur le site Curse pour partager vos liens de pack d'objets. Allara affichera les meilleurs sur la page principale de l'add-on !]=]
 L["Core of Hardened Ash"] = "Noyau de cendre pétrifiée"
@@ -2261,11 +2261,11 @@ L["Determines what type of item this is."] = "Détermine le type de l'objet."
 L["Determines whether the item can only be obtained from fishing in pools. In order for this option to work, the fishing pools must have all been translated into your client's language."] = "Détermine si l'objet peut seulement être acquis en pêchant dans un banc. Pour que cette option fonctionne, les bancs doivent tous avoir été traduits dans la langue de votre client."
 L["Determines whether tracking should be enabled for this item. Items that are disabled will not appear in the tooltip."] = "Détermine si l'affichage du suivi doit être activé pour cet objet. Les objets qui ne sont pas activés n'apparaissent pas dans l'infobulle."
 L["Determines whether you want to repeatedly farm this item. If you turn this on and find the item, Rarity will mark the item as un-found after a few seconds."] = "Détermine si vous voulez obtenir cet objet plusieurs fois. Si cela est activé et que l'objet est trouvé, Rarity affichera cet objet comme non-trouvé après quelques secondes."
-L[=[Determines which instance difficulties this item may be obtained in. Leave everything unchecked if the instance difficulty doesn't matter.
+L[ [=[Determines which instance difficulties this item may be obtained in. Leave everything unchecked if the instance difficulty doesn't matter.
 
 If you specified a Statistic ID for this item, the Instance Difficulty is probably meaningless, because all modern statistics already incorporate the difficulty.
 
-You can check multiple items in this list at once.]=] = [=[Détermine dans quelle difficulté d'instance cet objet peut être obtenu. Laissez vide si la difficulté de l'instance ne change rien.
+You can check multiple items in this list at once.]=] ] = [=[Détermine dans quelle difficulté d'instance cet objet peut être obtenu. Laissez vide si la difficulté de l'instance ne change rien.
 
 Si vous avez spécifié un identifiant statistique pour cet objet, alors la difficulté de l'instance est probablement obsolète, car toute les identifiants statistique récents incorpore déjà la difficulté.
 
@@ -2575,8 +2575,8 @@ L["New item"] = "Nouvel objet"
 L["Night Elf"] = "Elfe de la nuit"
 L["Nightmare Bell"] = "Carillon cauchemardesque"
 L["Nightshade Sproutling"] = "Jeune pousse de belladone"
-L[=[No items to display! Either you've obtained every item, or you have
-one or more options turned on which hide things from the tooltip.]=] = "Aucun objet à afficher ! Soit vous avez obtenu tous les objets, soit vous avez une ou des options activées qui cachent des éléments de l'infobulle."
+L[ [=[No items to display! Either you've obtained every item, or you have
+one or more options turned on which hide things from the tooltip.]=] ] = "Aucun objet à afficher ! Soit vous avez obtenu tous les objets, soit vous avez une ou des options activées qui cachent des éléments de l'infobulle."
 L["None"] = "Aucun"
 L["None (not in an instance)"] = "Aucune (pas dans une instance)"
 L["Normal"] = true
@@ -2885,9 +2885,9 @@ L["Tiny Crimson Whelpling"] = "Minuscule jeune dragonnet cramoisi"
 L["Tiny Emerald Whelpling"] = "Minuscule jeune dragonnet d'émeraude"
 L["Tiny Fel Engine Key"] = "Minuscule clé de contact gangrenée"
 L["Titanium Vein"] = "Veine de titane"
-L[=[To create a new item, enter a unique name for the item, and click Okay. The name will be used if the server does not return the item link or if the item is invalid.
+L[ [=[To create a new item, enter a unique name for the item, and click Okay. The name will be used if the server does not return the item link or if the item is invalid.
 
-You can't change this name after you create the item, so choose it well.]=] = [=[Pour créer un nouvel objet, entrez un nom unique pour cet objet puis appuyez sur OK. Le nom sera utilisé si le serveur ne retourne pas le lien de l'objet ou si l'objet n'est pas valide.
+You can't change this name after you create the item, so choose it well.]=] ] = [=[Pour créer un nouvel objet, entrez un nom unique pour cet objet puis appuyez sur OK. Le nom sera utilisé si le serveur ne retourne pas le lien de l'objet ou si l'objet n'est pas valide.
 
 Vous ne pouvez pas changer ce nom après avoir créé l'objet, choisissez donc soigneusement.]=]
 L["To export a group of items, go through each item in your Custom tab and check or uncheck the Export checkbox. The checkbox will be disabled if you haven't yet filled out enough information for Rarity to detect the item. Once you've done that, return here and click the Export button. A Rarity Item Pack string will be generated that you can copy to the clipboard using Ctrl-C."] = "Pour exporter un groupe d'objets, sélectionnez chacun des objets voulus dans votre onglet Personnalisé et cochez ou décochez les cases Exporter cet objet. La case sera désactivée si vous n'avez pas encore rempli assez d'informations pour que Rarity puisse détecter l'objet. Une fois cela fait, revenez ici et cliquez sur le bouton Exporter. Un lien de pack d'objets Rarity sera généré et vous pourrez le copier en utilisant Ctrl+C."
@@ -2949,7 +2949,7 @@ L["When on, items marked as Defeated will be hidden from the tooltip."] = "Les e
 L["When on, items marked as Unavailable will be hidden from the tooltip. This way, items requiring a certain holiday will automatically be hidden when the holiday is not active."] = "Cache les objets marqués comme Indisponible de l'infobulle. De cette façon, les objets nécessitant un événement saisonnier particulier seront automatiquement cachés lorsque l’événement n'est pas en cours."
 L["When on, items that have no attempts yet will be hidden from the tooltip."] = "Cache les objets qui n'ont pas encore d'essai de l'infobulle."
 L["When on, only items that can be obtained in your current zone will be shown in the tooltip. When this is on and you're in an instance, the instance difficulty is also checked to make sure it matches what the item supports."] = "Quand activé, seuls les objets qui peuvent être obtenus dans votre zone actuelle seront affichés dans l'infobulle. Quand ceci est activé et que vous vous trouvez dans une instance, la difficulté de l'instance est également vérifiée afin de s'assurer qu'elle correspond à ce que l'objet supporte."
-L[=[When on, Rarity will remind you to go farm holiday items you're missing if the holiday is active and the item is set as Undefeated. (This only works for items that originate from holiday dungeons or daily quests.) The reminder occurs each time you log in or reload your UI, and stops for the day once you defeat the holiday dungeon or complete the	quest.]=] = "Si activé, Rarity vous rappellera d'aller à la recherche des objets d’événements saisonniers qu'il vous manque si l’événement est actif et que l'objet est perçu comme Invaincu. (Cela ne marche que pour les objets provenant des donjons ou des quêtes journalières de l’événement). Le rappel se fait à chaque connexion ou rechargement de l'interface, et cesse pour la journée au cours de laquelle vous terminez le donjon ou la quête de l’événement."
+L[ [=[When on, Rarity will remind you to go farm holiday items you're missing if the holiday is active and the item is set as Undefeated. (This only works for items that originate from holiday dungeons or daily quests.) The reminder occurs each time you log in or reload your UI, and stops for the day once you defeat the holiday dungeon or complete the	quest.]=] ] = "Si activé, Rarity vous rappellera d'aller à la recherche des objets d’événements saisonniers qu'il vous manque si l’événement est actif et que l'objet est perçu comme Invaincu. (Cela ne marche que pour les objets provenant des donjons ou des quêtes journalières de l’événement). Le rappel se fait à chaque connexion ou rechargement de l'interface, et cesse pour la journée au cours de laquelle vous terminez le donjon ou la quête de l’événement."
 L["When on, Rarity will show an icon next to each item in the tooltip indicating which expansion the item belongs to."] = "Afficher à côté de chaque objet dans l'infobulle une icône indiquant à quelle extension il appartient."
 L["When on, Rarity will take a screenshot when the achievement alert pops up indicating that you obtained an item."] = "Prend une capture d'écran quand l'alerte de haut fait apparaît pour indiquer que vous avez obtenu un objet."
 L["When on, the Luckiness column will be shown in the main tooltip."] = "Affiche la colonne Chance dans l'infobulle principale."
@@ -3040,11 +3040,11 @@ L["A comma-separated list of item IDs which, when used or opened, can give you t
 L["A comma-separated list of NPC IDs who drop this item. Use WowHead or a similar service to lookup NPC IDs."] = "이 아이템을 누가 떨어뜨리는지 NPC ID를 쉼표로 구분시킨 목록입니다. NPC ID를 조회하려면 Wowhead 또는 이와 유사한 서비스를 이용하십시오."
 L["A comma-separated list of Statistic IDs that track the number of kills toward obtaining this item."] = "이 아이템을 얻기 위해 처치한 횟수를 추척할 통계 ID를 쉼표로 구분시킨 목록입니다."
 L["A comma-separated list of Statistic IDs that track the number of kills toward obtaining this item. These statistics will be added together. Use WowHead or a similar service to locate statistic IDs."] = "이 아이템을 얻기 위해 처치한 횟수를 추척할 통계 ID를 쉼표로 구분시킨 목록입니다. 이러한 통계는 함께 추가됩니다. 통계 ID를 조회하려면 WowHead 또는 이와 유사한 서비스를 이용하십시오."
-L[=[A comma-separated list of the zones or sub-zones this item can be found in. For zones, you can enter either the Map ID (i.e. 811 is Vale of Eternal Blossoms), or the full name of the zone. For sub-zones, you must enter the full name of the sub-zone.
+L[ [=[A comma-separated list of the zones or sub-zones this item can be found in. For zones, you can enter either the Map ID (i.e. 811 is Vale of Eternal Blossoms), or the full name of the zone. For sub-zones, you must enter the full name of the sub-zone.
 
 Enter zone names with proper spelling, capitalization, and punctuation. They can be entered either in US English or your client's local language. Use WowHead or a similar service to make sure you're entering the zone names perfectly.
 
-PLEASE NOTE: Zone translations may not be correct. For zones, it is highly recommended that you use the Map ID instead of the name. For sub-zones, you must enter the name. If sub-zone detection isn't working for you, please visit the LibBabble-SubZone-3.0 library page on wowace.com and update the translations for your language.]=] = [=[이 아이템을 발견할 수 있는 지역 또는 하위-지역의 쉼표로 구분된 목록입니다. 지역의 경우, 지도 ID(예: 811은 영원꽃 골짜기) 또는 지역의 전체 이름, 둘 중 하나를 입력할 수 있습니다. 하위-지역의 경우, 하위-지역의 전체 이름을 입력해야 합니다.
+PLEASE NOTE: Zone translations may not be correct. For zones, it is highly recommended that you use the Map ID instead of the name. For sub-zones, you must enter the name. If sub-zone detection isn't working for you, please visit the LibBabble-SubZone-3.0 library page on wowace.com and update the translations for your language.]=] ] = [=[이 아이템을 발견할 수 있는 지역 또는 하위-지역의 쉼표로 구분된 목록입니다. 지역의 경우, 지도 ID(예: 811은 영원꽃 골짜기) 또는 지역의 전체 이름, 둘 중 하나를 입력할 수 있습니다. 하위-지역의 경우, 하위-지역의 전체 이름을 입력해야 합니다.
 
 적절한 맞춤법, 대문자 사용, 구두점으로 지역 이름을 입력합니다. 그들은 미국 영어 또는 고객의 현지 언어 중 하나를 입력할 수 있습니다. 이 지역의 이름을 완벽하게 입력했는지 확인하려면 WowHead 또는 이와 유사한 서비스를 이용하십시오.
 
@@ -3105,9 +3105,9 @@ L["Cataclysm"] = "대격변"
 L["Challenge Mode instance"] = "도전 모드 던전"
 L["Chance"] = "기회"
 L["Chance so far"] = "기회까지"
-L[=[Check this to automatically refresh your search every 5 seconds while this window is visible. Auto refresh only works if you've typed something in the search box, and if you haven't selected something in the list below.
+L[ [=[Check this to automatically refresh your search every 5 seconds while this window is visible. Auto refresh only works if you've typed something in the search box, and if you haven't selected something in the list below.
 
-This checkbox is provided by Rarity. You can hide the checkbox in Rarity options.]=] = [=[이 창이 열려있는 동안 매 5초마다 검색을 자동으로 새로고침하려면 이것을 선택합니다. 검색 창에 무언가가 입력하거나 아래 목록 중 하나가 선택되어 있지 않을 때에만 자동 새로고침이 작동됩니다.
+This checkbox is provided by Rarity. You can hide the checkbox in Rarity options.]=] ] = [=[이 창이 열려있는 동안 매 5초마다 검색을 자동으로 새로고침하려면 이것을 선택합니다. 검색 창에 무언가가 입력하거나 아래 목록 중 하나가 선택되어 있지 않을 때에만 자동 새로고침이 작동됩니다.
 
 이 확인란은 Rarity에 의해 제공됩니다. Rarity 설정에서 확인란을 숨길 수 있습니다.]=]
 L["Classic"] = "오리지널"
@@ -3158,11 +3158,11 @@ L["Determines what type of item this is."] = "여기에 아이템의 유형이 �
 L["Determines whether the item can only be obtained from fishing in pools. In order for this option to work, the fishing pools must have all been translated into your client's language."] = "낚시 떼에서만 획득할 수 있는 아이템인지 여부를 정합니다. 이 설정이 작동하기 위해서는, 낚시 떼는 모든 고객의 언어로 번역되어 있어야합니다."
 L["Determines whether tracking should be enabled for this item. Items that are disabled will not appear in the tooltip."] = "이 아이템에 대한 추적을 사용할 지 여부를 결정합니다. 이 항목을 사용하지 않으면 툴팁에 나타나지 않습니다."
 L["Determines whether you want to repeatedly farm this item. If you turn this on and find the item, Rarity will mark the item as un-found after a few seconds."] = "이 아이템을 반복적으로 작업할 것인지 정합니다. 만약 이것을 켜고 아이템을 발견하면, Ratiry는 몇 초 후에 발견하지 못 한 아이템으로 표기합니다."
-L[=[Determines which instance difficulties this item may be obtained in. Leave everything unchecked if the instance difficulty doesn't matter.
+L[ [=[Determines which instance difficulties this item may be obtained in. Leave everything unchecked if the instance difficulty doesn't matter.
 
 If you specified a Statistic ID for this item, the Instance Difficulty is probably meaningless, because all modern statistics already incorporate the difficulty.
 
-You can check multiple items in this list at once.]=] = [=[이 항목에서 획득할 수 있는 던전 난이도를 결정합니다. 던전 난이도가 중요하지 않다면 모두 선택하지 않고 남겨둡니다.
+You can check multiple items in this list at once.]=] ] = [=[이 항목에서 획득할 수 있는 던전 난이도를 결정합니다. 던전 난이도가 중요하지 않다면 모두 선택하지 않고 남겨둡니다.
 
 이 아이템에 대한 통계 ID를 지정하면, 현재 모든 통계에는 이미 난이도가 포함되어 있기 때문에 던전 난이도는 아마 의미가 없을 것입니다. 
 
@@ -3523,9 +3523,9 @@ L["Tiny Crimson Whelpling"] = "진홍빛 새끼용"
 L["Tiny Emerald Whelpling"] = "작은 에메랄드 새끼용"
 L["Tiny Fel Engine Key"] = "작은 지옥기계 열쇠"
 L["Titanium Vein"] = "티타늄 광맥"
-L[=[To create a new item, enter a unique name for the item, and click Okay. The name will be used if the server does not return the item link or if the item is invalid.
+L[ [=[To create a new item, enter a unique name for the item, and click Okay. The name will be used if the server does not return the item link or if the item is invalid.
 
-You can't change this name after you create the item, so choose it well.]=] = [=[새 아이템을 만들려면, 아이템에 대한 고유한 이름을 입력하고 확인을 누릅니다. 서버가 아이템 링크를 반환하지 않거나 아이템이 인식 불가인 경우, 이름이 사용됩니다.
+You can't change this name after you create the item, so choose it well.]=] ] = [=[새 아이템을 만들려면, 아이템에 대한 고유한 이름을 입력하고 확인을 누릅니다. 서버가 아이템 링크를 반환하지 않거나 아이템이 인식 불가인 경우, 이름이 사용됩니다.
 
 여러분은 아이템을 생성한 후에는 이 이름을 변경할 수 없습니다, 신중하게 입력하십시오.]=]
 L["Today"] = "오늘"
@@ -3579,7 +3579,7 @@ L["When enabled, Rarity will print debug profiling messages to the chat window w
 L["When enabled, the item can only be obtained by pickpocketing. The item will be marked Unavailable for non-rogues."] = "허용되면, 훔치기로만 획득할 수 있는 아이템입니다. 아이템에 비-도적은 불가능이라고 표시됩니다."
 L["When on, items marked as Defeated will be hidden from the tooltip."] = "켜면, 처치로 확인된 아이템은 툴팁에서 숨깁니다."
 L["When on, items marked as Unavailable will be hidden from the tooltip. This way, items requiring a certain holiday will automatically be hidden when the holiday is not active."] = "켜면, 얻을 수 없게 표시된 아이템은 툴팁에서 숨깁니다. 축제가 활성화되지 않은 경우, 이 방법으로 특정 축제가 필요로하는 아이템을 자동으로 숨깁니다."
-L[=[When on, Rarity will remind you to go farm holiday items you're missing if the holiday is active and the item is set as Undefeated. (This only works for items that originate from holiday dungeons or daily quests.) The reminder occurs each time you log in or reload your UI, and stops for the day once you defeat the holiday dungeon or complete the	quest.]=] = "켜면, Rarity는 축제 때 활성화되고 아이템이 미 처치로 설정되었을 경우, 당신이 놓친 농장 축제 아이템을 갈 생각이 나게합니다. (이것은 단지 축제 던전 또는 일일 퀘스트에서 발생한 아이템에 대해서 작동합니다.) 알림은 로그인하거나 UI를 재시작 할 때마다 발생하고, 축제 던전 또는 \\009퀘스트를 완료하면 하루 동안 중지됩니다."
+L[ [=[When on, Rarity will remind you to go farm holiday items you're missing if the holiday is active and the item is set as Undefeated. (This only works for items that originate from holiday dungeons or daily quests.) The reminder occurs each time you log in or reload your UI, and stops for the day once you defeat the holiday dungeon or complete the	quest.]=] ] = "켜면, Rarity는 축제 때 활성화되고 아이템이 미 처치로 설정되었을 경우, 당신이 놓친 농장 축제 아이템을 갈 생각이 나게합니다. (이것은 단지 축제 던전 또는 일일 퀘스트에서 발생한 아이템에 대해서 작동합니다.) 알림은 로그인하거나 UI를 재시작 할 때마다 발생하고, 축제 던전 또는 \\009퀘스트를 완료하면 하루 동안 중지됩니다."
 L["When on, Rarity will show an icon next to each item in the tooltip indicating which expansion the item belongs to."] = "켜면, Rarity는 툴팁에 아이템이 속한 확장팩을 각 아이템의 옆에 아이콘으로 표시합니다."
 L["When on, Rarity will take a screenshot when the achievement alert pops up indicating that you obtained an item."] = "켜면, 아이템을 얻고 업적 알림 팝업이 나타날 때, Rarity가 스크린샷을 찍습니다."
 L["When on, the Luckiness column will be shown in the main tooltip."] = "켜면, 기본 툴팁에 행운 열이 표시됩니다."
@@ -3647,34 +3647,34 @@ L["1 in %d chance"] = "Шанс 1 из %d"
 L["10-player Heroic Raid instance (legacy content; not flexible)"] = "Героич. рейд (10 игроков) (устаревший контент; не гибкий)"
 L["10-player Raid instance (legacy content; not flexible)"] = "Рейд (10 игроков) (устаревший контент; не гибкий)"
 L["25-player Event scenario"] = "25-игроков Событие-сценарий"
-L["25-player heroic"] = "25 игроков (героич.)"
+L["25-player heroic"] = "25 игроков (героический)"
 L["25-player Heroic Raid instance (legacy content; not flexible)"] = "Героич. рейд (25 игроков) (устаревший контент; не гибкий)"
 L["25-player Raid instance (legacy content; not flexible)"] = "Рейд (25 игроков) (устаревший контент; не гибкий)"
-L["40-player Event raid"] = "40-игроков Событие-рейд"
+L["40-player Event raid"] = "Событие-рейд 40-игроков"
 L["40-player Raid instance (legacy content; not flexible)"] = "Рейд (40 игроков) (устаревший контент; не гибкий)"
-L["5-player Event instance"] = "5-игроков Событие-инст"
+L["5-player Event instance"] = "Событие-подземелье 5 игроков "
 L["5-player Heroic instance"] = "Героич. подземелье (5 игроков)"
 L["5-player instance"] = "Подземелье (5 игроков)"
 L["A comma-separated list of item IDs which, when used or opened, can give you this item. Use WowHead or a similar service to lookup item IDs."] = "Список (разделяется запятыми) ID предметов из которых при открытии или использовании добывается данный предмет. Используйте WowHead или подобные сайты для поиска ID предметов."
 L["A comma-separated list of NPC IDs who drop this item. Use WowHead or a similar service to lookup NPC IDs."] = "Список (разделяется запятыми) ID персонажей из которых добывается данный предмет. Используйте WowHead или подобные сайты для поиска ID персонажей."
 L["A comma-separated list of Statistic IDs that track the number of kills toward obtaining this item."] = "Список Statistic ID, разделенных запятой, который отслеживает количество убийств в процессе получения данного предмета."
 L["A comma-separated list of Statistic IDs that track the number of kills toward obtaining this item. These statistics will be added together. Use WowHead or a similar service to locate statistic IDs."] = "Список Statistic ID, разделенных запятой, который отслеживает количество убийств в процессе получения данного предмета. Эти ID будут добавлены все вместе. Используйте Wowhead или похожие сайты для поиска Statistic ID."
-L[=[A comma-separated list of the zones or sub-zones this item can be found in. For zones, you can enter either the Map ID (i.e. 811 is Vale of Eternal Blossoms), or the full name of the zone. For sub-zones, you must enter the full name of the sub-zone.
+L[ [=[A comma-separated list of the zones or sub-zones this item can be found in. For zones, you can enter either the Map ID (i.e. 811 is Vale of Eternal Blossoms), or the full name of the zone. For sub-zones, you must enter the full name of the sub-zone.
 
 Enter zone names with proper spelling, capitalization, and punctuation. They can be entered either in US English or your client's local language. Use WowHead or a similar service to make sure you're entering the zone names perfectly.
 
-PLEASE NOTE: Zone translations may not be correct. For zones, it is highly recommended that you use the Map ID instead of the name. For sub-zones, you must enter the name. If sub-zone detection isn't working for you, please visit the LibBabble-SubZone-3.0 library page on wowace.com and update the translations for your language.]=] = [=[Список областей или подзон, разделенный запятыми, где может быть найден данный предмет. Для областей вы можете ввести или ID карты (например, 811 - Вечноцветущий дол), или полное имя области. Для подзон вы должны ввести полное наименование подзоны.
+PLEASE NOTE: Zone translations may not be correct. For zones, it is highly recommended that you use the Map ID instead of the name. For sub-zones, you must enter the name. If sub-zone detection isn't working for you, please visit the LibBabble-SubZone-3.0 library page on wowace.com and update the translations for your language.]=] ] = [=[Список областей или подзон, разделенный запятыми, где может быть найден данный предмет. Для областей вы можете ввести или ID карты (например, 811 - Вечноцветущий дол), или полное имя области. Для подзон вы должны ввести полное наименование подзоны.
 
 Вводите названия областей в соответствии с языком, регистром и пунктуацией. Они могут быть введены или на английском или на языке клиента. Используйте WowHead или подобное для проверки веденных названий областей.
 
 Обратите внимание: Перевод областей может быть некорректным. Для областей рекомендуется использовать ID карты вместо названия. Для подзон нужно ввести название. Если определение подзоны не работает, посетите страницу LibBabble-SubZone-3.0 на wowace.com и обновите перевод для вашего языка.]=]
-L["A holiday event is available today for %s! Go get it!"] = "Праздничное событие началось! Можно получить %s!"
+L["A holiday event is available today for %s! Go get it!"] = "Праздничное событие началось сегодня! Можно получить %s!"
 L["Abundant Bloodsail Wreckage"] = "Крупные обломки кораблекрушения шайки Кровавого Паруса"
 L["Abundant Firefin Snapper School"] = "Крупный косяк огнеперого луциана"
 L["Abundant Oily Blackmouth School"] = "Крупный косяк масляного черноротика"
 L["Abyssal Gulper School"] = "Косяк глубинного угря-мешкорота"
 L["Adamantite Deposit"] = "Залежи адамантита"
-L["Added %d |4waypoint:waypoints; to TomTom"] = "Добавлено %d |4направление:направления:направлений; TomTom"
+L["Added %d |4waypoint:waypoints; to TomTom"] = "Добавлено %d |4направление:направления:направлений; в TomTom"
 L["Adjusts the scale of the primary tooltip. This will take effect the next time the tooltip is shown."] = "Настраивает масштаб основной подсказки. Возымеет действие при следующем показе."
 L["After upgrading your garrison's Fishing Shack to level 3, fish up 5 minnows to summon a Cavedweller which can drop this mount."] = "После улучшения рыбацкой хижины в гарнизоне до 3 уровня, поймай 5 рыбешек, чтобы призвать Обитателя пещер, с которого может упасть этот маунт."
 L["Ai-Li's Skymirror"] = "Небесное зеркало Ай-Ли"
@@ -3748,9 +3748,9 @@ L["Challenge Mode instance"] = "Подземелье в режиме испыт�
 L["Chance"] = "Шанс"
 L["Chance so far"] = "Шанс на данный момент"
 L["Chaos Pup"] = "Волчонок Хаоса"
-L[=[Check this to automatically refresh your search every 5 seconds while this window is visible. Auto refresh only works if you've typed something in the search box, and if you haven't selected something in the list below.
+L[ [=[Check this to automatically refresh your search every 5 seconds while this window is visible. Auto refresh only works if you've typed something in the search box, and if you haven't selected something in the list below.
 
-This checkbox is provided by Rarity. You can hide the checkbox in Rarity options.]=] = [=[Отметить для автоматического обновления поиска каждые 5 секунд, пока окно открыто. Автообновление работает только если напечатан поисковый запрос, и не выбрана группа в списке.
+This checkbox is provided by Rarity. You can hide the checkbox in Rarity options.]=] ] = [=[Отметить для автоматического обновления поиска каждые 5 секунд, пока окно открыто. Автообновление работает только если напечатан поисковый запрос, и не выбрана группа в списке.
 
 Этот флажок создан Rarity. Его можно скрыть в настройках.]=]
 L["Chuck's Bucket"] = "Ведро Проглота"
@@ -3817,11 +3817,11 @@ L["Determines what type of item this is."] = "Указывает тип пред
 L["Determines whether the item can only be obtained from fishing in pools. In order for this option to work, the fishing pools must have all been translated into your client's language."] = "Указывает, что предмет можно обнаружить только в лунках. Для работы данной функции необходимо, чтобы названия всех лунок были правильно переведены на язык клиента."
 L["Determines whether tracking should be enabled for this item. Items that are disabled will not appear in the tooltip."] = "Указывает будет ли включено отслеживание данного предмета. Отключенные предметы не отображаются в списках."
 L["Determines whether you want to repeatedly farm this item. If you turn this on and find the item, Rarity will mark the item as un-found after a few seconds."] = "Указывает хотите ли вы отслеживать находки данного предмета многократно. При включении данной настройки и нахождении предмета, Rarity через несколько секунд пометит его как ненайденный и продолжит подсчет попыток."
-L[=[Determines which instance difficulties this item may be obtained in. Leave everything unchecked if the instance difficulty doesn't matter.
+L[ [=[Determines which instance difficulties this item may be obtained in. Leave everything unchecked if the instance difficulty doesn't matter.
 
 If you specified a Statistic ID for this item, the Instance Difficulty is probably meaningless, because all modern statistics already incorporate the difficulty.
 
-You can check multiple items in this list at once.]=] = [=[Определяет, на какой сложности подземелья данный предмет может быть получен. Оставьте все отключенным, если сложность не важна.
+You can check multiple items in this list at once.]=] ] = [=[Определяет, на какой сложности подземелья данный предмет может быть получен. Оставьте все отключенным, если сложность не важна.
 
 Если вы указали Статический ID для этого предмета, сложность подземелья скорее всего не важна, т.к. современная статистика уже включает в себя сложность.
 
@@ -4345,9 +4345,9 @@ L["Tiny Crimson Whelpling"] = "Маленький багровый дракон�
 L["Tiny Emerald Whelpling"] = "Маленький изумрудный дракончик"
 L["Tiny Fel Engine Key"] = "Маленький ключ от двигателя Скверны"
 L["Titanium Vein"] = "Залежи титана"
-L[=[To create a new item, enter a unique name for the item, and click Okay. The name will be used if the server does not return the item link or if the item is invalid.
+L[ [=[To create a new item, enter a unique name for the item, and click Okay. The name will be used if the server does not return the item link or if the item is invalid.
 
-You can't change this name after you create the item, so choose it well.]=] = [=[Для добавления нового предмета, ведите уникальное название и нажмите OK. Это название будет использоваться, если сервер не обнаружит предмет или в нем будет ошибка.
+You can't change this name after you create the item, so choose it well.]=] ] = [=[Для добавления нового предмета, ведите уникальное название и нажмите OK. Это название будет использоваться, если сервер не обнаружит предмет или в нем будет ошибка.
 
 Будьте внимательны, вы не сможете изменить название после добавления.]=]
 L["Today"] = "Сегодня"
@@ -4401,7 +4401,7 @@ L["When enabled, Rarity will print debug profiling messages to the chat window w
 L["When enabled, the item can only be obtained by pickpocketing. The item will be marked Unavailable for non-rogues."] = "Если вкл., предмет может быть получен только обшаривание карманов. Предмет будет отмечен Недоступным для не-разбойнков."
 L["When on, items marked as Defeated will be hidden from the tooltip."] = "Когда вкл., предметы отмеченные Поверженными будут скрыты из подсказки."
 L["When on, items marked as Unavailable will be hidden from the tooltip. This way, items requiring a certain holiday will automatically be hidden when the holiday is not active."] = "Предметы, помеченные как \"Недоступные\" не будут отображаться в подсказках. Таким образом, предметы, которые можно получить лишь во время праздника, не будут отображаться до тех пор, пока праздник не наступит."
-L[=[When on, Rarity will remind you to go farm holiday items you're missing if the holiday is active and the item is set as Undefeated. (This only works for items that originate from holiday dungeons or daily quests.) The reminder occurs each time you log in or reload your UI, and stops for the day once you defeat the holiday dungeon or complete the	quest.]=] = "Когда вкл., Rarity напомнит об отсутствующих праздничных предметах, пока событие активно, и предмет помечен как Не повержен. (Работает только для предметов получаемых в фест. подземельях и ежедневными заданиями.) Напоминание появляется при каждом входе или перезагрузке интерфейса."
+L[ [=[When on, Rarity will remind you to go farm holiday items you're missing if the holiday is active and the item is set as Undefeated. (This only works for items that originate from holiday dungeons or daily quests.) The reminder occurs each time you log in or reload your UI, and stops for the day once you defeat the holiday dungeon or complete the	quest.]=] ] = "Когда вкл., Rarity напомнит об отсутствующих праздничных предметах, пока событие активно, и предмет помечен как Не повержен. (Работает только для предметов получаемых в фест. подземельях и ежедневными заданиями.) Напоминание появляется при каждом входе или перезагрузке интерфейса."
 L["When on, Rarity will show an icon next to each item in the tooltip indicating which expansion the item belongs to."] = "Когда вкл., у каждого предмета в подсказке Rarity будет показывать иконку, означающую к какому дополнению он относится."
 L["When on, Rarity will take a screenshot when the achievement alert pops up indicating that you obtained an item."] = "Rarity будет делать снимок экрана при появлении уведомления о том, что вы получили предмет."
 L["When on, the Luckiness column will be shown in the main tooltip."] = "Когда вкл., колонка Удачливости показывается в основной подсказке."
@@ -4488,11 +4488,11 @@ L["A comma-separated list of item IDs which, when used or opened, can give you t
 L["A comma-separated list of NPC IDs who drop this item. Use WowHead or a similar service to lookup NPC IDs."] = "一个使用逗号分隔的NPC ID的物品掉落列表。使用Wowhead或一个类似的服务来查找NPC IDs。"
 L["A comma-separated list of Statistic IDs that track the number of kills toward obtaining this item."] = "一个用来跟踪物品 ID 以用来统计杀敌数的逗号分隔的列表。"
 L["A comma-separated list of Statistic IDs that track the number of kills toward obtaining this item. These statistics will be added together. Use WowHead or a similar service to locate statistic IDs."] = "一个用来跟踪物品 ID 以用来统计杀敌数的逗号分隔的列表。这些统计数据将同时增加。使用 WowHead 或类似的服务来查找统计的 ID。"
-L[=[A comma-separated list of the zones or sub-zones this item can be found in. For zones, you can enter either the Map ID (i.e. 811 is Vale of Eternal Blossoms), or the full name of the zone. For sub-zones, you must enter the full name of the sub-zone.
+L[ [=[A comma-separated list of the zones or sub-zones this item can be found in. For zones, you can enter either the Map ID (i.e. 811 is Vale of Eternal Blossoms), or the full name of the zone. For sub-zones, you must enter the full name of the sub-zone.
 
 Enter zone names with proper spelling, capitalization, and punctuation. They can be entered either in US English or your client's local language. Use WowHead or a similar service to make sure you're entering the zone names perfectly.
 
-PLEASE NOTE: Zone translations may not be correct. For zones, it is highly recommended that you use the Map ID instead of the name. For sub-zones, you must enter the name. If sub-zone detection isn't working for you, please visit the LibBabble-SubZone-3.0 library page on wowace.com and update the translations for your language.]=] = [=[你可以在这项列表中找到用逗号分隔的地图或子地图。大地图的话，你可以输入地图ID（例如 811 是锦绣谷），或地区全称。子地图的话，您必须输入的子地图的全称。
+PLEASE NOTE: Zone translations may not be correct. For zones, it is highly recommended that you use the Map ID instead of the name. For sub-zones, you must enter the name. If sub-zone detection isn't working for you, please visit the LibBabble-SubZone-3.0 library page on wowace.com and update the translations for your language.]=] ] = [=[你可以在这项列表中找到用逗号分隔的地图或子地图。大地图的话，你可以输入地图ID（例如 811 是锦绣谷），或地区全称。子地图的话，您必须输入的子地图的全称。
 输入地图名称时注意正确的拼写、大小写和标点符号。可以输入英语或你的客户端语言。使用 WowHead 或类似的服务来确保你正确完整的输入区域名称。
 注意：地图名称翻译可能不正确。大地图的话，强烈建议输入地图的 ID 而不是名字。子地图，你必须输入地图名称。如果子地图检测不到，请访问 wowace.com 的 libbabble-subzone-3.0 library 网页上传你的语言的翻译。]=]
 L["A holiday event is available today for %s! Go get it!"] = "一个节日活动已经开始 %s ！去获得它！"
@@ -5079,9 +5079,9 @@ L["Tiny Crimson Whelpling"] = "红龙宝宝"
 L["Tiny Emerald Whelpling"] = "绿龙宝宝"
 L["Tiny Fel Engine Key"] = "迷你邪能钥匙"
 L["Titanium Vein"] = "泰坦神铁矿脉"
-L[=[To create a new item, enter a unique name for the item, and click Okay. The name will be used if the server does not return the item link or if the item is invalid.
+L[ [=[To create a new item, enter a unique name for the item, and click Okay. The name will be used if the server does not return the item link or if the item is invalid.
 
-You can't change this name after you create the item, so choose it well.]=] = "要创建一个新物品，输入一个物品的单独名称，并且点击OK。如果服务器没有回报此物品连结或是物品是无效的则名称已经被使用了。"
+You can't change this name after you create the item, so choose it well.]=] ] = "要创建一个新物品，输入一个物品的单独名称，并且点击OK。如果服务器没有回报此物品连结或是物品是无效的则名称已经被使用了。"
 L["Today"] = "今天"
 L["Toggles"] = "切换"
 L["Tol'vir"] = "托维尔"
@@ -5128,7 +5128,7 @@ L["When enabled, Rarity will add obtainable items to game tooltips whenever poss
 L["When enabled, Rarity will print debug profiling messages to the chat window when certain things happen. This is used to determine which parts of the code are slow."] = "当激活时，某些事情发生时Rarity 将会在聊天窗口显示调试信息。这被用于探测某个模块代码缓慢。"
 L["When enabled, the item can only be obtained by pickpocketing. The item will be marked Unavailable for non-rogues."] = "当取消时，物品将会被标记为只能通过偷窃取得。这项物品将会被标记为非盗贼玩家无法取得。"
 L["When on, items marked as Unavailable will be hidden from the tooltip. This way, items requiring a certain holiday will automatically be hidden when the holiday is not active."] = "当启用时，将隐藏物品提示。这样一来，只有在节日才能激活的物品将不会自动提示激活。"
-L[=[When on, Rarity will remind you to go farm holiday items you're missing if the holiday is active and the item is set as Undefeated. (This only works for items that originate from holiday dungeons or daily quests.) The reminder occurs each time you log in or reload your UI, and stops for the day once you defeat the holiday dungeon or complete the	quest.]=] = "当启用时，Rarity 会提醒你未曾获得的节日物品。（只工作在有节日地下城或日常时）。当你每次登陆或重载 UI 时提醒，当你完成节日地下城或完成节日日常之后会停止提醒。"
+L[ [=[When on, Rarity will remind you to go farm holiday items you're missing if the holiday is active and the item is set as Undefeated. (This only works for items that originate from holiday dungeons or daily quests.) The reminder occurs each time you log in or reload your UI, and stops for the day once you defeat the holiday dungeon or complete the	quest.]=] ] = "当启用时，Rarity 会提醒你未曾获得的节日物品。（只工作在有节日地下城或日常时）。当你每次登陆或重载 UI 时提醒，当你完成节日地下城或完成节日日常之后会停止提醒。"
 L["When on, Rarity will show an icon next to each item in the tooltip indicating which expansion the item belongs to."] = "当启用时，Rarity 将在每一个物品上显示图标。"
 L["When on, Rarity will take a screenshot when the achievement alert pops up indicating that you obtained an item."] = "当勾选时，你获得一个物品成就时 ，Rarity 将会自动截图。"
 L["When on, this option hides any item with a drop chance of 1 in 49 or better. The item is merely hidden from the tooltip in order to keep it clean. Items hidden in this fashion are still tracked like normal."] = "当勾选时，这个选项会隐藏任何掉落几率在 49 分之 1 以上的物品。为了保持它的干净，这项物品仅从隐藏鼠标提示隐藏。使用这种方式隐藏的话仍在跟踪的项目依旧正常"
@@ -5637,9 +5637,9 @@ L["Tiny Crimson Whelpling"] = "小紅龍寶寶"
 L["Tiny Emerald Whelpling"] = "翡翠龍寶寶"
 L["Tiny Fel Engine Key"] = "惡魔引擎鑰匙"
 L["Titanium Vein"] = "泰坦鋼礦脈"
-L[=[To create a new item, enter a unique name for the item, and click Okay. The name will be used if the server does not return the item link or if the item is invalid.
+L[ [=[To create a new item, enter a unique name for the item, and click Okay. The name will be used if the server does not return the item link or if the item is invalid.
 
-You can't change this name after you create the item, so choose it well.]=] = "要創建一個新物品，輸入一個物品的單獨名稱，並且點擊OK。如果伺服器沒有回報此物品連結或是物品是無效的則名稱已經被使用了。"
+You can't change this name after you create the item, so choose it well.]=] ] = "要創建一個新物品，輸入一個物品的單獨名稱，並且點擊OK。如果伺服器沒有回報此物品連結或是物品是無效的則名稱已經被使用了。"
 L["Today"] = "本日"
 L["Toggles"] = "切換"
 L["Tol'vir"] = "托維爾"
@@ -6113,9 +6113,9 @@ L["Tiny Crimson Whelpling"] = "Dragonetinho Carmesim"
 L["Tiny Emerald Whelpling"] = "Dragonetinho Esmeralda"
 L["Tiny Fel Engine Key"] = "Chave do Aniquilador de Bolso"
 L["Titanium Vein"] = "Veio de Titânico"
-L[=[To create a new item, enter a unique name for the item, and click Okay. The name will be used if the server does not return the item link or if the item is invalid.
+L[ [=[To create a new item, enter a unique name for the item, and click Okay. The name will be used if the server does not return the item link or if the item is invalid.
 
-You can't change this name after you create the item, so choose it well.]=] = [=[Para criar um novo item, insira um nome único para o item, e clique em OK. O nome será usado se o servidor não retornar o link do item ou se o item for inválido.
+You can't change this name after you create the item, so choose it well.]=] ] = [=[Para criar um novo item, insira um nome único para o item, e clique em OK. O nome será usado se o servidor não retornar o link do item ou se o item for inválido.
 
 Você não pode mudar este nome após ter criado o item, então escolha bem.]=]
 L["Today"] = "Hoje"

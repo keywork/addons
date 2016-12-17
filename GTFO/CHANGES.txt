@@ -1,4 +1,14 @@
 ------------------------------------------------------------------------
+r292 | Zensunim | 2016-11-26 19:47:11 -0600 (Sat, 26 Nov 2016) | 2 lines
+Changed paths:
+   M /trunk/GTFO.lua
+   M /trunk/GTFO.toc
+   M /trunk/GTFO_Fail_LGN.lua
+   M /trunk/ReadMe.txt
+
+* Added Legion spells for The Broken Isles (world)
+
+------------------------------------------------------------------------
 r291 | Zensunim | 2016-11-24 02:12:10 -0600 (Thu, 24 Nov 2016) | 1 line
 Changed paths:
    M /trunk/GTFO.lua

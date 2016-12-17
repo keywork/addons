@@ -4,9 +4,5 @@
 ## DefaultState: Enabled
 ## LoadOnDemand: 1
 ## Dependencies: Details
-## X-Curse-Packaged-Version: r576
-## X-Curse-Project-Name: Details!
-## X-Curse-Project-ID: details
-## X-Curse-Repository-ID: wow/details/mainline
 
 Details_3DModelsPaths.lua
