@@ -277,26 +277,28 @@ L:SetMiscLocalization({
     Male2        = "Ich hörte, dass der Spion ein äußerst gutaussehender Herr ist.",
     Male3        = "Ein Gast sagte, sie sah, wie ein Herr an der Seite der Großmagistrix das Anwesen betreten hat.",
     Male4        = "Einer der Musiker sagte, er stellte unablässig Fragen über den Bezirk.",
-    ShortSleave1= "Mir ist zu Ohren gekommen, dass der Spion kurze Ärmel trägt, damit er seine Arme ungehindert bewegen kann.",
-    ShortSleave2= "Jemand sagte mir, dass der Spion lange Ärmel hasst.",
-    ShortSleave3= "Einer meiner Freundinnen sagte, dass sie die Kleidung des Spions gesehen hat. Er trägt keine langen Ärmel.",
-    ShortSleave4= "",
-    LongSleave1 = "Wie ich höre, trägt der Spion heute Abend Kleidung mit langen Ärmeln.",
-    LongSleave2 = "Jemand sagte, dass der Spion heute Abend seine Arme mit langen Ärmeln bedeckt.",
-    LongSleave3 = "Ich habe am frühen Abend einen kurzen Blick auf die langen Ärmel des Spions erhascht.",
-    LongSleave4 = "Einer meiner Freunde erwähnte, dass der Spion lange Ärmel trägt.",
+    ShortSleeve1= "Mir ist zu Ohren gekommen, dass der Spion kurze Ärmel trägt, damit er seine Arme ungehindert bewegen kann.",
+    ShortSleeve2= "Jemand sagte mir, dass der Spion lange Ärmel hasst.",
+    ShortSleeve3= "Einer meiner Freundinnen sagte, dass sie die Kleidung des Spions gesehen hat. Er trägt keine langen Ärmel.",
+    ShortSleeve4= "Mir ist zu Ohren gekommen, dass der Spion die kühle Luft mag und deshalb heute Abend keine langen Ärmel trägt.",
+    LongSleeve1 = "Wie ich höre, trägt der Spion heute Abend Kleidung mit langen Ärmeln.",
+    LongSleeve2 = "Jemand sagte, dass der Spion heute Abend seine Arme mit langen Ärmeln bedeckt.",
+    LongSleeve3 = "Ich habe am frühen Abend einen kurzen Blick auf die langen Ärmel des Spions erhascht.",
+    LongSleeve4 = "Einer meiner Freunde erwähnte, dass der Spion lange Ärmel trägt.",
     Potions1    = "Ich hörte, dass der Spion Tränke mitgebracht hat... Ich frage mich wieso?",
     Potions2    = "Von mir habt Ihr das nicht... aber der Spion verkleidet sich als Alchemist und trägt Tränke an seinem Gürtel.",
-    Potions3    = "Wie ich hörte, hat der Spion einige Tränke mitgebracht... für alle Fälle.",
+    Potions3    = "Ich bin mir ziemlich sicher, dass der Spion Tränke am Gürtel trägt.",
+    Potions4    = "Wie ich hörte, hat der Spion einige Tränke mitgebracht... für alle Fälle.",
     NoPotions1    = "Wie ich hörte, hat der Spion keine Tränke bei sich.",
     NoPotions2    = "Eine Musikerin erzählte mir, dass sie gesehen hat, wie der Spion seinen letzten Trank wegwarf und jetzt keinen mehr übrig hat.",
-    Book1        = "",
+    Book1        = "Ich hörte, dass der Spion immer ein Buch mit niedergeschriebenen Geheimnissen am Gürtel trägt.",
     Book2        = "Gerüchte zufolge liest der Spion gerne und trägt immer mindestens ein Buch bei sich.",
     Pouch1        = "Ich hörte, dass der Spion immer einen magischen Beutel mit sich herumträgt.",
     Pouch2        = "",
     Pouch3        = "",
     Pouch4        = ""
 })
+
 
 -----------------------
 -- <<<The Maw of Souls>>> --

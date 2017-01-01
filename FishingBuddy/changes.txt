@@ -1,4 +1,7 @@
-﻿Version 1.7.12b
+﻿Version 1.7.12c
+- Turn on the default values for missing translations in LibBabble-Subzone
+
+Version 1.7.12b
 - Fix a data corruption bug
 - Don't overwrite special bobbers
 - Oversize bobber wins if they're in your inventory

@@ -527,6 +527,13 @@ FishingItems[88535] = {
 	["tooltip"] = FBConstants.CONFIG_TUSKAARSPEAR_INFO,
 	spell = 128357,
 	setting = "UseTuskarrSpear",
+	usable = function(info)
+		-- Only use this if we're not using the Legendary pole (Surface Tension)
+		if (not info.tension) then
+			info.tension = GetSpellInfo(201944);
+		end
+		return not FL:HasBuff(info.tension);
+	end,
 	check = function(info, buff, need)
 			if ( need ) then
 				local s,_,_ = GetItemCooldown(88535);
@@ -587,7 +594,7 @@ FishingItems[136377] = {
 	["default"] = true,
 };
 
-local function PickRandomBait(info, buff, doit, itemid)
+local function PickRandomBobber(info, buff, doit, itemid)
 	local baits = {};
 	for id,info in pairs(Bobbers) do
 		if (PlayerHasToy(id)) then
@@ -612,7 +619,7 @@ Bobbers[142531] = {
 	spell = 231341,
 	toy = 1,
 	usable = CanUseSpecialBobber,
-	check = PickRandomBait,
+	check = PickRandomBobber,
 	ignore = true,
 };
 Bobbers[142532] = {
@@ -621,7 +628,7 @@ Bobbers[142532] = {
 	spell = 231349,
 	toy = 1,
 	usable = CanUseSpecialBobber,
-	check = PickRandomBait,
+	check = PickRandomBobber,
 	ignore = true,
 };
 Bobbers[143662] = {
@@ -630,7 +637,7 @@ Bobbers[143662] = {
 	spell = 232613,
 	toy = 1,
 	usable = CanUseSpecialBobber,
-	check = PickRandomBait,
+	check = PickRandomBobber,
 	ignore = true,
 };
 Bobbers[142530] = {
@@ -639,7 +646,7 @@ Bobbers[142530] = {
 	spell = 231338,
 	toy = 1,
 	usable = CanUseSpecialBobber,
-	check = PickRandomBait,
+	check = PickRandomBobber,
 	ignore = true,
 };
 Bobbers[142529] = {
@@ -647,7 +654,7 @@ Bobbers[142529] = {
 	setting = "SpecialBobbers",
 	spell = 231319,
 	usable = CanUseSpecialBobber,
-	check = PickRandomBait,
+	check = PickRandomBobber,
 	ignore = true,
 };
 Bobbers[142528] = {
@@ -656,7 +663,7 @@ Bobbers[142528] = {
 	spell = 231291,
 	toy = 1,
 	usable = CanUseSpecialBobber,
-	check = PickRandomBait,
+	check = PickRandomBobber,
 	ignore = true,
 };
 
@@ -1144,7 +1151,7 @@ end
 local function SetupSpecialItems(items)
 	for id,info in pairs(items) do
 		info = SetupSpecialItem(info);
-		items[id] = info;
+		FishingItems[id] = info;
 	end
 end
 
@@ -1179,10 +1186,13 @@ FluffEvents["VARIABLES_LOADED"] = function(started)
 	FishingPetsMenuHolder:SetPoint("TOP", FishingPetFrameButton, "BOTTOM", 0, 8);
 	FishingPetsMenuHolder:Hide();
 
+	-- Let's make sure we have buffs on all the items we currently know about
+	for _,info in pairs(FishingItems) do
+		SetupSpecialItem(info);
+	end
+
 	SetupSpecialItems(CoinLures);
 	SetupSpecialItems(Bobbers);
-	-- Setup Oversized Bobber buff
-	SetupSpecialItem(FishingItems[136377]);
 
 	-- we have to wait until the toys are actually available
 	local toydelayframe = CreateFrame("Frame");
@@ -1200,7 +1210,7 @@ end
 
 FishingBuddy.RegisterHandlers(FluffEvents);
 
-if ( FishingBuddy.Debugging ) then
+if ( FishingBuddy.Commands["debug"] ) then
 	local function DumpChosen()
 		UpdateChosenPets();
 		local Debug = FishingBuddy.Debug;

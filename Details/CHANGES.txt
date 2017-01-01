@@ -1,5 +1,17 @@
-changeset:   579:f93775052e0c
+changeset:   581:952366aeb354
 tag:         tip
+user:        Tercio
+date:        Thu Dec 29 18:31:37 2016 -0200
+summary:     - Fixed an issue with overall data not updating correctly at the end of the combat.
+
+
+changeset:   580:240b45d3a02f
+user:        Tercio
+date:        Mon Dec 19 11:57:59 2016 -0200
+summary:     - fixed the integration with bigwigs.
+
+
+changeset:   579:f93775052e0c
 user:        Tercio
 date:        Thu Dec 15 13:51:06 2016 -0200
 summary:     - disabled the link with BigWigs to avoid the 'RegisterMessage' error on every login.
@@ -591,17 +603,5 @@ changeset:   481:805504ad6c5b
 user:        Tercioo
 date:        Mon Jan 18 12:30:09 2016 -0200
 summary:     - new custom displays for raid markers.
-
-
-changeset:   480:efba18ec1710
-user:        Tercioo
-date:        Mon Jan 18 12:28:47 2016 -0200
-summary:     - new custom displays for raid markers.
-
-
-changeset:   479:a9cb0348dbcf
-user:        Tercioo
-date:        Thu Jan 14 16:43:33 2016 -0200
-summary:     - Fixed the size of the right margin on tooltips.
 
 

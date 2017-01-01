@@ -1127,7 +1127,7 @@ local questButton_OnLeave = function	(self)
 end
 
 --ao clicar no bot�o de uma quest na zona ou no world map, colocar para trackear ela
--- �nclick ~onclick
+-- �nclick ~onclick ~click
 local questButton_OnClick = function (self, button)
 
 	if (not self.questID) then
@@ -1147,6 +1147,12 @@ local questButton_OnClick = function (self, button)
 		return
 	end
 
+--was middle button and have WQGF installed
+	if (WorldQuestGroupFinderAddon and button == "MiddleButton") then
+		WorldQuestGroupFinder.HandleBlockClick (self.questID)
+		return
+	end
+	
 --isn't using the tracker
 	if (not WorldQuestTracker.db.profile.use_tracker or IsShiftKeyDown()) then
 		TaskPOI_OnClick (self, button)
@@ -2103,6 +2109,8 @@ function WorldQuestTracker.CreateZoneWidget (index, name, parent) --~zone
 	button:SetScript ("OnEnter", TaskPOI_OnEnter)
 	button:SetScript ("OnLeave", TaskPOI_OnLeave)
 	button:SetScript ("OnClick", questButton_OnClick)
+	
+	button:RegisterForClicks ("LeftButtonDown", "MiddleButtonDown", "RightButtonDown")
 	
 	local supportFrame = CreateFrame ("frame", nil, button)
 	supportFrame:SetPoint ("center")
@@ -4377,6 +4385,8 @@ hooksecurefunc ("ToggleWorldMap", function (self)
 				GameCooltip:AddLine ("$div", nil, 2, nil, -5, -11)
 				--
 				
+				GameCooltip:AddLine (format (L["S_MAPBAR_OPTIONSMENU_TRACKER_SCALE"], "0.8"), "", 2)
+				GameCooltip:AddMenu (2, options_on_click, "tracker_scale", 0.8)				
 				GameCooltip:AddLine (format (L["S_MAPBAR_OPTIONSMENU_TRACKER_SCALE"], "1.0"), "", 2)
 				GameCooltip:AddMenu (2, options_on_click, "tracker_scale", 1)
 				GameCooltip:AddLine (format (L["S_MAPBAR_OPTIONSMENU_TRACKER_SCALE"], "1.1"), "", 2)
@@ -6055,6 +6065,11 @@ local TrackerFrameOnClick = function (self, button)
 			WorldQuestTracker.WorldWidgets_NeedFullRefresh = true
 		end
 	else
+		--WQGF integration
+		if (WorldQuestGroupFinderAddon and button == "MiddleButton") then
+			WorldQuestGroupFinder.HandleBlockClick (self.questID)
+			return
+		end
 		WorldQuestTracker.CanLinkToChat (self, button)
 	end
 end
@@ -6302,7 +6317,7 @@ function WorldQuestTracker.GetOrCreateTrackerWidget (index)
 	f:SetScript ("OnClick", TrackerFrameOnClick)
 	f:SetScript ("OnEnter", TrackerFrameOnEnter)
 	f:SetScript ("OnLeave", TrackerFrameOnLeave)
-	f:RegisterForClicks ("LeftButtonUp", "RightButtonUp")
+	f:RegisterForClicks ("LeftButtonDown", "MiddleButtonDown", "RightButtonDown")
 	
 	f.RightBackground = f:CreateTexture (nil, "background")
 	f.RightBackground:SetTexture ([[Interface\ACHIEVEMENTFRAME\UI-Achievement-HorizontalShadow]])
@@ -7581,6 +7596,8 @@ local create_worldmap_square = function (mapName, index)
 	button:SetScript ("OnLeave", questButton_OnLeave)
 	button:SetScript ("OnClick", questButton_OnClick)
 	
+	button:RegisterForClicks ("LeftButtonDown", "MiddleButtonDown", "RightButtonDown")
+	
 	local fadeInAnimation = button:CreateAnimationGroup()
 	local step1 = fadeInAnimation:CreateAnimation ("Alpha")
 	step1:SetOrder (1)
@@ -8616,7 +8633,11 @@ function WorldQuestTracker.UpdateWorldQuestsOnWorldMap (noCache, showFade, isQue
 											--WorldQuestTracker.SetIconTexture (widget.texture, artifactIcon, false, false)
 											widget.isArtifact = true
 											if (artifactPower >= 1000) then
-												widget.amountText:SetText (format ("%.1fK", artifactPower/1000))
+												if (artifactPower > 9999) then
+													widget.amountText:SetText (format ("%.0fK", artifactPower/1000))
+												else
+													widget.amountText:SetText (format ("%.1fK", artifactPower/1000))
+												end
 												widget.amountBackground:SetWidth (36)
 											else
 												widget.amountText:SetText (artifactPower)

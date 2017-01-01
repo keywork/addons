@@ -1,0 +1,13 @@
+tag 2016.09.05
+48ffc5c0ebe90bfaba63ac11d78aef7769c0a5a0
+warbabyy <warbaby@163.com>
+2016-09-05 02:33:33 +0800
+
+tagging release:
+
+
+--------------------
+
+warbabyy:
+	- * Fix for working with Grid 7.0+. - Provides default setups for ALL 12 classes and EACH of their   specializations - Thorough updates for 7.0 spell lists - Some usability improvements.
+	- 2016.08.18 from svn
