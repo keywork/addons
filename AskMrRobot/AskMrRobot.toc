@@ -5,6 +5,10 @@
 ## Notes: Gear import/export, combat logging, and more.
 ## URL: www.askmrrobot.com
 ## SavedVariables: AskMrRobotDb3
+## X-Curse-Packaged-Version: v48
+## X-Curse-Project-Name: AskMrRobot
+## X-Curse-Project-ID: askmrrobot
+## X-Curse-Repository-ID: wow/askmrrobot/mainline
 
 Libs\LibStub\LibStub.lua
 Libs\CallbackHandler-1.0\CallbackHandler-1.0.xml

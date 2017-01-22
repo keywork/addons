@@ -483,4 +483,3 @@ L["Zone ID"] = "ИД игровой зоны"
 L["Zone ID List"] = "Список игровых зон (ИД)"
 
 
---@end-do-not-package@

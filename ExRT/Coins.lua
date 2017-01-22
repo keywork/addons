@@ -254,14 +254,14 @@ function module.main:CHAT_MSG_LOOT(msg, ...)
 		if numAffixes > 0 then
 			affixes = ":"..numAffixes..":"..affixes
 		end
-		if itemID then
+		if itemID and itemID ~= "144297" then
 			VExRT.Coins.list[#VExRT.Coins.list + 1] = "!"..ExRT.F.tohex(class or 0,1)..itemID..unitName..time()..affixes
 		end	
 	elseif msg:find(module.db.bonusLootChat) then
 		local unitName = msg:match(module.db.bonusLootChat)
 		local itemID = msg:match("|Hitem:(%d+)")
 		local class
-		if unitName and itemID then
+		if unitName and itemID and itemID ~= "144297" then
 			if UnitName(unitName) then
 				class = select(3,UnitClass(unitName))
 			end
@@ -374,7 +374,7 @@ function module.options:Load()
 			return 2
 		elseif (spellID and (tostring(spellID)):match(currFilter) ) then
 			return 3
-		elseif timestamp:lower():match(currFilter) then
+		elseif timestamp and timestamp:lower():match(currFilter) then
 			return 4
 		end
 	end

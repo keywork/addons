@@ -384,4 +384,3 @@ L["Zoom In"] = "Zoom entrant"
 L["Zoom Out"] = "Zoom sortant"
 
 
---@end-do-not-package@

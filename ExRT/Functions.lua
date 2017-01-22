@@ -621,6 +621,32 @@ function ExRT.F.CreateAddonMsg(...)
 	return result
 end
 
+function ExRT.F.GetPlayerRole()
+	local role = UnitGroupRolesAssigned('player')
+	if role == "HEALER" then
+		local _,class = UnitClass('player')
+		return role, (class == "PALADIN" or class == "MONK") and "MHEALER" or "RHEALER"
+	elseif role ~= "DAMAGER" then
+		--TANK, NONE
+		return role
+	else
+		local _,class = UnitClass('player')
+		local isMelee = (class == "WARRIOR" or class == "PALADIN" or class == "ROGUE" or class == "DEATHKNIGHT" or class == "MONK" or class == "DEMONHUNTER")
+		if class == "DRUID" then
+			isMelee = GetSpecialization() ~= 1
+		elseif class == "SHAMAN" then
+			isMelee = GetSpecialization() == 2
+		elseif class == "HUNTER" then
+			isMelee = GetSpecialization() == 3
+		end
+		if isMelee then
+			return role, "MDD"
+		else
+			return role, "RDD"
+		end
+	end
+end
+
 do
 	-- UTF8
 	

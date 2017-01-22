@@ -346,15 +346,17 @@ L["Vertical Bar"] = "垂直条"
 L["WeakAurasOptions"] = "WeakAuras选项"
 L["Width"] = "宽度"
 L["X Offset"] = "X 偏移"
+L["X Rotation"] = "X旋转"
 L["X Scale"] = "宽度比例"
 L["Y Offset"] = "Y 偏移"
+L["Y Rotation"] = "Y旋转"
 L["Y Scale"] = "长度比例"
 L["Yellow Rune"] = "黄色符文"
 L["Yes"] = "是"
 L["Z Offset"] = "深度 偏移"
+L["Z Rotation"] = "Z旋转"
 L["Zoom"] = "缩放"
 L["Zoom In"] = "放大"
 L["Zoom Out"] = "缩小"
 
 
---@end-do-not-package@

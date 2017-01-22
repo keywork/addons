@@ -363,4 +363,3 @@ L["Zoom In"] = "Увеличить"
 L["Zoom Out"] = "Уменьшить"
 
 
---@end-do-not-package@

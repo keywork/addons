@@ -25,3 +25,13 @@ GTFO.FFSpellID["203788"] = {
   --desc = "Volatile Infection (Emeriss)";
   sound = 1;
 };
+
+-- *************
+-- * Nighthold *
+-- *************
+
+-- TODO: Sterilize (Trilliax) -- FF Damage
+-- TODO: Arcing Bonds (Trilliax) -- FF Damage
+-- TODO: Call of Night (High Botanist Tel'arn)
+-- TODO: Collapse of Night (High Botanist Tel'arn)
+-- TODO: Flames of Sargeras (Gul'dan) -- FF 

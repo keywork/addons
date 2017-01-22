@@ -179,6 +179,7 @@ L.TimerSpecTimerDefault = "Сбросить время на стандартно
 L.TimerSpecTimerHeader = "Таймеры специализаций (время подготовки в секундах каждого спека для динамического таймера пула):"
 L.TimerUseDptInstead = "Использовать динамический таймер пула вместо обычного (при \"/rt pull\" и на Панели меток)"
 L.TimerDisableRWmessage = "Отключить отсчет в чат"
+L.TimerTimeToKillTime = "Анализировать секунд"
 
 L.raidchecknofood = "Нет еды"
 L.raidchecknoflask = "Нет фласок"
@@ -557,7 +558,7 @@ L.BossWatcherSegmentNamesSAR = "- аура"
 L.BossWatcherSegmentNamesUD = "Смерть"
 L.BossWatcherSegmentNamesES = "Начало боя"
 L.BossWatcherSegmentNamesSC = "Комманда в чате"
-L.BossWatcherSegmentNamesCMRBE = "Сообщение чате"
+L.BossWatcherSegmentNamesCMRBE = "Сообщение в чате"
 L.BossWatcherSegmentsSpellTooltip = "Spell ID или NPC ID"
 L.BossWatcherSegmentSelectAll = "Выбрать все"
 L.BossWatcherSegmentSelectNothing = "Выбрать ничего"
@@ -754,6 +755,8 @@ L.BossWatcherDoT = "DoT"
 L.BossWatcherHoT = "HoT"
 L.BossWatcherAllPhases = "Все фазы"
 L.BossWatcherPerCast = "За одно применение"
+L.BossWatcherOnlySegmentsWithAura = "Выбрать только сегменты с активной аурой"
+L.BossWatcherOnlySegmentsWithEnemy = "Выбрать только сегменты с активной целью"
 
 L.InspectViewerTalents = "Таланты и символы"
 L.InspectViewerInfo = "Другая информация"
@@ -885,6 +888,7 @@ L.AttendanceHelpNames = "2 и 3 колонки показывают количе
 L.AttendanceSaveCurrent = "Сохранить текущий состав"
 
 L.WhoPulledlastPull = "Последний пулл"
+L.WhoPulledChatOption = "Сообщение в чате"
 
 L.WACheckerWANotFound = "Аддон WeakAuras отсутствует"
 L.WACheckerMissingAura = "Нет ауры"

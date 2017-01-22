@@ -259,6 +259,7 @@ function BuyEmAll:AltCurrencyHandling(itemIndex, frame)
     local Afford1, Afford2, Afford3 = 999999, 999999, 999999; -- Set them all to a high number to begin with. For later.
 
     local NumAltCurrency = GetMerchantItemCostInfo(itemIndex);
+    local RBNumSlots = GetContainerNumSlots(REAGENTBANK_CONTAINER);
 
 
     self.NumAltCurrency = NumAltCurrency;
@@ -274,6 +275,7 @@ function BuyEmAll:AltCurrencyHandling(itemIndex, frame)
             self.AltCurrency1 = tonumber(strmatch(select(3, GetMerchantItemCostItem(itemIndex, 1)), "item:(%d+):")); -- Grabs the item's ID.
             self.AltCurrency1Tex = select(10, GetItemInfo(self.AltCurrency1)); -- Gets the texture for the item to show in the BEA frame.
             price1 = select(2, GetMerchantItemCostItem(itemIndex, 1)); -- Gets the number of the item required.
+            local AC1RBAmt = self:ReagentBankSearcher(RBNumSlots, self.AltCurrency1); -- Checks the reagent bank for the currency item.
             Afford1 = floor((GetItemCount(self.AltCurrency1, true)) / price1) * self.preset; -- How much can be bought.
         end
     end
@@ -289,6 +291,7 @@ function BuyEmAll:AltCurrencyHandling(itemIndex, frame)
             self.AltCurrency2 = tonumber(strmatch(select(3, GetMerchantItemCostItem(itemIndex, 2)), "item:(%d+):"));
             self.AltCurrency2Tex = select(10, GetItemInfo(self.AltCurrency2));
             price2 = select(2, GetMerchantItemCostItem(itemIndex, 2));
+            local AC2RBAmt = self:ReagentBankSearcher(RBNumSlots, self.AltCurrency2);
             Afford2 = floor((GetItemCount(self.AltCurrency2, true)) / price2) * self.preset;
         end
     end
@@ -304,6 +307,7 @@ function BuyEmAll:AltCurrencyHandling(itemIndex, frame)
             self.AltCurrency3 = tonumber(strmatch(select(3, GetMerchantItemCostItem(itemIndex, 3)), "item:(%d+):"));
             self.AltCurrency3Tex = select(10, GetItemInfo(self.AltCurrency3));
             price3 = select(2, GetMerchantItemCostItem(itemIndex, 3));
+            local AC3RBAmt = self:ReagentBankSearcher(RBNumSlots, self.AltCurrency3);
             Afford3 = floor((GetItemCount(self.AltCurrency3, true)) / price3) * self.preset;
         end
     end

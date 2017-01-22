@@ -1,0 +1,10 @@
+## Interface: 70100
+## Title: |cFF07AACBDy|cFFFFFFFFnasty|r - Booster: Horde
+## RequiredDeps: DynastyBooster
+## Version: 807
+## Author: Dynasty Addons
+## eMail: support@manaview.com
+## URL: www.dynastyaddons.com
+## DefaultState: Enabled
+
+Horde.lua

@@ -1,0 +1,8 @@
+2016-11-16  yellowfive  <yellowfive>
+
+[5bacf5c7c66d] [v48]
+* AskMrRobot-Serializer/AskMrRobot-Serializer.lua, AskMrRobot.toc, Constants.lua, localization/enUS.lua, localization/frFR.lua, localization/itIT.lua, localization/ruRU.lua:
+
+trial of valor auto-logging
+
+

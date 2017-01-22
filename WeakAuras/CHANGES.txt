@@ -1,12 +1,124 @@
-tag 5f792559f05e180093549a886e599f158a7e1dad 2.2.2.4
+tag 21ed40004c4280a0e626eab8edf2cffc2c56da0d 2.2.2.5
 Author:	Benjamin Staneck <staneck@gmail.com>
-Date:	Mon Dec 12 23:08:03 2016 +0100
+Date:	Sat Jan 14 05:32:22 2017 +0100
 
-commit 097f9e99bd8428dc32076b90add68d834eff3477
-Author: Benjamin Staneck <staneck@gmail.com>
-Date:   Mon Dec 12 23:07:04 2016 +0100
+commit dfb40a9b6ff5486f63653c0e5e366420250a6eca
+Author: Infus <infus@squorn.de>
+Date:   Fri Jan 13 20:14:30 2017 +0100
 
-    Revert "Use SetClipsChildren for Texture and Icon Frame"
+    Add comments to all templates
+
+commit 92543e80062107c08b1f674288c08ff68d39e28f
+Author: Infus <infus@squorn.de>
+Date:   Tue Jan 10 19:18:40 2017 +0100
+
+    Update Templates for 7.1.5
     
-    This reverts commit 4f8aac7277b4175cb2a14e5e854ba11a5bd5f84e.
+    Probably a whole lot missing....
+
+commit 15955db3d4db2634c27a7f96e5ebe11f70a2a113
+Author: Benjamin Staneck <staneck@gmail.com>
+Date:   Wed Dec 28 15:47:45 2016 +0100
+
+    fix lib paths
+
+commit 15955db3d4db2634c27a7f96e5ebe11f70a2a113
+Author: Benjamin Staneck <staneck@gmail.com>
+Date:   Wed Dec 28 15:47:45 2016 +0100
+
+    fix lib paths
+
+commit cea45482ef4f327923409828041b9adfe5acf746
+Author: Benjamin Staneck <staneck@gmail.com>
+Date:   Tue Dec 27 23:56:12 2016 +0100
+
+    change directory structure
+
+commit 5914557db074a4ba10dcd4c3ff94ad08ffc81dc8
+Author: Benjamin Staneck <staneck@gmail.com>
+Date:   Wed Dec 28 12:12:06 2016 +0100
+
+    3
+
+commit 2895f2a915007417b6b6043a180bac681b1f8ceb
+Author: Benjamin Staneck <staneck@gmail.com>
+Date:   Wed Dec 28 12:11:15 2016 +0100
+
+    2
+
+commit be830b1f97e18f07eed8ea37e0757b659b5f485c
+Author: Benjamin Staneck <staneck@gmail.com>
+Date:   Wed Dec 28 12:06:30 2016 +0100
+
+    let's try this
+
+commit cea45482ef4f327923409828041b9adfe5acf746
+Author: Benjamin Staneck <staneck@gmail.com>
+Date:   Tue Dec 27 23:56:12 2016 +0100
+
+    change directory structure
+
+commit 0e861052d6c59a6deb1c1190ad03f0d0eeec2861
+Author: Benjamin Staneck <staneck@gmail.com>
+Date:   Tue Dec 27 23:56:12 2016 +0100
+
+    change directory structure to no longer rely on move-folders from .pkgmeta
+
+commit 28d68eec2e63987e72b3f9a93785326572c92996
+Author: Benjamin Staneck <Stanzilla@users.noreply.github.com>
+Date:   Sun Dec 25 21:08:56 2016 +0100
+
+    Update ISSUE_TEMPLATE.md
+
+commit 8f57d68ca7e9d83cdd2fb491071a06f8d0e04fbc
+Author: Benjamin Staneck <staneck@gmail.com>
+Date:   Sun Dec 25 20:47:13 2016 +0100
+
+    ignore .github folder and change wowace/curseforge urls to the new format
+
+commit 59708ac97482aa2a5bf4cd126e5eb06591e38775
+Author: Benjamin Staneck <Stanzilla@users.noreply.github.com>
+Date:   Sun Dec 25 20:38:59 2016 +0100
+
+    Update ISSUE_TEMPLATE.md
+
+commit bf0efa33d188e23d89f7bee30b3bbce316cb997f
+Author: Benjamin Staneck <Stanzilla@users.noreply.github.com>
+Date:   Sun Dec 25 20:26:50 2016 +0100
+
+    Create ISSUE_TEMPLATE.md
+
+commit f3cd8426f0bcc0cccef206955403ffd03f5a0e5c
+Author: Infus <infus@squorn.de>
+Date:   Wed Dec 21 16:38:50 2016 +0100
+
+    Fix Ignore Rune CD
+    
+    We schedule a method SpellCooldownFinished() to be run once the timer
+    of a cooldown is finished. The moment that method needs to be run
+    is different for spell cooldowns that ignore the rune cd and spell
+    cooldowns that use the rune cd. Thus we need to use separate timers
+    for those.
+    
+    Ticket-Nr: 820
+
+commit 29647cd7bf114746c936af113b8d593661a2b58b
+Author: Infus <infus@squorn.de>
+Date:   Wed Dec 21 14:43:32 2016 +0100
+
+    Correctly set automaticAutoHide for custom triggers
+    
+    Ticket-Nr: 815
+
+commit 54bc8c993e2f9304ea13b7ebe70b5c78f885ffc4
+Author: Infus <infus@squorn.de>
+Date:   Fri Dec 16 19:24:08 2016 +0100
+
+    Totem trigget: Use normal string input field
+    
+    The spell input uses GetSpellLink to find the spell id for the spellname.
+    Which makes the aura cross language. But that doesn't work for all
+    totem names. So use a normal string input field.
+    
+    Ticket-Nr: 812
 

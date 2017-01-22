@@ -149,7 +149,7 @@ CheckButton	ExRTRadioButtonModernTemplate
 local GlobalAddonName, ExRT = ...
 local isExRT = GlobalAddonName == "ExRT"
 
-local libVersion = 25
+local libVersion = 26
 
 if type(ELib)=='table' and type(ELib.V)=='number' and ELib.V > libVersion then return end
 
@@ -194,6 +194,14 @@ do
 		self:SetScript("OnClick",func)
 		return self
 	end
+	local function Widget_OnShow(self,func)
+		if not func then
+			return self
+		end
+		self:SetScript("OnShow",func)
+		func(self)
+		return self
+	end
 	local function Widget_Run(self,func,...)
 		func(self,...)
 		return self
@@ -204,6 +212,7 @@ do
 		self.NewPoint = Widget_SetNewPoint
 		self.Scale = Widget_SetScale
 		self.OnClick = Widget_OnClick
+		self.OnShow = Widget_OnShow
 		self.Run = Widget_Run
 		
 		self.SetNewPoint = Widget_SetNewPoint
@@ -2832,6 +2841,10 @@ do
 		self.text:SetPoint("RIGHT",self,"LEFT",relativeX and relativeX*(-1) or -2,0)
 		return self
 	end
+	local function Widget_TextSize(self,size)
+		self.text:SetFont(self.text:GetFont(),size)
+		return self
+	end
 			
 	function ELib:Check(parent,text,state,template)
 		if template == 0 then
@@ -2844,10 +2857,12 @@ do
 		self:SetChecked(state and true or false)
 		self:SetScript("OnEnter",CheckBoxOnEnter)
 		self:SetScript("OnLeave",ELib.Tooltip.Hide)
+		self.defSetSize = self.SetSize
 		
 		Mod(self)
 		self.Tooltip = Widget_Tooltip
 		self.Left = Widget_Left
+		self.TextSize = Widget_TextSize
 		
 		return self
 	end
@@ -4468,7 +4483,7 @@ do
 		local x,y = GetCursorPos(self)
 		if IsInFocus(self,x,y) then
 			if #self.tooltipsData == 1 then
-				local Y,X,_posY,xText,yText,comment = nil
+				local Y,X,_posY,xText,yText,comment,main = nil
 				for k=1,#self.tooltipsData do
 					for i=#self.tooltipsData[k],1,-1 do
 						if (self.tooltipsData[k][i][1] - (self.tooltipsData[k][i-1] and (self.tooltipsData[k][i][1]-self.tooltipsData[k][i-1][1])/2 or 0)) < x or
@@ -4479,6 +4494,7 @@ do
 							xText = self.data.tooltipX and self.data.tooltipX[X] or self.tooltipsData[k][i][5]
 							yText = self.tooltipsData[k][i][6]
 							comment = self.tooltipsData[k][i][7]
+							main = self.tooltipsData[k].main
 							break
 						end
 					end
@@ -4490,7 +4506,7 @@ do
 					end
 					GameTooltip:SetOwner(self, "ANCHOR_LEFT",x,_posY)
 					GameTooltip:SetText(xText or Round(X))
-					GameTooltip:AddLine((self.data[1].name and self.data[1].name..": " or "")..(yText or Round(Y)))
+					GameTooltip:AddLine((main.name and main.name..": " or "")..(yText or Round(Y)))--,main.r or Graph_DefColors[main.color_count] and Graph_DefColors[main.color_count].r,main.g or Graph_DefColors[main.color_count] and Graph_DefColors[main.color_count].g,main.b or Graph_DefColors[main.color_count] and Graph_DefColors[main.color_count].b)
 					if comment then
 						GameTooltip:AddLine(comment)
 					end
@@ -4583,7 +4599,7 @@ do
 	local function GraphOnMouseUp(self,isLeave)
 		if isLeave == "LEAVE" then
 			if self.selectingTexture then
-				return
+				return "SELECTING"
 				--self.selectingTexture:Hide()
 			end
 			self.mouseDowned = nil
@@ -4653,7 +4669,9 @@ do
 	end
 	local function GraphOnLeave(self)
 		GameTooltip_Hide()
-		GraphOnMouseUp(self,"LEAVE")
+		if GraphOnMouseUp(self,"LEAVE") == "SELECTING" then
+			return
+		end
 		self:SetScript("OnUpdate",nil)
 	end
 	local function GraphOnEnter(self)

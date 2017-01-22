@@ -76,4 +76,3 @@ L["Unknown Item"] = "알 수 없는 아이템"
 L["Unknown Spell"] = "알 수 없는 주문"
 
 
---@end-do-not-package@

@@ -12,8 +12,8 @@ BINDING_NAME_AngryAssign_LOCK = "Toggle Lock"
 BINDING_NAME_AngryAssign_DISPLAY = "Toggle Display"
 BINDING_NAME_AngryAssign_OUTPUT = "Output Assignment to Chat"
 
-local AngryAssign_Version = 'v1.8.6'
-local AngryAssign_Timestamp = '20161128220122'
+local AngryAssign_Version = 'v1.8.7'
+local AngryAssign_Timestamp = '2017010991808'
 
 local protocolVersion = 1
 local comPrefix = "AnAss"..protocolVersion
@@ -962,6 +962,7 @@ function AngryAssign:CreateWindow()
 	window.button_clear = button_clear
 
 	self:UpdateSelected(true)
+	self:UpdateMedia()
 	
 	--self:CreateIconPicker()
 end
@@ -1740,6 +1741,7 @@ function AngryAssign:UpdateBackdrop()
 	end
 end
 
+local editFontName, editFontHeight, editFontFlags
 function AngryAssign:UpdateMedia()
 	local fontName = LSM:Fetch("font", AngryAssign:GetConfig('fontName'))
 	local fontHeight = AngryAssign:GetConfig('fontHeight')
@@ -1748,6 +1750,18 @@ function AngryAssign:UpdateMedia()
 	self.display_text:SetTextColor( HexToRGB(self:GetConfig('color')) )
 	self.display_text:SetFont(fontName, fontHeight, fontFlags)
 	self.display_text:SetSpacing( AngryAssign:GetConfig('lineSpacing') )
+
+	if self.window then
+		if self:GetConfig('editBoxFont') then
+			if not editFontName then
+				editFontName, editFontHeight, editFontFlags = self.window.text.editBox:GetFont()
+			end
+			self.window.text.editBox:SetFont(fontName, fontHeight, fontFlags)
+		elseif editFontName then
+			self.window.text.editBox:SetFont(editFontName, editFontHeight, editFontFlags)
+		end
+	end
+
 	self:UpdateBackdrop()
 end
 
@@ -2038,7 +2052,8 @@ local configDefaults = {
 	allowplayers = "",
 	backdropShow = false,
 	backdropColor = "00000080",
-	glowColor = "FF0000"
+	glowColor = "FF0000",
+	editBoxFont = false,
 }
 
 function AngryAssign:GetConfig(key)
@@ -2246,7 +2261,6 @@ function AngryAssign:OnInitialize()
 						get = function(info) return self:GetConfig('hideoncombat') end,
 						set = function(info, val)
 							self:SetConfig('hideoncombat', val)
-
 						end
 					},
 					scale = {
@@ -2397,6 +2411,17 @@ function AngryAssign:OnInitialize()
 							self:SetConfig('lineSpacing', val)
 							self:UpdateMedia()
 							self:UpdateDisplayed()
+						end
+					},
+					editBoxFont =  {
+						type = "toggle",
+						order = 7,
+						name = "Change Edit Box Font",
+						desc = "Enable to set edit box font to display font",
+						get = function(info) return self:GetConfig('editBoxFont') end,
+						set = function(info, val)
+							self:SetConfig('editBoxFont', val)
+							self:UpdateMedia()
 						end
 					},
 				}

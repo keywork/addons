@@ -1963,7 +1963,10 @@ function module.options:Load()
 				count = count + 1
 			end
 		end
-		self.ScrollBar:SetMinMaxValues(1,max(count-module.db.perPage+1,1)):UpdateButtons()
+		local val = self.ScrollBar:GetValue()
+		local newMax = max(count-module.db.perPage+1,1)
+		self.ScrollBar:SetMinMaxValues(1,newMax):SetValue(min(val,newMax))
+		
 		module.options.ReloadPage()
 		
 		module.options.RaidIlvl()

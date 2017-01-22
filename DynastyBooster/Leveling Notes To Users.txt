@@ -1,0 +1,15 @@
+Legion Leveling Tips:
+- Legion uses a new dynamic leveling system. Mobs, quests and their rewards scale to match your level. Only Suramar is for level 110. This means you can complete the zones in any order you like. Mobs will always be your level.
+- Pure solo questing without exp boosts, heirlooms or dungeons will not get you to 110. People on forums are saying they completed all the quests and only reached 107! You will need about 2-3 levels of exp from other sources.
+- You will need to pickup and complete the Dungeon quest towards the end of each zone's storyline to help you get enough exp. Doing a few dungeons will probably be required too.
+- Beta had quite a few bugged quests that prevented progression. The end of the Highmountain storyline was bugged but the other zones are fully complete. If Highmountain is fixed after release, make sure to complete that storyline without the help of Booster.
+
+
+
+Booster Quick Guide
+- New expansions inevitably cause Booster to behave a little strange. Booster does it's best to sync up with your character, but there will inevitably be times when you're told to do a quest which you don't have and you become out of sync with the guide. 
+- When you go out of sync, just continue doing the quest lines yourself until you get back into sync with the guide. Closing and reopening the guide may also help. It's like restarting it. It will scan through the guide and try to find the first quest which your character has not completed yet.
+- If your jumping into the middle of a guide at some random level it will take a little time to sync with Booster. Booster may tell you to complete a quest which you never received or to pickup a quest you didn't do the prerequisites for. Skip steps you can't complete and just keep going through the guide until you're synced up.
+
+Booster doesn't cover Scenarios, Class Quests or Artifact Quests. Booster will let you know when it's time to go off by yourelf to complete those. Jump back into Booster when you're finished.
+

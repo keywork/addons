@@ -1,7 +1,7 @@
 ## Interface: 70100
 ## Title: Angry Assignments
 ## Author: Ermad
-## Version: v1.8.6
+## Version: v1.8.7
 ## SavedVariables: AngryAssign_Pages,AngryAssign_Categories,AngryAssign_State,AngryAssign_Config
 ## OptionalDeps: Ace3, AceGUI-3.0-SharedMediaWidgets, LibCompress, LibWindow-1.1
 

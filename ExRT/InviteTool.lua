@@ -659,6 +659,9 @@ do
 		end
 	end
 	function module.main:GROUP_INVITE_CONFIRMATION()
+		if true then
+			return
+		end
 		local firstInvite = GetNextPendingInviteConfirmation()
 		if ( not firstInvite ) then
 			return

@@ -1,0 +1,16 @@
+## Interface: 70100
+## Title: |cFF07AACBDy|cFFFFFFFFnasty Addons|r
+## Version: 9
+## Author: Dynasty Addons
+## DefaultState: Enabled
+## LoadOnDemand: 0
+
+EventHandler.lua
+Canvas.lua
+MapData.lua
+PlayerInfo.lua
+MapDraw.lua
+LibElci.lua
+Styles.lua
+LandMap.lua
+Main.lua

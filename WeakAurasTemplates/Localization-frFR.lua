@@ -76,4 +76,3 @@ L["Unknown Item"] = "Objet inconnu"
 L["Unknown Spell"] = "Sort inconnu"
 
 
---@end-do-not-package@

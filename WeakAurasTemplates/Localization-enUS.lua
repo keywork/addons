@@ -78,4 +78,3 @@ setmetatable(WeakAuras.L, {__index = function(self, key)
 end})
 
 
---@end-do-not-package@

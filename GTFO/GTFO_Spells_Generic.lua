@@ -19,6 +19,7 @@ Sample:
 		trivialPercent = 0;
 		alwaysAlert = true;
 		applicationOnly = true;
+		ignoreApplication = true;
 		minimumStacks = 1;
 		maximumStacks = 5;
 		specificMobs = { 123, 234, 345 };

@@ -23,8 +23,8 @@ GTFO = {
 		TrivialDamagePercent = 2; -- Minimum % of HP lost required for an alert to be trivial
 		SoundOverrides = { }; -- Override table for GTFO sounds
 	};
-	Version = "4.41.5"; -- Version number (text format)
-	VersionNumber = 44105; -- Numeric version number for checking out-of-date clients
+	Version = "4.42.2"; -- Version number (text format)
+	VersionNumber = 44201; -- Numeric version number for checking out-of-date clients
 	DataLogging = nil; -- Indicate whether or not the addon needs to run the datalogging function (for hooking)
 	DataCode = "4"; -- Saved Variable versioning, change this value to force a reset to default
 	CanTank = nil; -- The active character is capable of tanking
@@ -480,6 +480,11 @@ function GTFO_OnEvent(self, event, ...)
 						-- Application Only is set and this was a non-application event
 						return;
 					end
+				end
+				if (GTFO.SpellID[SpellID].ignoreApplication and SpellType == "SPELL_AURA_APPLIED") then
+					--GTFO_DebugPrint("Won't alert "..SpellName.." ("..SpellID..") - Ignore application event");
+					-- Debuff application and "Ignore Application" is set
+					return;					
 				end
 				if (GTFO.SpellID[SpellID].ignoreSelfInflicted and SpellSourceGUID == UnitGUID("player")) then
 					--GTFO_DebugPrint("Won't alert "..SpellName.." ("..SpellID..") - Ignore self inflicted");

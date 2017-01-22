@@ -1,0 +1,28 @@
+## Interface: 70100
+## Title: |cFF07AACBDy|cFFFFFFFFnasty|r - Edge
+## Version: 9
+## SavedVariables: DynastyEdge_GSaved
+## SavedVariablesPerCharacter: DynastyEdge_Saved
+## Author: Dynasty Addons
+## DefaultState: Enabled
+## LoadOnDemand: 1
+## Dependencies: DynastyCore
+
+ClassIcons.lua
+GUI.lua
+PageTemplates.lua
+
+Main.lua
+
+Info/DeathKnight.lua
+Info/Druid.lua
+Info/Hunter.lua
+Info/Mage.lua
+Info/Monk.lua
+Info/Paladin.lua
+Info/Priest.lua
+Info/Rogue.lua
+Info/Shaman.lua
+Info/Warlock.lua
+Info/Warrior.lua
+Info/DemonHunter.lua

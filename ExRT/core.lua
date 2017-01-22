@@ -1,42 +1,27 @@
---	0:28 08.12.2016
+--	0:20 17.01.2017
 
 --[[
-3830
-* Finally, no more artifact window on load for some users (I hope)
-* Who Pulled: new method for checks (first player who entered combat)
+3842
+* Note: added Nighthold icons
+* Timers: fixed sync with BW
 * Minor fixes
 
-
-3827
-* Fix artifact window on load
-
-3826
+3841
 * Major fixes
 
-
-3825
-* Fight log: Bugfixes
-* Raid Check: added mainstat food
+3840
+* Fixed pull timer for party group
+* Auto Logging: added 5ppl mythic diff (must be correct logs if you run mythic+)
+* Raid cooldowns: 7.1.5 class balance & legendary updates
+* Who Pulled: added option for message in chat
+* Timers: Time to kill: new option
+* 7.1.5 Update
 * Minor fixes
-
-
-3820
-* Fight log: Interface improvements
-* Notes: minor interface improvements
-* Notes: added ToV bosses for autoload and icons
-* Minor fixes
-
-3790
-* 7.1 Update
-
-
-TODO:
-WhoPulled print clear
 
 ]]
 local GlobalAddonName, ExRT = ...
 
-ExRT.V = 3830
+ExRT.V = 3842
 ExRT.T = "R"
 
 ExRT.OnUpdate = {}		--> таймеры, OnUpdate функции
@@ -134,9 +119,7 @@ do
 				self.options.enableLoadInCombat = true
 			end
 			
-			if not ExRT.BannedModules[moduleName] then
-				ExRT.ModulesOptions[#ExRT.ModulesOptions + 1] = self.options
-			end
+			ExRT.ModulesOptions[#ExRT.ModulesOptions + 1] = self.options
 			
 		end
 		
@@ -347,8 +330,6 @@ do
 	ExRT.F.NewTimer = ExRT.F.ScheduleTimer
 	ExRT.F.Timer = ExRT.F.ScheduleTimer
 end
-
-ExRT.BannedModules = {}
 
 ---------------> Data <---------------
 
@@ -602,7 +583,7 @@ do
 	end
 end
 
--- Заметка: сообщение в приват на другой сервер почему-то игнорируется
+-- Заметка: сообщение в приват на другой сервер игнорируется
 
 function ExRT.F.SendExMsg(prefix, msg, tochat, touser, addonPrefix)
 	addonPrefix = addonPrefix or "EXRTADD"

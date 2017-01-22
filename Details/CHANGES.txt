@@ -1,5 +1,23 @@
-changeset:   581:952366aeb354
+changeset:   584:147676eea04c
 tag:         tip
+user:        Tercio
+date:        Sun Jan 15 15:54:35 2017 -0200
+summary:     - ticket #154 fixed an issue with spec detection on PvP Arenas.
+
+
+changeset:   583:ff98771abc31
+user:        Tercio
+date:        Sun Jan 15 15:24:21 2017 -0200
+summary:     - ticket #157 difficulty name is "Mythic Keystone" not "Mythic".
+
+
+changeset:   582:b82ee6af0e14
+user:        Tercio
+date:        Sun Jan 08 16:52:26 2017 -0200
+summary:     - ticket #153: fixed the overall data not reseting when starting a new mythic+ dungeon.
+
+
+changeset:   581:952366aeb354
 user:        Tercio
 date:        Thu Dec 29 18:31:37 2016 -0200
 summary:     - Fixed an issue with overall data not updating correctly at the end of the combat.
@@ -585,23 +603,5 @@ changeset:   484:4c3bf1650b70
 user:        Tercioo
 date:        Fri Jan 22 10:21:12 2016 -0200
 summary:     - added a scale parameter for encounter details plugin.
-
-
-changeset:   483:455c28b7ca02
-user:        Tercioo
-date:        Thu Jan 21 09:48:27 2016 -0200
-summary:     - Fixed a gap when setting the bars to 'bottom to top' grow direction.
-
-
-changeset:   482:1fdd7ea6dc3d
-user:        Tercioo
-date:        Wed Jan 20 12:33:28 2016 -0200
-summary:     - added support to plugins on the bookmark panel.
-
-
-changeset:   481:805504ad6c5b
-user:        Tercioo
-date:        Mon Jan 18 12:30:09 2016 -0200
-summary:     - new custom displays for raid markers.
 
 

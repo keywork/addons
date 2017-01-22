@@ -1,0 +1,24 @@
+## Interface: 70100
+## Title: |cFF07AACBDy|cFFFFFFFFnasty|r - Booster
+## Version: 16
+## SavedVariables: DynastyGuideViewer_GSaved
+## SavedVariablesPerCharacter: DynastyGuideViewer_Saved
+## Author: Dynasty Addons
+## DefaultState: Enabled
+## LoadOnDemand: 1
+## Dependencies: DynastyCore
+
+Viewer.lua
+
+GameInfo.lua
+Wow.lua
+Tasks.lua
+GUI.lua
+Navigator.lua
+Mesh.lua
+
+Editor.lua
+
+--Tools.lua
+--Guides/Alliance.lua
+--Guides/Horde.lua

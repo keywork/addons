@@ -461,7 +461,6 @@ L["Zone ID"] = "Zone ID"
 L["Zone ID List"] = "Zone ID List"
 
 
---@end-do-not-package@
 
 -- Make missing translations available
 setmetatable(WeakAuras.L, {__index = function(self, key)

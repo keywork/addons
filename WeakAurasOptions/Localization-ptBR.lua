@@ -180,4 +180,3 @@ L["Text Color"] = "Cor do texto"
 L["Text Position"] = "Posição do texto"
 
 
---@end-do-not-package@

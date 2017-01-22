@@ -1,4 +1,4 @@
-## Interface: 70100
+﻿## Interface: 70100
 
 ## Title: Lib: Compress
 ## Notes: Compression and Decompression library

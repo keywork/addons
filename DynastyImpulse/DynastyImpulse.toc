@@ -1,0 +1,25 @@
+## Interface: 70100
+## Title: |cFF07AACBDy|cFFFFFFFFnasty|r - Impulse
+## Version: 6
+## SavedVariables: DynastyImpulse_GSaved
+## SavedVariablesPerCharacter: DynastyImpulse_Saved
+## Author: Dynasty Addons
+## DefaultState: Enabled
+## LoadOnDemand: 1
+## Dependencies: DynastyCore
+
+GUI.lua
+Main.lua
+
+Sets/DeathKnight.lua
+Sets/Druid.lua
+Sets/Hunter.lua
+Sets/Mage.lua
+Sets/Monk.lua
+Sets/Paladin.lua
+Sets/Priest.lua
+Sets/Rogue.lua
+Sets/Shaman.lua
+Sets/Warlock.lua
+Sets/Warrior.lua
+Sets/DemonHunter.lua

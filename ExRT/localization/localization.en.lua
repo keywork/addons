@@ -179,6 +179,7 @@ L.TimerSpecTimerDefault = "Reset spec times"
 L.TimerSpecTimerHeader = "Spec timers (preparation time, in seconds, needed per spec for dynamic pull timer):"
 PH.TimerUseDptInstead = "Use dynamic pool timer instead default (by \"/rt pull\" or on Marks bar)"
 L.TimerDisableRWmessage = "Disable countdown in chat"
+PH.TimerTimeToKillTime = "Time for analyze, seconds"
 
 L.raidchecknofood = "No food"
 L.raidchecknoflask = "No flask"
@@ -752,6 +753,8 @@ L.BossWatcherDoT = "DoT"
 L.BossWatcherHoT = "HoT"
 L.BossWatcherAllPhases = "All Phases"
 L.BossWatcherPerCast = "Per cast"
+L.BossWatcherOnlySegmentsWithAura = "Select segments only with active aura"
+L.BossWatcherOnlySegmentsWithEnemy = "Select segments only with active target"
 
 L.InspectViewerTalents = "Talents and glyps"
 L.InspectViewerInfo = "Other info"
@@ -883,6 +886,7 @@ L.AttendanceHelpNames = "2 and 3 columns show attendance number in any raid grou
 L.AttendanceSaveCurrent = "Save current roster"
 
 L.WhoPulledlastPull = "Last pull"
+L.WhoPulledChatOption = "Message in chat"
 
 L.WACheckerWANotFound = "Addon WeakAuras not found"
 L.WACheckerMissingAura = "No aura"

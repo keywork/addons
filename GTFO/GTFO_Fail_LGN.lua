@@ -1181,14 +1181,47 @@ GTFO.SpellID["203110"] = {
 -- * Nighthold *
 -- *************
 
-GTFO.SpellID["218155"] = {
-  --desc = "Solar Collapse (High Botanist Tel'arn)";
+-- TODO: Volatile Resonance (Skorpyron)
+-- TODO: Arcane Slash (Trilliax) -- non-tank fail
+-- TODO: Toxic Slice (Trilliax) -- impact, not DoT
+-- TODO: Annihilation (Trilliax) -- Avoidable or raid fail?
+-- TODO: Burning Soul (Tichondrius) -- FF Fail
+-- TODO: Felburst (Krosus)
+-- TODO: Controlled Chaos (High Botanist Tel'arn) -- inside ring damage only
+-- TODO: Toxic Spores (High Botanist Tel'arn)
+-- TODO: Frozen Solid (Star Augur Etaeus)
+-- TODO: Shatter (Star Augur Etaeus) -- FF fail
+-- TODO: Fel Ember (Star Augur Etaeus)
+-- TODO: World-Devouring Force (Star Augur Etaeus)
+-- TODO: Delphuric Beam (Grand Magistrix Elisande)
+-- TODO: Epocheric Orb (Grand Magistrix Elisande) -- when debuffed with Epocheric Vulnerability
+-- TODO: Gaze of Vethriz (Gul'dan)
+-- TODO: Storm of the Destroyer (Gul'dan) -- x4
+
+
+GTFO.SpellID["204483"] = {
+  --desc = "Focused Blast (Skorpyron)";
   sound = 3;
 };
 
-GTFO.SpellID["219235"] = {
-  --desc = "Toxic Spores (Naturalist Tel'arn)";
-  applicationOnly = true;
+GTFO.SpellID["204275"] = {
+  --desc = "Arcanoslash (Skorpyron)";
+  sound = 3;
+  tankSound = 0;
+};
+
+GTFO.SpellID["230438"] = {
+  --desc = "Devastating Strike (Torm the Brute)";
+  sound = 3;
+};
+
+GTFO.SpellID["221164"] = {
+  --desc = "Fulminate (Fulminant)";
+  sound = 3;
+};
+
+GTFO.SpellID["206612"] = {
+  --desc = "Burst of Time (Chronomatic Anomaly)";
   sound = 3;
 };
 
@@ -1199,8 +1232,38 @@ GTFO.SpellID["224510"] = {
   test = true;
 };
 
-GTFO.SpellID["213328"] = {
-  --desc = "Detonate: Arcane Orb (Spellblade Aluriel)";
+GTFO.SpellID["205391"] = {
+  --desc = "Fel Beam (Krosus)";
+  sound = 3;
+};
+
+GTFO.SpellID["205863"] = {
+  --desc = "Slam (Krosus)";
+  sound = 3;
+  tankSound = 0;
+};
+
+GTFO.SpellID["215988"] = {
+  --desc = "Carrion Nightmare (Carrion Nightmare)";
+  sound = 3;
+};
+
+GTFO.SpellID["206474"] = {
+  --desc = "Seeker Swarm (Tichondrius)";
+  sound = 3;
+  negatingDebuffSpellID = 206480; -- Carrion Plague 
+  test = true; -- Not working because plague is getting applied first
+};
+
+
+GTFO.SpellID["218155"] = {
+  --desc = "Solar Collapse (High Botanist Tel'arn)";
+  sound = 3;
+};
+
+GTFO.SpellID["219235"] = {
+  --desc = "Toxic Spores (Naturalist Tel'arn)";
+  applicationOnly = true;
   sound = 3;
 };
 
@@ -1223,6 +1286,11 @@ GTFO.SpellID["227781"] = {
 
 GTFO.SpellID["227712"] = {
   --desc = "Spear of Light (Odyn)";
+  sound = 3;
+};
+
+GTFO.SpellID["227811"] = {
+  --desc = "Raging Tempest (Odyn)";
   sound = 3;
 };
 

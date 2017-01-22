@@ -1,6 +1,6 @@
 ﻿-- Pawn by Vger-Azjol-Nerub
 -- www.vgermods.com
--- © 2006-2016 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
+-- © 2006-2017 Green Eclipse.  This mod is released under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 license.
 -- See Readme.htm for more information.
 --
 -- User interface code
@@ -871,7 +871,7 @@ function PawnUIFrame_ScaleColorSwatch_OnClick()
 	ColorPickerFrame.previousValues = { r, g, b }
 	ColorPickerFrame.hasOpacity = false
 	ColorPickerFrame:SetColorRGB(r, g, b)
-	ColorPickerFrame:Show()
+	ShowUIPanel(ColorPickerFrame)
 end
 
 function PawnUIFrame_ScaleColorSwatch_OnChange()
@@ -2206,10 +2206,6 @@ function PawnUISwitchToTab(Tab)
 		return
 	end
 	
-	-- Hide popup UI.
-	PawnUIStringDialog:Hide()
-	ColorPickerFrame:Hide()
-	
 	-- Loop through all tab frames, showing all but the current one.
 	local TabNumber
 	for i = 1, TabCount do
@@ -2222,13 +2218,12 @@ function PawnUISwitchToTab(Tab)
 		end
 	end
 	VgerCore.Assert(TabNumber, "Oh noes, we couldn't find that tab.")
+	local ReloadingSameTab = (TabNumber == PawnUICurrentTabNumber)
 	PawnUICurrentTabNumber = TabNumber
-	
-	-- Then, update the tabstrip itself.
-	VgerCore.Assert(TabNumber, "Couldn't find the tab to show!")
-	PanelTemplates_SetTab(PawnUIFrame, TabNumber)
-	
+
 	-- Show/hide the scale selector as appropriate.
+	-- (This also gets called when turning Automatic mode on or off, so we need to still re-run this even
+	-- if the tab doesn't change.)
 	if PawnUIFrameNeedsScaleSelector[PawnUICurrentTabNumber] then
 		if PawnOptions.AutoSelectScales then
 			PawnUIScaleSelectorAuto:Show()
@@ -2244,6 +2239,16 @@ function PawnUISwitchToTab(Tab)
 	
 	-- Then, update the header text.
 	PawnUIUpdateHeader()
+
+	-- If we're already on that tab, we don't need to do anything else.
+	if ReloadingSameTab then return end
+	
+	-- Hide popup UI.
+	PawnUIStringDialog:Hide()
+	ColorPickerFrame:Hide()
+	
+	-- Then, update the tabstrip itself.
+	PanelTemplates_SetTab(PawnUIFrame, TabNumber)
 end
 
 function PawnUIUpdateHeader()
