@@ -41,9 +41,9 @@
 --  Globals/Default Options  --
 -------------------------------
 DBM = {
-	Revision = tonumber(("$Revision: 15708 $"):sub(12, -3)),
-	DisplayVersion = "7.1.10 alpha", -- the string that is shown as version
-	ReleaseRevision = 15683 -- the revision of the latest stable version that is available
+	Revision = tonumber(("$Revision: 15713 $"):sub(12, -3)),
+	DisplayVersion = "7.1.11 alpha", -- the string that is shown as version
+	ReleaseRevision = 15711 -- the revision of the latest stable version that is available
 }
 DBM.HighestRelease = DBM.ReleaseRevision --Updated if newer version is detected, used by update nags to reflect critical fixes user is missing on boss pulls
 
@@ -11005,7 +11005,7 @@ do
 		return false
 	end
 
-	local mobUids = {"mouseover", "boss1", "boss2", "boss3", "boss4", "boss5"}
+	local mobUids = {"mouseover", "target", "boss1", "boss2", "boss3", "boss4", "boss5"}
 	function bossModPrototype:ScanForMobs(creatureID, iconSetMethod, mobIcon, maxIcon, scanInterval, scanningTime, optionName, isFriendly, secondCreatureID)
 		if not optionName then optionName = self.findFastestComputer[1] end
 		if canSetIcons[optionName] then
