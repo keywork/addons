@@ -105,6 +105,7 @@ local default = {
     rotation = 0,
     selfPoint = "CENTER",
     anchorPoint = "CENTER",
+    anchorFrameType = "SCREEN",
     xOffset = 0,
     yOffset = 0,
     font = "Friz Quadrata TT",
@@ -357,12 +358,6 @@ local function modify(parent, region, data)
     local background, foreground = region.background, region.foreground;
     local foregroundSpinner, backgroundSpinner = region.foregroundSpinner, region.backgroundSpinner;
 
-    if(data.frameStrata == 1) then
-        region:SetFrameStrata(region:GetParent():GetFrameStrata());
-    else
-        region:SetFrameStrata(WeakAuras.frame_strata_types[data.frameStrata]);
-    end
-
     region:SetWidth(data.width);
     region:SetHeight(data.height);
     region.aspect =  data.width / data.height;
@@ -375,7 +370,14 @@ local function modify(parent, region, data)
     backgroundSpinner:SetHeight((data.height + data.backgroundOffset * 2) * scaleWedge);
 
     region:ClearAllPoints();
-    region:SetPoint(data.selfPoint, parent, data.anchorPoint, data.xOffset, data.yOffset);
+    local anchorFrame = WeakAuras.GetAnchorFrame(data.id, data.anchorFrameType, parent, data.anchorFrameFrame);
+    region:SetParent(anchorFrame);
+    region:SetPoint(data.selfPoint, anchorFrame, data.anchorPoint, data.xOffset, data.yOffset);
+    if(data.frameStrata == 1) then
+        region:SetFrameStrata(region:GetParent():GetFrameStrata());
+    else
+        region:SetFrameStrata(WeakAuras.frame_strata_types[data.frameStrata]);
+    end
     region:SetAlpha(data.alpha);
 
     background:SetTexture(data.sameTexture and data.foregroundTexture or data.backgroundTexture);

@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod(1751, "DBM-Nighthold", nil, 786)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 15696 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 15746 $"):sub(12, -3))
 mod:SetCreatureID(104881)
 mod:SetEncounterID(1871)
 mod:SetZone()
@@ -25,6 +25,12 @@ mod:RegisterEventsInCombat(
 --TODO, possibly dump UNIT_AURA unless that proves to actualy be better way to manage range frame
 --TODO, add fixate on mythic. No debuff. Player sees eyes but no debuff. Might have to do nameplate/accro target scanning to warn who has it
 --TODO, probably fix more timers. Especially mythic fire and arcane.
+--[[
+(ability.id = 213853 or ability.id = 213567 or ability.id = 213564 or ability.id = 213852 or ability.id = 212735 or ability.id = 213275 or ability.id = 213390 or ability.id = 213083 or ability.id = 212492 or ability.id = 230951) and type = "begincast" or
+(ability.id = 213864 or ability.id = 216389 or ability.id = 213867 or ability.id = 213869) and type = "applybuff" or
+(ability.id = 212531 or ability.id = 213148) and type = "applydebuff" or
+ability.id = 230951 and type = "removebuff"
+--]]
 --Phases
 local warnFrostPhase				= mod:NewSpellAnnounce(213864, 2)
 local warnFirePhase					= mod:NewSpellAnnounce(213867, 2)
@@ -86,7 +92,8 @@ local timerAnimateArcaneCD			= mod:NewNextTimer(16, 213564, 124338, nil, nil, 1,
 local timerArmageddon				= mod:NewCastTimer(33, 213568, nil, nil, nil, 2, nil, DBM_CORE_DEADLY_ICON)
 --Mythic
 mod:AddTimerLine(ENCOUNTER_JOURNAL_SECTION_FLAG12)
-local timerFelSoul					= mod:NewBuffActiveTimer(60, 230951, nil, nil, nil, 6)
+local timerFelSoulCD				= mod:NewNextTimer(15, 230951, nil, nil, nil, 1)
+local timerFelSoul					= mod:NewBuffActiveTimer(45, 230951, nil, nil, nil, 6)
 
 local berserkTimer					= mod:NewBerserkTimer(600)--480
 
@@ -118,6 +125,7 @@ local voiceAnimateArcane			= mod:NewVoice(213564)--mobsoon
 mod:AddRangeFrameOption("8")
 mod:AddHudMapOption("HudMapOnBrandCharge", 213166)
 mod:AddSetIconOption("SetIconOnFrozenTempest", 213083, true, true)
+mod:AddSetIconOption("SetIconOnSearingDetonate", 213275, true)
 mod:AddSetIconOption("SetIconOnBurstOfFlame", 213760, true, true)
 mod:AddSetIconOption("SetIconOnBurstOfMagic", 213808, true, true)
 mod:AddInfoFrameOption(212647)
@@ -130,6 +138,7 @@ local annihilatedDebuff = GetSpellInfo(215458)
 local rangeShowAll = false
 local chargeTable = {}
 local annihilateTimers = {8.0, 45.0, 40.0, 44.0, 38.0, 37.0, 33.0, 47.0, 41.0, 44.0, 38.0, 37.0, 33.0}--Need longer pulls/more data. However this pattern did prove to always be same
+local searingDetonateIcons = {}
 
 local debuffFilter
 local UnitDebuff = UnitDebuff
@@ -160,6 +169,24 @@ local function hudDelay(self)
 	end
 end
 
+local function findSearingMark(self)
+	if UnitDebuff("player", SearingBrandDebuff) then
+		specWarnFireDetonate:Show()
+		voiceFireDetonate:Play("runout")
+		yellFireDetonate:Yell()
+	end
+	table.wipe(searingDetonateIcons)
+	if self.Options.SetIconOnSearingDetonate then
+		for uId in DBM:GetGroupMembers() do
+			if UnitDebuff(uId, SearingBrandDebuff) then
+				local name = DBM:GetUnitFullName(uId)
+				searingDetonateIcons[#searingDetonateIcons+1] = name
+				self:SetIcon(name, #searingDetonateIcons, 3)
+			end
+		end
+	end
+end
+
 function mod:OnCombatStart(delay)
 	self.vb.annihilateCount = 0
 	self.vb.armageddonAdds = 0
@@ -167,11 +194,14 @@ function mod:OnCombatStart(delay)
 	countdownAnnihilate:Start(8-delay)
 	--Rest of timers are triggered by frost buff 0.1 seconds into pull
 	table.wipe(chargeTable)
+	table.wipe(searingDetonateIcons)
 	rangeShowAll = false
-	if self:IsEasy() then
-		berserkTimer:Start(-delay)--600 confirmed on normal
+	if self:IsMythic() then
+		berserkTimer:Start(450)
+	elseif self:IsEasy() then
+		berserkTimer:Start(-delay)--600 confirmed on normal (needs reconfirm on live)
 	else
-		berserkTimer:Start(480-delay)--480 confirmed on heroic
+		berserkTimer:Start(480-delay)--480 confirmed on heroic (needs reconfirm on live)
 	end
 end
 
@@ -212,11 +242,7 @@ function mod:SPELL_CAST_START(args)
 			yellFrostDetonate:Yell()
 		end
 	elseif spellId == 213275 then--Detonate: Searing Brand
-		if UnitDebuff("player", SearingBrandDebuff) then
-			specWarnFireDetonate:Show()
-			voiceFireDetonate:Play("runout")
-			yellFireDetonate:Yell()
-		end
+		--Do nothing
 	elseif spellId == 213390 then--Detonate: Arcane Orb
 		--specWarnArcaneDetonate:Show()
 		--voiceArcaneDetonate:Play("watchorb")
@@ -260,6 +286,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		warnFrostPhase:Show()
 		voicePhaseChange:Play("phasechange")
 		if self:IsMythic() then
+			timerFelSoulCD:Start(15)
 			timerMarkOfFrostCD:Start(18)
 			timerMarkOfFrostRepCD:Start(28)
 			timerMarkOfFrostDetonateCD:Start(48)
@@ -282,29 +309,51 @@ function mod:SPELL_AURA_APPLIED(args)
 	elseif spellId == 213867 then--Fiery Enchantment
 		warnFirePhase:Show()
 		voicePhaseChange:Play("phasechange")
-		timerSearingBrandCD:Start(17.8)
-		timerSearingBrandRepCD:Start(27)--was 25, but 27 makes more sense
-		timerSearingBrandDetonateCD:Start(45)
-		timerAnimateFireCD:Start(62)
-		timerArcanePhaseCD:Start(85)
+		if self:IsMythic() then
+			timerFelSoulCD:Start(15)
+			timerSearingBrandCD:Start(17.8)
+			timerSearingBrandRepCD:Start(27)
+			self:Schedule(37, findSearingMark, self)--Schedule markers to go out 2 seconds before detonate cast, making a 5 total seconds to position instead of 3
+			timerSearingBrandDetonateCD:Start(40)
+			timerAnimateFireCD:Start(55)
+			timerArcanePhaseCD:Start(75)
+		else
+			timerSearingBrandCD:Start(17.8)
+			timerSearingBrandRepCD:Start(27)
+			self:Schedule(42, findSearingMark, self)--Schedule markers to go out 2 seconds before detonate cast, making a 5 total seconds to position instead of 3
+			timerSearingBrandDetonateCD:Start(45)
+			timerAnimateFireCD:Start(62)
+			timerArcanePhaseCD:Start(85)
+		end
 		if self.Options.InfoFrame then
 			DBM.InfoFrame:Hide()
 		end
 	elseif spellId == 213869 then--Magic Enchantment
 		warnArcanePhase:Show()
 		voicePhaseChange:Play("phasechange")
-		--Arcane orb not started here, started somewhere else so timer is actually useful
-		timerArcaneOrbRepCD:Start(15)
-		timerArcaneOrbDetonateCD:Start(35)--Not in combat log, but this is when yell occurs
-		specWarnArcaneDetonate:Schedule(35)
-		voiceArcaneDetonate:Schedule(35, "watchorb")
-		timerAnimateArcaneCD:Start(51.9)
+		if self:IsMythic() then
+			timerFelSoulCD:Start(12)
+			--Arcane orb not started here, started somewhere else so timer is actually useful
+			timerArcaneOrbRepCD:Start(15)
+			timerArcaneOrbDetonateCD:Start(35)--Not in combat log, So difficult to fix until transcriptor. Needs verification
+			specWarnArcaneDetonate:Schedule(35)--^^
+			voiceArcaneDetonate:Schedule(35, "watchorb")--^^
+			timerAnimateArcaneCD:Start(55)--Oddly slightly longer on mythic than others
+			timerFrostPhaseCD:Start(70)
+		else
+			--Arcane orb not started here, started somewhere else so timer is actually useful
+			timerArcaneOrbRepCD:Start(15)
+			timerArcaneOrbDetonateCD:Start(35)--Not in combat log, but this is when yell occurs
+			specWarnArcaneDetonate:Schedule(35)
+			voiceArcaneDetonate:Schedule(35, "watchorb")
+			timerAnimateArcaneCD:Start(51.9)
+			timerFrostPhaseCD:Start(70)
+		end
 		if self.Options.RangeFrame and self:IsRanged() then
 			DBM.RangeCheck:Show(8)--Show everyone for better arcane orb spread
 		else--Melee, kill range frame this phase
 			DBM.RangeCheck:Hide()
 		end
-		timerFrostPhaseCD:Start(70)
 	elseif spellId == 212531 then--Mark of Frost (5sec Targetting Debuff)
 		warnMarkOfFrostChosen:CombinedShow(0.5, args.destName)
 		if args:IsPlayer() then

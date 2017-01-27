@@ -38,6 +38,7 @@ local L = WeakAuras.L
 -- GLOBALS: GameTooltip GameTooltip_Hide StaticPopup_Show StaticPopupDialogs STATICPOPUP_NUMDIALOGS DEFAULT_CHAT_FRAME
 -- GLOBALS: CombatText_AddMessage COMBAT_TEXT_SCROLL_FUNCTION WorldFrame MAX_TALENT_TIERS MAX_PVP_TALENT_TIERS NUM_TALENT_COLUMNS MAX_PVP_TALENT_COLUMNS
 -- GLOBALS: SLASH_WEAKAURAS1 SLASH_WEAKAURAS2 SlashCmdList GTFO UNKNOWNOBJECT C_PetBattles LE_PARTY_CATEGORY_INSTANCE
+-- GLOBALS: C_NamePlate NamePlateDriverFrame Lerp Saturate KuiNameplatesPlayerAnchor KuiNameplatesCore ElvUIPlayerNamePlateAnchor
 
 local queueshowooc;
 
@@ -1180,6 +1181,7 @@ function WeakAuras.Delete(data)
         local childData = db.displays[childId];
         if(childData) then
           childData.parent = nil;
+          WeakAuras.Add(childData);
         end
       end
   end
@@ -1216,6 +1218,14 @@ function WeakAuras.Delete(data)
 
   aura_environments[id] = nil;
   triggerState[id] = nil;
+
+  if (WeakAuras.personalRessourceDisplayFrame) then
+    WeakAuras.personalRessourceDisplayFrame:delete(id);
+  end
+
+  if (WeakAuras.mouseFrame) then
+    WeakAuras.mouseFrame:delete(id);
+  end
 end
 
 function WeakAuras.Rename(data, newid)
@@ -1282,6 +1292,14 @@ function WeakAuras.Rename(data, newid)
   aura_environments[newid] = aura_environments[oldid] or {};
   aura_environments[newid].id = newid;
   aura_environments[oldid] = nil;
+
+  if (WeakAuras.personalRessourceDisplayFrame) then
+    WeakAuras.personalRessourceDisplayFrame:rename(oldid, newid);
+  end
+
+  if (WeakAuras.mouseFrame) then
+    WeakAuras.mouseFrame:rename(oldid, newid);
+  end
 end
 
 function WeakAuras.Convert(data, newType)
@@ -3430,4 +3448,454 @@ end
 function WeakAuras.IsTriggerActive(id)
   local active = triggerState[id];
   return active and active.show;
+end
+
+-- Attach to Cursor/Frames code
+-- Very simple function to convert a hsv angle to a color with
+-- value hardcoded to 1 and saturation hardcoded to 0.75
+local function colorWheel(angle)
+  local hh = angle / 60;
+  local i = floor(hh);
+  local ff = hh - i;
+  local p = 0;
+  local q = 0.75 * (1.0 - ff);
+  local t = 0.75 * ff;
+  local r, g, b;
+  if (i == 0) then
+    return 0.75, t, p;
+  elseif (i == 1) then
+    return q, 0.75, p;
+  elseif (i == 2) then
+    return p, 0.75, t;
+  elseif (i == 3) then
+    return p, q, 0.75;
+  elseif (i == 4) then
+    return t, p, 0.75;
+  else
+    return 0.75, p, q;
+  end
+end
+
+local function xPositionNextToOptions()
+  local xOffset;
+  local optionsFrame = WeakAuras.OptionsFrame();
+  local centerX = (optionsFrame:GetLeft() + optionsFrame:GetRight()) / 2;
+  if (centerX > GetScreenWidth() / 2) then
+    if (optionsFrame:GetLeft() > 400) then
+      xOffset = optionsFrame:GetLeft() - 200;
+    else
+      xOffset = optionsFrame:GetLeft() / 2;
+    end
+  else
+    if (GetScreenWidth() - optionsFrame:GetRight() > 400 ) then
+      xOffset = optionsFrame:GetRight() + 200;
+    else
+      xOffset = (GetScreenWidth() + optionsFrame:GetRight()) / 2;
+    end
+  end
+  return xOffset;
+end
+
+local mouseFrame;
+local function ensureMouseFrame()
+  if (mouseFrame) then
+    return;
+  end
+  mouseFrame = CreateFrame("FRAME", "WeakAurasAttachToMouseFrame", UIParent);
+  mouseFrame.attachedVisibleFrames = {};
+  mouseFrame:SetWidth(1);
+  mouseFrame:SetHeight(1);
+
+  local moverFrame = CreateFrame("FRAME", "WeakAurasMousePointerFrame", mouseFrame);
+  mouseFrame.moverFrame = moverFrame;
+  moverFrame:SetPoint("TOPLEFT", mouseFrame, "CENTER");
+  moverFrame:SetWidth(32);
+  moverFrame:SetHeight(32);
+  moverFrame:SetFrameStrata("FULLSCREEN"); -- above settings dialog
+
+  moverFrame:EnableMouse(true)
+  moverFrame:SetScript("OnMouseDown", function()
+    mouseFrame:SetMovable(true);
+    mouseFrame:StartMoving()
+  end);
+  moverFrame:SetScript("OnMouseUp", function()
+    mouseFrame:StopMovingOrSizing();
+    mouseFrame:SetMovable(false);
+    local xOffset = mouseFrame:GetRight() - GetScreenWidth();
+    local yOffset = mouseFrame:GetTop() - GetScreenHeight();
+    db.mousePointerFrame = db.mousePointerFrame or {};
+    db.mousePointerFrame.xOffset = xOffset;
+    db.mousePointerFrame.yOffset = yOffset;
+  end);
+  moverFrame.colorWheelAnimation = function()
+    local angle = ((GetTime() - moverFrame.startTime) % 5) / 5 * 360;
+    moverFrame.texture:SetVertexColor(colorWheel(angle));
+  end;
+  local texture = moverFrame:CreateTexture(nil, "BACKGROUND");
+  moverFrame.texture = texture;
+  texture:SetAllPoints(moverFrame);
+  texture:SetTexture("Interface\\Cursor\\Point");
+
+  local label = moverFrame:CreateFontString(nil, "BACKGROUND", "GameFontHighlightSmall")
+  label:SetJustifyH("LEFT")
+  label:SetJustifyV("TOP")
+  label:SetPoint("TOPLEFT", moverFrame, "BOTTOMLEFT");
+  label:SetText("WeakAuras Anchor");
+
+  moverFrame:Hide();
+
+  mouseFrame.OptionsOpened = function()
+    if (db.mousePointerFrame) then
+      -- Restore from settings
+      mouseFrame:ClearAllPoints();
+      mouseFrame:SetPoint("TOPRIGHT", UIParent, "TOPRIGHT", db.mousePointerFrame.xOffset, db.mousePointerFrame.yOffset);
+    else
+      -- Fnd a suitable position
+      local optionsFrame = WeakAuras.OptionsFrame();
+      local yOffset = (optionsFrame:GetTop() + optionsFrame:GetBottom()) / 2;
+      local xOffset = xPositionNextToOptions();
+      -- We use the top right, because the main frame usees the top right as the reference too
+      mouseFrame:ClearAllPoints();
+      mouseFrame:SetPoint("TOPRIGHT", UIParent, "TOPRIGHT", xOffset - GetScreenWidth(), yOffset - GetScreenHeight());
+    end
+    -- Change the color of the mouse cursor
+    moverFrame.startTime = GetTime();
+    moverFrame:SetScript("OnUpdate", moverFrame.colorWheelAnimation);
+    mouseFrame:SetScript("OnUpdate", nil);
+  end
+
+  mouseFrame.moveWithMouse = function()
+    local scale = 1 / UIParent:GetEffectiveScale();
+    local x, y =  GetCursorPosition();
+    mouseFrame:SetPoint("CENTER", UIParent, "BOTTOMLEFT", x * scale, y * scale);
+  end
+
+  mouseFrame.OptionsClosed = function()
+    moverFrame:Hide();
+    mouseFrame:ClearAllPoints();
+    mouseFrame:SetScript("OnUpdate", mouseFrame.moveWithMouse);
+    moverFrame:SetScript("OnUpdate", nil);
+    wipe(mouseFrame.attachedVisibleFrames);
+
+  end
+
+  mouseFrame.expand = function(self, id)
+    local data = WeakAuras.GetData(id);
+    if (data.anchorFrameType == "MOUSE") then
+      self.attachedVisibleFrames[id] = true;
+      self:updateVisible();
+    end
+  end
+
+  mouseFrame.collapse = function(self, id)
+    self.attachedVisibleFrames[id] = nil;
+    self:updateVisible();
+  end
+
+  mouseFrame.rename = function(self, oldid, newid)
+    self.attachedVisibleFrames[newid] = self.attachedVisibleFrames[oldid];
+    self.attachedVisibleFrames[oldid] = nil;
+    self:updateVisible();
+  end
+
+  mouseFrame.delete = function(self, id)
+    self.attachedVisibleFrames[id] = nil;
+    self:updateVisible();
+  end
+
+  mouseFrame.anchorFrame = function(self, id, anchorFrameType)
+    if (anchorFrameType == "MOUSE") then
+      self.attachedVisibleFrames[id] = true;
+    else
+      self.attachedVisibleFrames[id] = nil;
+    end
+    self:updateVisible();
+  end
+
+  mouseFrame.updateVisible = function(self)
+    if (not WeakAuras.IsOptionsOpen()) then
+      return;
+    end
+
+    if (next(self.attachedVisibleFrames)) then
+      mouseFrame.moverFrame:Show();
+    else
+      mouseFrame.moverFrame:Hide();
+    end
+  end
+
+  if (WeakAuras.IsOptionsOpen()) then
+    mouseFrame:OptionsOpened();
+  else
+    mouseFrame:OptionsClosed();
+  end
+
+  WeakAuras.mouseFrame = mouseFrame;
+end
+
+local personalRessourceDisplayFrame;
+local function ensurePRDFrame()
+  if (personalRessourceDisplayFrame) then
+    return;
+  end
+  personalRessourceDisplayFrame = CreateFrame("FRAME", "WeakAurasAttachToPRD", UIParent);
+  personalRessourceDisplayFrame:Hide();
+  personalRessourceDisplayFrame.attachedVisibleFrames = {};
+  WeakAuras.personalRessourceDisplayFrame = personalRessourceDisplayFrame;
+
+  local moverFrame = CreateFrame("FRAME", "WeakAurasPRDMoverFrame", personalRessourceDisplayFrame);
+  personalRessourceDisplayFrame.moverFrame = moverFrame;
+  moverFrame:SetPoint("TOPLEFT", personalRessourceDisplayFrame, "TOPLEFT", -2, 2);
+  moverFrame:SetPoint("BOTTOMRIGHT", personalRessourceDisplayFrame, "BOTTOMRIGHT", 2, -2);
+  moverFrame:SetFrameStrata("FULLSCREEN"); -- above settings dialog
+
+  moverFrame:EnableMouse(true)
+  moverFrame:SetScript("OnMouseDown", function()
+    personalRessourceDisplayFrame:SetMovable(true);
+    personalRessourceDisplayFrame:StartMoving()
+  end);
+  moverFrame:SetScript("OnMouseUp", function()
+    personalRessourceDisplayFrame:StopMovingOrSizing();
+    personalRessourceDisplayFrame:SetMovable(false);
+    local xOffset = personalRessourceDisplayFrame:GetRight();
+    local yOffset = personalRessourceDisplayFrame:GetTop();
+
+    db.personalRessourceDisplayFrame = db.personalRessourceDisplayFrame or {};
+    local scale = UIParent:GetEffectiveScale() / personalRessourceDisplayFrame:GetEffectiveScale();
+    db.personalRessourceDisplayFrame.xOffset = xOffset / scale - GetScreenWidth();
+    db.personalRessourceDisplayFrame.yOffset = yOffset / scale - GetScreenHeight();
+  end);
+  moverFrame:Hide();
+
+  local texture = moverFrame:CreateTexture(nil, "BACKGROUND");
+  personalRessourceDisplayFrame.texture = texture;
+  texture:SetAllPoints(moverFrame);
+  texture:SetTexture("Interface\\AddOns\\WeakAuras\\Media\\Textures\\PRDFrame");
+
+  local label = moverFrame:CreateFontString(nil, "BACKGROUND", "GameFontHighlight")
+  label:SetPoint("CENTER", moverFrame, "CENTER");
+  label:SetText("WeakAuras Anchor");
+
+  personalRessourceDisplayFrame:RegisterEvent('NAME_PLATE_UNIT_ADDED');
+  personalRessourceDisplayFrame:RegisterEvent('NAME_PLATE_UNIT_REMOVED');
+
+  personalRessourceDisplayFrame.Attach = function(self, frame, frameTL, frameBR)
+    self:SetParent(frame);
+    self:ClearAllPoints();
+    self:SetPoint("TOPLEFT", frameTL, "TOPLEFT");
+    self:SetPoint("BOTTOMRIGHT", frameBR, "BOTTOMRIGHT");
+  end
+
+  personalRessourceDisplayFrame.Detach = function(self, frame)
+    self:ClearAllPoints();
+    self:SetParent(UIParent);
+  end
+
+  personalRessourceDisplayFrame.OptionsOpened = function()
+
+    personalRessourceDisplayFrame:Detach();
+    personalRessourceDisplayFrame:SetScript("OnEvent", nil);
+    personalRessourceDisplayFrame:ClearAllPoints();
+    local xOffset, yOffset;
+    if (db.personalRessourceDisplayFrame) then
+      xOffset = db.personalRessourceDisplayFrame.xOffset;
+      yOffset = db.personalRessourceDisplayFrame.yOffset;
+    end
+
+    -- Calculate size of self nameplate
+    local prdWidth;
+    local prdHeight;
+
+    if (KuiNameplatesCore and KuiNameplatesCore.profile) then
+      prdWidth = KuiNameplatesCore.profile.frame_width_personal;
+      prdHeight = KuiNameplatesCore.profile.frame_height_personal;
+      if (KuiNameplatesCore.profile.ignore_uiscale) then
+        local resolutions = {GetScreenResolutions()}
+        local resolution = GetCurrentResolution()
+        local uiScale = 1;
+
+        if #resolutions > 0 and resolution > 0 then
+            local resolution_text = resolutions[resolution]
+
+            if resolution_text then
+                resolution_text = tonumber(string.match(resolution_text,"%d+x(%d+)"))
+            end
+            if resolution_text then
+                uiScale = 768 / resolution_text
+            end
+        end
+        personalRessourceDisplayFrame:SetScale(uiScale / UIParent:GetEffectiveScale());
+      else
+        personalRessourceDisplayFrame:SetScale(1);
+      end
+      personalRessourceDisplayFrame.texture:SetTexture("Interface\\AddOns\\WeakAuras\\Media\\Textures\\PRDFrameKui");
+    else
+      local namePlateVerticalScale = tonumber(GetCVar("NamePlateVerticalScale"));
+      local zeroBasedScale = namePlateVerticalScale - 1.0;
+      local clampedZeroBasedScale = Saturate(zeroBasedScale);
+      local horizontalScale = tonumber(GetCVar("NamePlateHorizontalScale"));
+      local baseNamePlateWidth = NamePlateDriverFrame.baseNamePlateWidth;
+      prdWidth = baseNamePlateWidth * horizontalScale * Lerp(1.1, 1.0, clampedZeroBasedScale) - 24;
+      prdHeight = 4 * namePlateVerticalScale * Lerp(1.2, 1.0, clampedZeroBasedScale) * 2  + 1;
+      personalRessourceDisplayFrame:SetScale(1 / UIParent:GetEffectiveScale());
+      personalRessourceDisplayFrame.texture:SetTexture("Interface\\AddOns\\WeakAuras\\Media\\Textures\\PRDFrame");
+    end
+
+    local scale = UIParent:GetEffectiveScale() / personalRessourceDisplayFrame:GetEffectiveScale();
+    if (not xOffset or not yOffset) then
+      local optionsFrame = WeakAuras.OptionsFrame();
+      yOffset = optionsFrame:GetBottom() + prdHeight / scale - GetScreenHeight();
+      xOffset = xPositionNextToOptions() + prdWidth / 2 / scale - GetScreenWidth();
+    end
+
+    xOffset = xOffset * scale;
+    yOffset = yOffset * scale;
+
+    personalRessourceDisplayFrame:SetPoint("TOPRIGHT", UIParent, "TOPRIGHT", xOffset, yOffset);
+    personalRessourceDisplayFrame:SetPoint("BOTTOMLEFT", UIParent, "TOPRIGHT", xOffset - prdWidth, yOffset - prdHeight);
+  end
+
+  personalRessourceDisplayFrame.OptionsClosed = function()
+    personalRessourceDisplayFrame:SetScale(1);
+    local frame = C_NamePlate.GetNamePlateForUnit("player");
+    if (frame) then
+      if (frame.kui and frame.kui.bg) then
+        personalRessourceDisplayFrame:Attach(frame.kui, frame.kui.bg, frame.kui.bg);
+      elseif (ElvUIPlayerNamePlateAnchor) then
+        personalRessourceDisplayFrame:Attach(ElvUIPlayerNamePlateAnchor, ElvUIPlayerNamePlateAnchor, ElvUIPlayerNamePlateAnchor);
+      else
+        personalRessourceDisplayFrame:Attach(frame, frame.UnitFrame.healthBar, NamePlateDriverFrame.nameplateManaBar);
+      end
+    else
+      personalRessourceDisplayFrame:Detach();
+      personalRessourceDisplayFrame:Hide();
+    end
+
+    personalRessourceDisplayFrame:SetScript("OnEvent", personalRessourceDisplayFrame.eventHandler);
+    personalRessourceDisplayFrame.texture:Hide();
+    personalRessourceDisplayFrame.moverFrame:Hide();
+    wipe(personalRessourceDisplayFrame.attachedVisibleFrames);
+  end
+
+  personalRessourceDisplayFrame.eventHandler = function(self, event, nameplate)
+    if (event == "NAME_PLATE_UNIT_ADDED") then
+      if (UnitIsUnit(nameplate, "player")) then
+        local frame = C_NamePlate.GetNamePlateForUnit("player");
+        if (frame) then
+          if (frame.kui and frame.kui.bg) then
+            personalRessourceDisplayFrame:Attach(frame.kui, frame.kui.bg, frame.kui.bg);
+          elseif (ElvUIPlayerNamePlateAnchor) then
+            personalRessourceDisplayFrame:Attach(ElvUIPlayerNamePlateAnchor, ElvUIPlayerNamePlateAnchor, ElvUIPlayerNamePlateAnchor);
+          else
+            personalRessourceDisplayFrame:Attach(frame, frame.UnitFrame.healthBar, NamePlateDriverFrame.nameplateManaBar);
+          end
+          personalRessourceDisplayFrame:Show();
+          db.personalRessourceDisplayFrame = db.personalRessourceDisplayFrame or {};
+        else
+          personalRessourceDisplayFrame:Detach();
+          personalRessourceDisplayFrame:Hide();
+        end
+      end
+    elseif (event == "NAME_PLATE_UNIT_REMOVED") then
+      if (UnitIsUnit(nameplate, "player")) then
+        personalRessourceDisplayFrame:Detach();
+        personalRessourceDisplayFrame:Hide();
+      end
+    end
+  end
+
+  personalRessourceDisplayFrame.expand = function(self, id)
+    local data = WeakAuras.GetData(id);
+    if (data.anchorFrameType == "PRD") then
+      self.attachedVisibleFrames[id] = true;
+      self:updateVisible();
+    end
+  end
+
+  personalRessourceDisplayFrame.collapse = function(self, id)
+    self.attachedVisibleFrames[id] = nil;
+    self:updateVisible();
+  end
+
+  personalRessourceDisplayFrame.rename = function(self, oldid, newid)
+    self.attachedVisibleFrames[newid] = self.attachedVisibleFrames[oldid];
+    self.attachedVisibleFrames[oldid] = nil;
+    self:updateVisible();
+  end
+
+  personalRessourceDisplayFrame.delete = function(self, id)
+    self.attachedVisibleFrames[id] = nil;
+    self:updateVisible();
+  end
+
+  personalRessourceDisplayFrame.anchorFrame = function(self, id, anchorFrameType)
+    if (anchorFrameType == "PRD") then
+      self.attachedVisibleFrames[id] = true;
+    else
+      self.attachedVisibleFrames[id] = nil;
+    end
+    self:updateVisible();
+  end
+
+  personalRessourceDisplayFrame.updateVisible = function(self)
+    if (not WeakAuras.IsOptionsOpen()) then
+      return;
+    end
+
+    if (next(self.attachedVisibleFrames)) then
+      personalRessourceDisplayFrame.texture:Show();
+      personalRessourceDisplayFrame.moverFrame:Show();
+      personalRessourceDisplayFrame:Show();
+    else
+      personalRessourceDisplayFrame.texture:Hide();
+      personalRessourceDisplayFrame.moverFrame:Hide();
+      personalRessourceDisplayFrame:Hide();
+    end
+  end
+
+  if (WeakAuras.IsOptionsOpen()) then
+    personalRessourceDisplayFrame.OptionsOpened();
+  else
+    personalRessourceDisplayFrame.OptionsClosed();
+  end
+end
+
+function WeakAuras.GetAnchorFrame(id, anchorFrameType, parent, anchorFrameFrame)
+  if (personalRessourceDisplayFrame) then
+    personalRessourceDisplayFrame:anchorFrame(id, anchorFrameType);
+  end
+
+  if (mouseFrame) then
+    mouseFrame:anchorFrame(id, anchorFrameType);
+  end
+
+  if (anchorFrameType == "SCREEN") then
+    return parent;
+  end
+
+  if (anchorFrameType == "PRD") then
+    ensurePRDFrame();
+    personalRessourceDisplayFrame:anchorFrame(id, anchorFrameType);
+    return personalRessourceDisplayFrame;
+  end
+
+  if (anchorFrameType == "MOUSE") then
+    ensureMouseFrame();
+    mouseFrame:anchorFrame(id, anchorFrameType);
+    return mouseFrame;
+  end
+
+  if (anchorFrameType == "SELECTFRAME" and anchorFrameFrame) then
+    if(anchorFrameFrame:sub(1, 10) == "WeakAuras:") then
+      local frame_name = anchorFrameFrame:sub(11);
+      if(regions[frame_name]) then
+        return regions[frame_name].region;
+      end
+    else
+      return _G[anchorFrameFrame];
+    end
+  end
+
+  -- Fallback
+  return parent;
 end

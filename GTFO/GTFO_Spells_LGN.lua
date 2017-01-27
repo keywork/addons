@@ -297,6 +297,11 @@ GTFO.SpellID["219032"] = {
   tankSound = 2;
 };
 
+GTFO.SpellID["216476"] = {
+  --desc = "Blizzard (Humongris)";
+  sound = 1;
+};
+
 -- **********
 -- * Mardum *
 -- **********
@@ -960,6 +965,11 @@ GTFO.SpellID["211659"] = {
   test = true;
 };
 
+GTFO.SpellID["230254"] = {
+  --desc = "Coalesced Soul (Ariadne)";
+  sound = 1;
+};
+
 GTFO.SpellID["230488"] = {
   --desc = "Rumbling Ground (Torm the Brute)";
   sound = 1;
@@ -978,7 +988,7 @@ GTFO.SpellID["226205"] = {
 GTFO.SpellID["223718"] = {
   --desc = "Bursting Slime (Sludgerax)";
   sound = 1;
-  test = true;
+  negatingDebuffSpellID = 234585; -- Oozing Rush
 };
 
 GTFO.SpellID["206488"] = {
@@ -1049,16 +1059,10 @@ GTFO.SpellID["213534"] = {
   sound = 1;
 };
 
-GTFO.SpellID["219950"] = {
-  --desc = "Controlled Chaos (High Botanist Tel'arn)";
-  sound = 1;
-  test = true;
-};
-
 GTFO.SpellID["206398"] = {
   --desc = "Felflame (Star Augur Etaeus)";
   sound = 1;
-  tankSound = 0; -- Possibly only if too many stacks
+  negatingDebuffSpellID = 214167; -- Gravitational Pull
   applicationOnly = true;
 };
 

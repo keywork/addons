@@ -1,7 +1,7 @@
 ## Interface: 70100
 ## Title: WeakAuras 2
 ## Author: Mirrored and the WeakAuras Team
-## Version: 2.2.2.5
+## Version: 2.2.2.6
 ## Notes: A powerful, comprehensive utilty for displaying graphics and information based on buffs, debuffs, and other triggers.
 ## Notes-esES: Potente y completa aplicación que te permitirá mostrar por pantalla múltiples diseños, basados en beneficios, perjuicios y otros activadores.
 ## Notes-deDE: Ein leistungsfähiges, umfassendes Addon zur grafischen Darstellung von Informationen von Auren, Cooldowns, Timern und vielem mehr.

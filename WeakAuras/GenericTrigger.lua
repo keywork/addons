@@ -1302,8 +1302,8 @@ do
     spellCdRuneHandles[id] = nil;
     spellCdDursRune[id] = nil;
     spellCdExpsRune[id] = nil;
-    local charges = select(2, GetSpellCharges(id));
-    local chargesDifference =  (charges or 0) - (spellCharges[id] or 0)
+    local charges = GetSpellCharges(id);
+    local chargesDifference = (charges or 0) - (spellCharges[id] or 0)
     if (chargesDifference ~= 0 ) then
       WeakAuras.ScanEvents("SPELL_CHARGES_CHANGED", id, chargesDifference, charges or 0);
     end
@@ -1315,7 +1315,7 @@ do
     spellCdHandles[id] = nil;
     spellCdDurs[id] = nil;
     spellCdExps[id] = nil;
-    local charges = select(2, GetSpellCharges(id));
+    local charges = GetSpellCharges(id);
     local chargesDifference =  (charges or 0) - (spellCharges[id] or 0)
     if (chargesDifference ~= 0 ) then
       WeakAuras.ScanEvents("SPELL_CHARGES_CHANGED", id, chargesDifference, charges or 0);
@@ -1445,7 +1445,7 @@ do
           spellCdDurs[id] = duration;
           spellCdExps[id] = endTime;
           spellCdHandles[id] = timer:ScheduleTimer(SpellCooldownFinished, endTime - time, id);
-          if (spellsRune[id] and abs(duration - runeDuration) > 0.001 ) then
+          if (spellsRune[id] and abs(duration - runeDuration) > 0.001 or charges ) then
             spellCdDursRune[id] = duration;
             spellCdExpsRune[id] = endTime;
             spellCdRuneHandles[id] = timer:ScheduleTimer(SpellCooldownRuneFinished, endTime - time, id);
@@ -1462,7 +1462,7 @@ do
           if (maxCharges == nil or charges + 1 == maxCharges) then
             spellCdHandles[id] = timer:ScheduleTimer(SpellCooldownFinished, endTime - time, id);
           end
-          if (spellsRune[id] and abs(duration - runeDuration) > 0.001 ) then
+          if (spellsRune[id] and abs(duration - runeDuration) > 0.001 or charges ) then
             spellCdDursRune[id] = duration;
             spellCdExpsRune[id] = endTime;
 

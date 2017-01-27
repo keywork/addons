@@ -9,6 +9,7 @@ local default = {
     justify = "LEFT",
     selfPoint = "BOTTOM",
     anchorPoint = "CENTER",
+    anchorFrameType = "SCREEN",
     xOffset = 0,
     yOffset = 0,
     font = "Friz Quadrata TT",
@@ -37,12 +38,6 @@ local function modify(parent, region, data)
 
     region.useAuto = WeakAuras.CanHaveAuto(data);
 
-    if(data.frameStrata == 1) then
-        region:SetFrameStrata(region:GetParent():GetFrameStrata());
-    else
-        region:SetFrameStrata(WeakAuras.frame_strata_types[data.frameStrata]);
-    end
-
     local fontPath = SharedMedia:Fetch("font", data.font);
     text:SetFont(fontPath, data.fontSize, data.outline);
     if not text:GetFont() then -- Font invalid, set the font but keep the setting
@@ -68,7 +63,14 @@ local function modify(parent, region, data)
     text:SetPoint(data.justify, region, data.justify);
 
     region:ClearAllPoints();
-    region:SetPoint(data.selfPoint, parent, data.anchorPoint, data.xOffset, data.yOffset);
+    local anchorFrame = WeakAuras.GetAnchorFrame(data.id, data.anchorFrameType, parent, data.anchorFrameFrame);
+    region:SetParent(anchorFrame);
+    region:SetPoint(data.selfPoint, anchorFrame, data.anchorPoint, data.xOffset, data.yOffset);
+    if(data.frameStrata == 1) then
+        region:SetFrameStrata(region:GetParent():GetFrameStrata());
+    else
+        region:SetFrameStrata(WeakAuras.frame_strata_types[data.frameStrata]);
+    end
 
     local function SetText(textStr)
       if(textStr ~= text.displayText) then
@@ -85,7 +87,9 @@ local function modify(parent, region, data)
               WeakAuras.regions[data.parent].region:ControlChildren();
           else
               region:ClearAllPoints();
-              region:SetPoint(data.selfPoint, parent, data.anchorPoint, data.xOffset, data.yOffset);
+              local anchorFrame = WeakAuras.GetAnchorFrame(data.id, data.anchorFrameType, parent, data.anchorFrameFrame);
+              region:SetParent(anchorFrame);
+              region:SetPoint(data.selfPoint, anchorFrame, data.anchorPoint, data.xOffset, data.yOffset);
           end
       end
       text.displayText = textStr;
@@ -269,12 +273,6 @@ WeakAuras.RegisterRegionType("text", create, modify, default);
 local function fallbackmodify(parent, region, data)
     local text = region.text;
 
-    if(data.frameStrata == 1) then
-        region:SetFrameStrata(region:GetParent():GetFrameStrata());
-    else
-        region:SetFrameStrata(WeakAuras.frame_strata_types[data.frameStrata]);
-    end
-
     text:SetFont("Fonts\\FRIZQT__.TTF", data.fontSize, data.outline and "OUTLINE" or nil);
     if text:GetFont() then
         text:SetText(WeakAuras.L["Region type %s not supported"]:format(data.regionType));
@@ -287,7 +285,14 @@ local function fallbackmodify(parent, region, data)
     region:SetHeight(text:GetHeight());
 
     region:ClearAllPoints();
-    region:SetPoint(data.selfPoint, parent, data.anchorPoint, data.xOffset, data.yOffset);
+    local anchorFrame = WeakAuras.GetAnchorFrame(data.id, data.anchorFrameType, parent, data.anchorFrameFrame);
+    region:SetParent(anchorFrame);
+    region:SetPoint(data.selfPoint, anchorFrame, data.anchorPoint, data.xOffset, data.yOffset);
+    if(data.frameStrata == 1) then
+        region:SetFrameStrata(region:GetParent():GetFrameStrata());
+    else
+        region:SetFrameStrata(WeakAuras.frame_strata_types[data.frameStrata]);
+    end
 end
 
 WeakAuras.RegisterRegionType("fallback", create, fallbackmodify, default);

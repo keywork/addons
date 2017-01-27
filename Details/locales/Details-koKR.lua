@@ -1,7 +1,7 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("Details", "koKR") 
 if not L then return end 
 
-L["ABILITY_ID"] = "기술 id"
+L["ABILITY_ID"] = "능력 id"
 L["STRING_"] = ""
 L["STRING_ABSORBED"] = "흡수함"
 L["STRING_ACTORFRAME_NOTHING"] = "웁스, 보고할 데이터가 없네요 :("
@@ -79,7 +79,7 @@ L["STRING_CHANNEL_WHISPER_TARGET_COOLDOWN"] = "생존기 대상에게 귓속말"
 L["STRING_CHANNEL_YELL"] = "외침"
 L["STRING_CLICK_REPORT_LINE1"] = "|cFFFFCC22클릭|r: |cFFFFEE00보고|r"
 L["STRING_CLICK_REPORT_LINE2"] = "|cFFFFCC22Shift+클릭|r: |cFFFFEE00창 모드|r"
-L["STRING_CLOSEALL"] = "모든 Details 창이 닫혔습니다, 다시 열려면 '/details show'를 입력하세요."
+L["STRING_CLOSEALL"] = "모든 창이 닫혔습니다, 다시 열려면 '/details show'를 입력하세요."
 L["STRING_COLOR"] = "색상"
 L["STRING_COMMAND_LIST"] = "명령어 목록"
 L["STRING_COOLTIP_NOOPTIONS"] = "옵션 없음"
@@ -239,7 +239,7 @@ L["STRING_KEYBIND_WINDOW_REPORT_HEADER"] = "데이터 보고"
 L["STRING_KILLED"] = "죽임"
 L["STRING_LAST_COOLDOWN"] = "마지막으로 사용한 생존기"
 L["STRING_LEFT"] = "좌측"
-L["STRING_LEFT_CLICK_SHARE"] = "버튼을 클릭해서 보고합니다."
+L["STRING_LEFT_CLICK_SHARE"] = "보고하려면 클릭하세요."
 L["STRING_LEFT_TO_RIGHT"] = "왼쪽에서 오른쪽으로"
 L["STRING_LOCK_DESC"] = "창 잠금 또는 잠금해제"
 L["STRING_LOCK_WINDOW"] = "잠금"
@@ -283,7 +283,7 @@ L["STRING_MINITUTORIAL_OPTIONS_PANEL3"] = [=[그룹을 만들려면 창 #2를 �
 L["STRING_MINITUTORIAL_OPTIONS_PANEL4"] = "테스트 바를 만들어 설정을 테스트합니다."
 L["STRING_MINITUTORIAL_OPTIONS_PANEL5"] = "그룹 편집이 활성화되어 있으면 그룹의 모든 창이 변경됩니다."
 L["STRING_MINITUTORIAL_OPTIONS_PANEL6"] = "여기서 창을 선택하고 외형을 변경하세요."
-L["STRING_MINITUTORIAL_WINDOWS1"] = [=[창의 그룹을 만듭니다.
+L["STRING_MINITUTORIAL_WINDOWS1"] = [=[창의 그룹을 생성했습니다.
 
 해제하려면 자물쇠 아이콘을 클릭하세요.]=]
 L["STRING_MINITUTORIAL_WINDOWS2"] = [=[창이 고정되어 있습니다.
@@ -365,7 +365,7 @@ L["STRING_OPTIONS_BAR_BACKDROP_ANCHOR"] = "테두리:"
 L["STRING_OPTIONS_BAR_BACKDROP_COLOR_DESC"] = "테두리 색상을 변경합니다."
 L["STRING_OPTIONS_BAR_BACKDROP_ENABLED_DESC"] = "바 테두리를 켜거나 끕니다."
 L["STRING_OPTIONS_BAR_BACKDROP_SIZE_DESC"] = "테두리 크기를 조절합니다."
-L["STRING_OPTIONS_BAR_BACKDROP_TEXTURE_DESC"] = "테두리 외형을 변경합니다."
+L["STRING_OPTIONS_BAR_BACKDROP_TEXTURE_DESC"] = "테두리 모양을 변경합니다."
 L["STRING_OPTIONS_BAR_BCOLOR"] = "배경 색상"
 L["STRING_OPTIONS_BAR_BTEXTURE_DESC"] = "이 무늬를 상위 무늬 아래에 놓고 크기를 항상 창의 너비와 맞춥니다."
 L["STRING_OPTIONS_BAR_COLOR_DESC"] = [=[이 무늬의 색상과 투명도입니다.
@@ -430,7 +430,7 @@ L["STRING_OPTIONS_BARS_CUSTOM_TEXTURE"] = "사용자 설정 무늬 파일"
 L["STRING_OPTIONS_BARS_CUSTOM_TEXTURE_DESC"] = [=[
 
 |cFFFFFF00중요|r: 이미지는 256x32 픽셀이어야 합니다.]=]
-L["STRING_OPTIONS_BARS_DESC"] = "바 외형을 설정하는 옵션들입니다."
+L["STRING_OPTIONS_BARS_DESC"] = "바 모양을 설정하는 옵션들입니다."
 L["STRING_OPTIONS_BARSORT"] = "바 순위 정렬 순서"
 L["STRING_OPTIONS_BARSORT_DESC"] = "오름차순 또는 내림차순으로 바를 정렬합니다."
 L["STRING_OPTIONS_BARSTART"] = "아이콘 뒤에 바 시작"
@@ -838,7 +838,7 @@ L["STRING_OPTIONS_PROFILE_SELECT"] = "프로필을 선택하세요."
 L["STRING_OPTIONS_PROFILE_SELECTEXISTING"] = "저장된 프로필을 선택하거나 이 캐릭터를 위한 새 프로필을 계속 사용하세요:"
 L["STRING_OPTIONS_PROFILE_USENEW"] = "새 프로필 사용"
 L["STRING_OPTIONS_PROFILES_ANCHOR"] = "설정:"
-L["STRING_OPTIONS_PROFILES_COPY"] = "프로필 복사"
+L["STRING_OPTIONS_PROFILES_COPY"] = "프로필 복사해오기"
 L["STRING_OPTIONS_PROFILES_COPY_DESC"] = "선택한 프로필의 모든 설정으로 현재 프로필의 모든 값을 덮어씁니다."
 L["STRING_OPTIONS_PROFILES_CREATE"] = "프로필 생성"
 L["STRING_OPTIONS_PROFILES_CREATE_DESC"] = "새 프로필을 만듭니다."
@@ -1156,7 +1156,7 @@ L["STRING_OPTIONS_TOOLTIPS_ANCHOR_TO2"] = "화면에 위치"
 L["STRING_OPTIONS_TOOLTIPS_ANCHORCOLOR"] = "제목"
 L["STRING_OPTIONS_TOOLTIPS_BACKGROUNDCOLOR"] = "배경 색상"
 L["STRING_OPTIONS_TOOLTIPS_BACKGROUNDCOLOR_DESC"] = "배경에 사용할 색상을 선택합니다."
-L["STRING_OPTIONS_TOOLTIPS_BORDER_COLOR_DESC"] = "테두리 색을 변경합니다."
+L["STRING_OPTIONS_TOOLTIPS_BORDER_COLOR_DESC"] = "테두리 색상을 변경합니다."
 L["STRING_OPTIONS_TOOLTIPS_BORDER_SIZE_DESC"] = "테두리 크기를 변경합니다."
 L["STRING_OPTIONS_TOOLTIPS_BORDER_TEXTURE_DESC"] = "테두리 무늬 파일을 수정합니다."
 L["STRING_OPTIONS_TOOLTIPS_FONTCOLOR"] = "문자 색상"
@@ -1194,7 +1194,7 @@ L["STRING_OPTIONS_TOOLTIPS_OFFSETY_DESC"] = "툴팁이 기준점으로부터 수
 L["STRING_OPTIONS_TOOLTIPS_SHOWAMT"] = "수량 표시"
 L["STRING_OPTIONS_TOOLTIPS_SHOWAMT_DESC"] = "툴팁에 몇개의 주문과 대상, 소환수가 있는지 숫자로 표시합니다."
 L["STRING_OPTIONS_TOOLTIPS_TITLE"] = "툴팁"
-L["STRING_OPTIONS_TOOLTIPS_TITLE_DESC"] = "툴팁의 외형을 설정하는 옵션입니다."
+L["STRING_OPTIONS_TOOLTIPS_TITLE_DESC"] = "툴팁의 모양을 설정하는 옵션입니다."
 L["STRING_OPTIONS_TOTALBAR_ANCHOR"] = "총량 바:"
 L["STRING_OPTIONS_TRASH_SUPPRESSION"] = "일반몹 세분화 전환 방지"
 L["STRING_OPTIONS_TRASH_SUPPRESSION_DESC"] = "|cFFFFFF00우두머리를 처치한 후|r |cFFFFFF00X|r초 동안 일반몹 세분화로 자동 변경되지 않게 합니다."
@@ -1259,7 +1259,7 @@ L["STRING_OPTIONS_WINDOW_SCALE_DESC"] = [=[창의 크기 비율을 조절합니�
 
 |cFFFFFF00현재|r: %s]=]
 L["STRING_OPTIONS_WINDOW_TITLE"] = "창 일반 설정"
-L["STRING_OPTIONS_WINDOW_TITLE_DESC"] = "선택한 창의 외형을 설정하는 옵션입니다."
+L["STRING_OPTIONS_WINDOW_TITLE_DESC"] = "선택한 창의 모양을 설정하는 옵션입니다."
 L["STRING_OPTIONS_WINDOWSPEED"] = "갱신 주기"
 L["STRING_OPTIONS_WINDOWSPEED_DESC"] = [=[갱신 주기입니다.
 
@@ -1509,7 +1509,7 @@ L["STRING_WELCOME_26"] = "인터페이스 사용하기: 늘리기"
 L["STRING_WELCOME_27"] = [=[강조된 버튼이 늘리기 버튼입니다. |cFFFFFF00클릭|r 하고 |cFFFFFF00위로 끄세요!|r.
 
 
-창이 잠겨 있으면 제목바 전체가 늘리기 버튼이 됩니다.]=]
+창이 잠겨 있으면 제목 바 전체가 늘리기 버튼이 됩니다.]=]
 L["STRING_WELCOME_28"] = "인터페이스 사용하기: 창 제어"
 L["STRING_WELCOME_29"] = [=[창 제어는 기본적으로 2가지 기능을 합니다:
 
@@ -1545,7 +1545,7 @@ L["STRING_WELCOME_5"] = "실질 시간:"
 L["STRING_WELCOME_57"] = [=[애드온에서 이미 설치된 기본 설정들을 가져옵니다.
 
 각 스킨은 가져온 설정과 다르게 반응합니다.]=]
-L["STRING_WELCOME_58"] = [=[미리 준비된 외형 설정 셋트입니다.
+L["STRING_WELCOME_58"] = [=[모양 구성의 미리 설정된 셋트입니다.
 
 |cFFFFFF00중요|r: 모든 설정들은 나중에 옵션 창에서 수정할 수 있습니다.]=]
 L["STRING_WELCOME_59"] = "배경화면을 사용합니다."

@@ -1187,7 +1187,6 @@ GTFO.SpellID["203110"] = {
 -- TODO: Annihilation (Trilliax) -- Avoidable or raid fail?
 -- TODO: Burning Soul (Tichondrius) -- FF Fail
 -- TODO: Felburst (Krosus)
--- TODO: Controlled Chaos (High Botanist Tel'arn) -- inside ring damage only
 -- TODO: Toxic Spores (High Botanist Tel'arn)
 -- TODO: Frozen Solid (Star Augur Etaeus)
 -- TODO: Shatter (Star Augur Etaeus) -- FF fail
@@ -1255,7 +1254,6 @@ GTFO.SpellID["206474"] = {
   test = true; -- Not working because plague is getting applied first
 };
 
-
 GTFO.SpellID["218155"] = {
   --desc = "Solar Collapse (High Botanist Tel'arn)";
   sound = 3;
@@ -1267,6 +1265,27 @@ GTFO.SpellID["219235"] = {
   sound = 3;
 };
 
+GTFO.SpellID["225807"] = {
+  --desc = "Pillars of Night (Duskwatch Weaver)";
+  sound = 3;
+};
+
+GTFO.SpellID["219950"] = {
+  --desc = "Controlled Chaos (High Botanist Tel'arn)";
+  sound = 0;
+  test = true; -- DPS amount check
+};
+
+GTFO.SpellID["224484"] = {
+  --desc = "Falling Star";
+  sound = 3;
+};
+
+GTFO.SpellID["207720"] = {
+  --desc = "Witness the Void (Thing That Should Not Be)";
+  sound = 3;
+  applicationOnly = true;
+};
 
 --- ******************
 --- * Trial of Valor *
