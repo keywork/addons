@@ -1188,7 +1188,6 @@ GTFO.SpellID["203110"] = {
 -- TODO: Burning Soul (Tichondrius) -- FF Fail
 -- TODO: Felburst (Krosus)
 -- TODO: Toxic Spores (High Botanist Tel'arn)
--- TODO: Frozen Solid (Star Augur Etaeus)
 -- TODO: Shatter (Star Augur Etaeus) -- FF fail
 -- TODO: Fel Ember (Star Augur Etaeus)
 -- TODO: World-Devouring Force (Star Augur Etaeus)
@@ -1285,6 +1284,40 @@ GTFO.SpellID["207720"] = {
   --desc = "Witness the Void (Thing That Should Not Be)";
   sound = 3;
   applicationOnly = true;
+};
+
+GTFO.SpellID["221490"] = {
+  --desc = "Starfall (Astral Farseer)";
+  sound = 3;
+};
+
+GTFO.SpellID["206603"] = {
+  --desc = "Frozen Solid (Star Augur Etraeus)";
+  sound = 3;
+  applicationOnly = true;
+};
+
+GTFO.SpellID["206577"] = {
+  --desc = "Comet Impact (Star Augur Etraeus)";
+  sound = 3;
+  tankSound = 0;
+};
+
+GTFO.SpellID["206433"] = {
+  --desc = "Fel Impact (Star Augur Etraeus)";
+  sound = 3;
+  tankSound = 0;
+};
+
+GTFO.SpellID["207813"] = {
+  --desc = "Void Impact (Star Augur Etraeus)";
+  sound = 3;
+  tankSound = 0;
+};
+
+GTFO.SpellID["208865"] = {
+  --desc = "Leave the Nightwell (Elisande)";
+  sound = 3;
 };
 
 --- ******************

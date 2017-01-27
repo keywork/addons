@@ -2,7 +2,7 @@
 ## Title: GTFO
 ## Notes: GTFO, you're dying!
 ## Author: Zensunim of Dragonblight
-## Version: 4.42.3
+## Version: 4.42.4
 ## DefaultState: Enabled
 ## SavedVariables: GTFOData
 Localization\enUS.lua

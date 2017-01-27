@@ -1,5 +1,25 @@
 Changes since tag 7.1.11
 
+commit 47545d32da6826e9ce4e927ee94ca60aec14c974
+Author: subversion <svn@deadlybossmods.com>
+Date:   Fri Jan 27 07:34:51 2017 +0100
+
+    Omega via svn r15748:
+    #Elisande
+    *Add another backup orb trigger for localized clients.
+    *Cancel tank countdown if phase change
+    #Guldan
+    *More phase 2 timer data for REALLY long phase 2s
+    *More robustness for the 0 threat bug on phase 2 start (first bonds of fel)
+    *Reset liquid hellfire count on phase 2
+
+commit 77cfbf3fc72e5997f3d9851669c1c1b339b013d9
+Author: subversion <svn@deadlybossmods.com>
+Date:   Fri Jan 27 04:33:43 2017 +0100
+
+    Omega via svn r15747:
+    An extra check for good measure. for some reason threat check isn?\226?\128?\153t enough
+
 commit b469243f22539da6c1dbb3eba440d241eeae8f7d
 Author: subversion <svn@deadlybossmods.com>
 Date:   Fri Jan 27 01:00:19 2017 +0100

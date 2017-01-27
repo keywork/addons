@@ -948,7 +948,6 @@ GTFO.SpellID["211634"] = {
 -- TODO: Collapse of Night (High Botanist Tel'arn) -- when marked and not standing by someone unmarked
 -- TODO: Solar Collapse (High Botanist Tel'arn) -- Any ticks avoidable?
 -- TODO: Frigid Pulse (Star Augur Etaeus)
--- TODO: Slow Time (Grand Magistrix Elisande)
 -- TODO: Arcanetic Ring (Grand Magistrix Elisande)
 -- TODO: Desolate Ground (Gul'dan)
 -- TODO: Flames of Sargeras (Gul'dan) -- FF 
@@ -1066,8 +1065,27 @@ GTFO.SpellID["206398"] = {
   applicationOnly = true;
 };
 
+GTFO.SpellID["206921"] = {
+  --desc = "Iceburst (Star Augur Etraeus)";
+  sound = 1;
+  tankSound = 0;
+};
+
+GTFO.SpellID["224561"] = {
+  --desc = "Celestial Brand (Astrologer Jarin)";
+  sound = 4;
+  negatingDebuffSpellID = 224560; -- Celestial Brand
+  test = true;
+};
+
 GTFO.SpellID["209433"] = {
   --desc = "Spanning Singularity (Grand Magistrix Elisande)";
+  sound = 1;
+  affirmingDebuffSpellID = 209166; -- Fast Time
+};
+
+GTFO.SpellID["208659"] = {
+  --desc = "Arcanetic Ring (Grand Magistrix Elisande)";
   sound = 1;
 };
 
