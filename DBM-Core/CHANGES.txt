@@ -1,5 +1,26 @@
 Changes since tag 7.1.11
 
+commit 106623621eecbc739dabe89f6a1910a6a9f160b5
+Author: subversion <svn@deadlybossmods.com>
+Date:   Sat Jan 28 12:20:55 2017 +0100
+
+    Omega via svn r15751:
+    scrap fetter (mob) marking. it doesn?\226?\128?\153t work, and will never work for some reason. There is no explanation other than maybe these mobs are just protected from mods marking somehow.
+
+commit 8aa6a6f4a932ba78268458971848f2e2bac6aa03
+Author: subversion <svn@deadlybossmods.com>
+Date:   Sat Jan 28 11:34:58 2017 +0100
+
+    Omega via svn r15750:
+    add first phase 3 plasma spheres if solarist is last
+
+commit 53f004c27ee05bd15b16283b8dfb3d3a81333dd7
+Author: subversion <svn@deadlybossmods.com>
+Date:   Sat Jan 28 11:21:37 2017 +0100
+
+    Omega via svn r15749:
+    Add mythic tel?\226?\128?\153arn berserk
+
 commit 47545d32da6826e9ce4e927ee94ca60aec14c974
 Author: subversion <svn@deadlybossmods.com>
 Date:   Fri Jan 27 07:34:51 2017 +0100
