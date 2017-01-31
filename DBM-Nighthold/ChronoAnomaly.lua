@@ -1,7 +1,7 @@
 local mod	= DBM:NewMod(1725, "DBM-Nighthold", nil, 786)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 15745 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 15772 $"):sub(12, -3))
 mod:SetCreatureID(104415)--104731 (Depleted Time Particle). 104676 (Waning Time Particle). 104491 (Accelerated Time particle). 104492 (Slow Time Particle)
 mod:SetEncounterID(1865)
 mod:SetZone()
@@ -53,7 +53,7 @@ local countdownTimeBomb				= mod:NewCountdownFades("AltTwo30", 206617)
 
 local voiceTemporalOrbs				= mod:NewVoice(219815)--watchstep
 local voicePowerOverwhelming		= mod:NewVoice(211927)--aesoon
-local voiceTimeBomb					= mod:NewVoice(206617)--scatter
+local voiceTimeBomb					= mod:NewVoice(206617)--runout
 local voiceWarp						= mod:NewVoice(207228, "HasInterrupt")--kickcast
 local voiceBigAdd					= mod:NewVoice(206700, "-Healer")
 local voiceSmallAdd					= mod:NewVoice(206699, "Tank")
@@ -79,14 +79,14 @@ local function updateTimeBomb(self)
 		yellTimeBomb:Cancel()
 		local debuffTime = expires - GetTime() / timeMod--TODO, see if this is needed like http://wowprogramming.com/docs/api/UnitDebuff suggests
 		local debuffTimeOld = expires - GetTime()
-		specWarnTimeBomb:Schedule(debuffTimeOld - 5)	-- Show "move away" warning 5secs before explode
-		voiceTimeBomb:Schedule(debuffTimeOld - 5, "scatter")
-		timerTimeBomb:Start(debuffTimeOld)
-		countdownTimeBomb:Start(debuffTimeOld)
-		yellTimeBomb:Schedule(debuffTimeOld-1, 1)
-		yellTimeBomb:Schedule(debuffTimeOld-2, 2)
-		yellTimeBomb:Schedule(debuffTimeOld-3, 3)
-		DBM:AddMsg("If you see this message, please share the numbers with DBM author to improve time bomb code: "..(debuffTime or 0).."/"..debuffTimeOld)
+		specWarnTimeBomb:Schedule(debuffTime - 5)	-- Show "move away" warning 5secs before explode
+		voiceTimeBomb:Schedule(debuffTime - 5, "runout")
+		timerTimeBomb:Start(debuffTime)
+		countdownTimeBomb:Start(debuffTime)
+		yellTimeBomb:Schedule(debuffTime-1, 1)
+		yellTimeBomb:Schedule(debuffTime-2, 2)
+		yellTimeBomb:Schedule(debuffTime-3, 3)
+		DBM:Debug("Time Bomb Debug: "..(debuffTime or 0).."/"..debuffTimeOld.."/"..timeMod)
 	end
 end
 
@@ -155,7 +155,7 @@ function mod:SPELL_AURA_APPLIED(args)
 		warnChronometricPart:Show(args.destName, amount)
 		timerChronoPartCD:Start()--Move timer to success if this can be avoided
 	elseif spellId == 211927 then
-		specWarnPowerOverwhelmingKick:Show()
+		specWarnPowerOverwhelming:Show()
 		voicePowerOverwhelming:Play("aesoon")
 	end
 end

@@ -37,22 +37,22 @@ CanGroupShowWithZero(data)
   If that is the case no automatic icon can be determined. Only used by the Options dialog.
   (If I understood the code correctly)
 
-CanHaveDuration(data)
+CanHaveDuration(data, triggernum)
   Returns whether the trigger can have a duration
 
-CanHaveAuto(data)
+CanHaveAuto(data, triggernum)
   Returns whether the icon can be automatically selected
 
 CanHaveClones(data)
   Returns whether the trigger can have clones
 
-CanHaveTooltip(data)
+CanHaveTooltip(data, triggernum)
   Returns the type of tooltip to show for the trigger
 
-GetNameAndIcon(data)
+GetNameAndIcon(data, triggernum)
     Returns the name and icon to show in the options
 
-GetAdditionalProperties(data)
+GetAdditionalProperties(data, triggernum)
   Returns the a tooltip for the additional properties
 ]]--
 
@@ -1418,12 +1418,15 @@ do
   function WeakAuras.CheckSpellCooldows(runeDuration)
     for id, _ in pairs(spells) do
       local charges, maxCharges, startTime, duration = GetSpellCharges(id);
+      local cooldownBecauseRune = false;
       if (charges == nil) then -- charges is nil if the spell has no charges
         startTime, duration = GetSpellCooldown(id);
         charges = GetSpellCount(id);
+        cooldownBecauseRune = duration and abs(duration - runeDuration) < 0.001;
       elseif (charges == maxCharges) then
         startTime, duration = 0, 0;
       end
+
       startTime = startTime or 0;
       duration = duration or 0;
       local time = GetTime();
@@ -1445,7 +1448,7 @@ do
           spellCdDurs[id] = duration;
           spellCdExps[id] = endTime;
           spellCdHandles[id] = timer:ScheduleTimer(SpellCooldownFinished, endTime - time, id);
-          if (spellsRune[id] and abs(duration - runeDuration) > 0.001 or charges ) then
+          if (spellsRune[id] and not cooldownBecauseRune ) then
             spellCdDursRune[id] = duration;
             spellCdExpsRune[id] = endTime;
             spellCdRuneHandles[id] = timer:ScheduleTimer(SpellCooldownRuneFinished, endTime - time, id);
@@ -1462,7 +1465,7 @@ do
           if (maxCharges == nil or charges + 1 == maxCharges) then
             spellCdHandles[id] = timer:ScheduleTimer(SpellCooldownFinished, endTime - time, id);
           end
-          if (spellsRune[id] and abs(duration - runeDuration) > 0.001 or charges ) then
+          if (spellsRune[id] and not cooldownBecauseRune ) then
             spellCdDursRune[id] = duration;
             spellCdExpsRune[id] = endTime;
 

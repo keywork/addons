@@ -32,9 +32,6 @@ local default = {
     customTextUpdate = "update"
 };
 
-local function SkinChanged(skinID, gloss, backdrop, colors, button)
-
-end
 
 local function GetTexCoord(region, texWidth)
     local texCoord
@@ -126,6 +123,9 @@ local function create(parent, data)
       SetFrameLevel(region, level);
       cooldown:SetFrameLevel(level);
       stacksFrame:SetFrameLevel(level + 1);
+      if (self.__WAGlowFrame) then
+        self.__WAGlowFrame:SetFrameLevel(level + 1);
+      end
       if button then
         button:SetFrameLevel(level);
       end

@@ -1,12 +1,12 @@
 local mod	= DBM:NewMod(1761, "DBM-Nighthold", nil, 786)
 local L		= mod:GetLocalizedStrings()
 
-mod:SetRevision(("$Revision: 15751 $"):sub(12, -3))
+mod:SetRevision(("$Revision: 15757 $"):sub(12, -3))
 mod:SetCreatureID(104528)--109042
 mod:SetEncounterID(1886)
 mod:SetZone()
 mod:SetUsedIcons(6, 5, 4, 3, 2, 1)
-mod:SetHotfixNoticeRev(15721)
+mod:SetHotfixNoticeRev(15751)
 mod:SetBossHPInfoToHighest()
 mod.respawnTime = 29.5
 

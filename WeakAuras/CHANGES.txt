@@ -1,112 +1,107 @@
-tag 7d60cd2b3aa581dbcf6b292d92afa65f9b694e84 2.2.2.6
+tag 2a98a2720fd4f4a707bb4cb2a90fbd50f7086fb8 2.3.0.0
 Author:	Benjamin Staneck <staneck@gmail.com>
-Date:	Mon Jan 23 01:36:34 2017 +0100
+Date:	Mon Jan 30 22:45:45 2017 +0100
 
-commit 2c8af72e3ddf1295f955d4a300b3497e2ad6ecdc
+This release brings you the possibility to drag and drop to reorder auras inside and in and out of groups. This was a community contribution by Janick Gerstenberger on GitHub.
+
+commit a4399c778a1d2e7577e6f0344f5e51b4761f4739
+Author: Benjamin Staneck <staneck@gmail.com>
+Date:   Mon Jan 30 21:37:44 2017 +0100
+
+    add AceGUI widgets to the locale scraper
+
+commit fa570bc6eec7819035981aab6205379ec9e4a988
+Author: Benjamin Staneck <staneck@gmail.com>
+Date:   Mon Jan 30 21:33:17 2017 +0100
+
+    move babelfish script to the root
+
+commit 85ae96f463d49a7ff20ba5f1260f2d94ea079c6e
+Author: Benjamin Staneck <staneck@gmail.com>
+Date:   Mon Jan 30 21:29:26 2017 +0100
+
+    add "Drag to move" hint to buttons
+
+commit 4d78e3e2ba986797db56b17247bc0d7cfc395ef8
+Author: Benjamin Staneck <staneck@gmail.com>
+Date:   Sat Jan 28 18:42:06 2017 +0100
+
+    increment minor version of WeakAurasDisplayButton
+
+commit 31c6f6d123848a518a8438abff5313696f07faff
 Author: Infus <infus@squorn.de>
-Date:   Fri Jan 20 08:40:14 2017 +0100
+Date:   Sat Jan 28 17:04:24 2017 +0100
 
-    Fix Item Equiped Trigger for items with ' in their names
+    Fix glow frame looking dim
     
-    Ticket-Nr: 831
+    The glow needs to be in front of other child frames of the region.
+    
+    Try to ensure that.
+    
+    Ticket-Nr: 833
 
-commit 2c8af72e3ddf1295f955d4a300b3497e2ad6ecdc
+commit 0e1b43d0e23e2c169461677316d4267e4cc85668
 Author: Infus <infus@squorn.de>
-Date:   Fri Jan 20 08:40:14 2017 +0100
+Date:   Sat Jan 28 15:56:27 2017 +0100
 
-    Fix Item Equiped Trigger for items with ' in their names
+    Fix ignore rune cd again
     
-    Ticket-Nr: 831
+    Broke that accidentally with the change for Epidemic.
+    
+    The intent behind this code is this:
+    
+    Epidemic is a spell with charges, thus GetSpellCharges is the right api.
+    
+    We compare durations between the cooldown duration and rune cd duration
+    to figure out whether a spell is on cooldown only for a rune.
+    
+    But Epidemic has the same cooldown duration as runes.
+    
+    Luckily, GetSpellCharges doesn't adjust it's output based on rune cds.
+    
+    Thus, we can be sure that any cooldown returned by it cannot be due
+    to a rune cd.
+    
+    Ticket-Nr: 835
 
-commit cb4dc3014eba1dd6cdcd91dbc4181179bbc5922c
+commit e3799d3f062468d8555cabb90a36a9c56c7421de
 Author: Infus <infus@squorn.de>
-Date:   Wed Jan 18 01:21:09 2017 +0100
+Date:   Sat Jan 28 00:40:45 2017 +0100
 
-    Handle calling getRect on a child without a width or height
+    Fix attaching to other auras
     
-    Text regions don't have a width or height, so handling that in checkRect
-    is correct. But somehow this code worked until a recent change, so
-    maybe this is just a symptom
+    Since the order in which the auras are created is somewhat random,
+    we must create the anchor frame if it doesn't yet exist.
+    
+    Ticket-Nr: 840
 
-commit cb4dc3014eba1dd6cdcd91dbc4181179bbc5922c
+commit 02998216f669a354ef57bf4ffce1edf34ac03f21
 Author: Infus <infus@squorn.de>
-Date:   Wed Jan 18 01:21:09 2017 +0100
+Date:   Sat Jan 28 00:21:49 2017 +0100
 
-    Handle calling getRect on a child without a width or height
-    
-    Text regions don't have a width or height, so handling that in checkRect
-    is correct. But somehow this code worked until a recent change, so
-    maybe this is just a symptom
+    Attach to KuiNameplates: Adjust to upstream change
 
-commit c0c8442a1a5369cfe849aac9390bcb6235ef1233
+commit 9f0cbf03da7134c730cef5f4902b1ceb0c4cbdb3
 Author: Infus <infus@squorn.de>
-Date:   Sun Jan 15 23:51:12 2017 +0100
+Date:   Sat Jan 28 00:21:09 2017 +0100
 
-    Fix Charges Changed trigger
-
-commit bd9411b7eaf55a45682e1604a30db179bd533e01
-Author: Infus <infus@squorn.de>
-Date:   Sat Jan 14 23:53:45 2017 +0100
-
-    Fix regressions introduced by attach to frame
+    Replace \n with newlines in ReplacePlaceHolders
     
-    Call SetFrameStrata after settting the parent, as otherwise SetParent
-    resets the SetFrameStrata.
+    Ticket-Nr: 841
+
+commit 8958259b3525a1063071c7a8e2dad61bbd53d792
+Author: Janick Gerstenberger <janick.gerstenberger@gmail.com>
+Date:   Mon Jan 23 19:11:38 2017 +0100
+
+    Drag'n'Drop implementation for DisplayButtons (#136)
     
-    Also reset the parent of childs on removing the parent.
-
-commit bd9411b7eaf55a45682e1604a30db179bd533e01
-Author: Infus <infus@squorn.de>
-Date:   Sat Jan 14 23:53:45 2017 +0100
-
-    Fix regressions introduced by attach to frame
+    This PR implements drag'n'drop support to the `DisplayButton`s in the Options.
+    Feature and Design is descripted in some [sketches](https://drive.google.com/drive/folders/0BzaKJginnJcgM3dHWUdDQlNRZGM?usp=sharing).
     
-    Call SetFrameStrata after settting the parent, as otherwise SetParent
-    resets the SetFrameStrata.
+    The implemented features make several `DisplayButton` controls in their current form obsolete.
+    Chiefly the side control of grouped buttons (up, down, ungroup) which also distinguish grouped buttons from ungrouped one.
+    (see https://www.wowace.com/projects/weakauras-2/issues/790 )
     
-    Also reset the parent of childs on removing the parent.
-
-commit e655d08b9198426559ab6e604b5e1e26dd928195
-Author: Infus <infus@squorn.de>
-Date:   Sat Dec 31 02:34:18 2016 +0100
-
-    Add minimal support for elvui
-    
-    Attaching works, but the options dialog doesn't show anything resembling
-    the elvui frames.
-
-commit 38b85b242d82ef42f0c7cb42e6c88b0ca399af23
-Author: Infus <infus@squorn.de>
-Date:   Sat Jan 14 13:41:31 2017 +0100
-
-    Fix ignore rune cd for "Epidemic"
-    
-    The ignore rune cd option makes wa compare the cooldown duration
-    returned by GetSpellCooldown with the cooldown of a rune to figure
-    out whether the cooldown returned by GetSpellCooldown is only
-    because of missing runes.
-    
-    This fails for Epidemic, since the cooldown duration of that spell
-    is identically with the cooldown rotation for runes.
-    
-    Fortunately, Epidemic is a spell with charges and thus in reality
-    GetSpellCharges is used. And that api never returns the rune
-    cooldown even if a spell is unuseable. Thus if we have charges
-    we don't need to check runeDuration vs duration.
-    
-    Ticket-Nr: 823
-
-commit e9c21940480bd5e190b7bd1f8ada4d0bf62c8aed
-Author: Infus <infus@squorn.de>
-Date:   Sat Jan 14 13:17:43 2017 +0100
-
-    Add another SetClipsChildren to work around Blizzard's non clipping
-    
-    Ticket-Nr: 824
-
-commit dfb40a9b6ff5486f63653c0e5e366420250a6eca
-Author: Infus <infus@squorn.de>
-Date:   Fri Jan 13 20:14:30 2017 +0100
-
-    Add comments to all templates
+    ### Issues
+    -  Dropping a element below the list of `DisplayButton` into the scroll frame or onto a category rider undos the drag action. This behavior might be unexpexted.
 

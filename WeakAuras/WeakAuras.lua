@@ -2005,7 +2005,6 @@ function WeakAuras.SetRegion(data, cloneId)
             return;
           end
           region.toShow = true;
-
           if(region.PreShow) then
             region:PreShow();
           end
@@ -2039,6 +2038,19 @@ function WeakAuras.SetRegion(data, cloneId)
             return;
           end
           region.toShow = true;
+
+          if (data.anchorFrameType == "SELECTFRAME") then
+            local anchorParent = WeakAuras.GetAnchorFrame(data.id, data.anchorFrameType, parent,  data.anchorFrameFrame);
+            if (anchorParent ~= region:GetParent()) then
+              region:SetParent(anchorParent);
+              region:SetPoint(data.selfPoint, anchorParent, data.anchorPoint, data.xOffset, data.yOffset);
+              if(data.frameStrata == 1) then
+                  region:SetFrameStrata(region:GetParent():GetFrameStrata());
+              else
+                  region:SetFrameStrata(WeakAuras.frame_strata_types[data.frameStrata]);
+              end
+            end
+          end
 
           region.justCreated = nil;
           if(region.PreShow) then
@@ -2240,13 +2252,14 @@ function WeakAuras.PerformActions(data, type, region)
       end
     else
       glow_frame = _G[actions.glow_frame];
-      if (glow_frame) then
-        if (not glow_frame.__WAGlowFrame) then
-          glow_frame.__WAGlowFrame = CreateFrame("Frame", nil, glow_frame);
-          glow_frame.__WAGlowFrame:SetAllPoints();
-        end
-        glow_frame = glow_frame.__WAGlowFrame;
+    end
+
+    if (glow_frame) then
+      if (not glow_frame.__WAGlowFrame) then
+        glow_frame.__WAGlowFrame = CreateFrame("Frame", nil, glow_frame);
+        glow_frame.__WAGlowFrame:SetAllPoints();
       end
+      glow_frame = glow_frame.__WAGlowFrame;
     end
 
     if(glow_frame) then
@@ -3442,6 +3455,7 @@ function WeakAuras.ReplacePlaceHolders(textStr, regionValues, regionState)
       textStr = textStr:gsub(symbol, regionValues[v.value] or "");
     end
   end
+  textStr = textStr:gsub("\\n", "\n");
   return textStr;
 end
 
@@ -3710,19 +3724,10 @@ local function ensurePRDFrame()
       prdWidth = KuiNameplatesCore.profile.frame_width_personal;
       prdHeight = KuiNameplatesCore.profile.frame_height_personal;
       if (KuiNameplatesCore.profile.ignore_uiscale) then
-        local resolutions = {GetScreenResolutions()}
-        local resolution = GetCurrentResolution()
+        local _, screenWidth = GetPhysicalScreenSize();
         local uiScale = 1;
-
-        if #resolutions > 0 and resolution > 0 then
-            local resolution_text = resolutions[resolution]
-
-            if resolution_text then
-                resolution_text = tonumber(string.match(resolution_text,"%d+x(%d+)"))
-            end
-            if resolution_text then
-                uiScale = 768 / resolution_text
-            end
+        if (screenWidth) then
+            uiScale = 768 / screenWidth;
         end
         personalRessourceDisplayFrame:SetScale(uiScale / UIParent:GetEffectiveScale());
       else
